@@ -16,7 +16,7 @@
         <button onclick="navigate('home.html')" class="w-10 h-10 flex items-center justify-center mb-4">
           <i class="fas fa-times text-white text-xl"></i>
         </button>
-        <h1 class="text-2xl font-bold text-white mb-2">你的覺察報告</h1>
+        <h1 class="text-2xl font-bold text-white mb-2">你的壓力分析報告</h1>
         <p class="text-purple-100 text-sm" id="dateText">2025年11月10日</p>
       </div>
     </div>
@@ -29,10 +29,10 @@
     // 能量型態報告配置
     const reportConfigs = {
       mental_overload: {
-        name: '頭腦過載型',
+        name: '過度思慮型',
         emoji: '🧠',
         color: 'from-blue-400 to-purple-400',
-        summary: '你的頭腦長期處於高速運轉狀態，很難真正放鬆下來。',
+        summary: '你的大腦長期超負荷運轉，這不是你的問題，而是壓力應對模式的結果。',
         insights: [
           {
             icon: '💭',
@@ -101,10 +101,10 @@
         ]
       },
       nervous_arousal: {
-        name: '神經亢奮型',
+        name: '長期緊繃型',
         emoji: '⚡',
         color: 'from-orange-400 to-red-400',
-        summary: '你的神經系統長期處於警戒狀態，身體記住了壓力。',
+        summary: '你的神經系統長期處於警戒狀態，身體記住了壓力反應模式。',
         insights: [
           {
             icon: '😰',
@@ -173,10 +173,10 @@
         ]
       },
       energy_depleted: {
-        name: '能量耗竭型',
+        name: '身心耗竭型',
         emoji: '🔋',
         color: 'from-yellow-400 to-orange-400',
-        summary: '長期的付出與消耗，讓你的能量儲備見底了。',
+        summary: '長期的付出與消耗，讓身心能量儲備見底，這不是懶惰，是在呼救。',
         insights: [
           {
             icon: '😔',
@@ -245,10 +245,10 @@
         ]
       },
       external_entanglement: {
-        name: '外部糾結型',
+        name: '關係壓力型',
         emoji: '🌀',
         color: 'from-green-400 to-blue-400',
-        summary: '你常常感覺被他人的期待與需求綁住，在關係中失去自己。',
+        summary: '你常常感覺被他人的期待與需求綁住，在關係中承受過多壓力。',
         insights: [
           {
             icon: '😤',
@@ -317,10 +317,10 @@
         ]
       },
       inner_unfocused: {
-        name: '內在失焦型',
+        name: '方向迷失型',
         emoji: '🧭',
         color: 'from-purple-400 to-blue-400',
-        summary: '你感到迷惘，不確定自己的方向，內在缺乏清晰的指引。',
+        summary: '你感到迷惘，不確定自己的方向，這種不確定性本身就是巨大的壓力來源。',
         insights: [
           {
             icon: '❓',
@@ -504,7 +504,7 @@
 
           <!-- Insights -->
           <div class="px-6 mb-6">
-            <h3 class="text-lg font-bold text-gray-800 mb-3">🔍 你可能的感受</h3>
+            <h3 class="text-lg font-bold text-gray-800 mb-3">⚠️ 壓力訊號</h3>
             <div class="space-y-3">
               ${config.insights.map(insight => `
                 <div class="bg-gray-50 rounded-2xl p-4">
@@ -522,7 +522,7 @@
 
           <!-- Actions -->
           <div class="px-6 mb-6">
-            <h3 class="text-lg font-bold text-gray-800 mb-3">🎯 你可以這樣做</h3>
+            <h3 class="text-lg font-bold text-gray-800 mb-3">💊 減壓方案</h3>
             <p class="text-gray-500 text-sm mb-4">選擇一個最適合你當下狀態的行動</p>
             
             <div class="space-y-3">
@@ -546,8 +546,8 @@
 
           <!-- App Services -->
           <div class="px-6 mb-6">
-            <h3 class="text-lg font-bold text-gray-800 mb-3">✨ Aqive 可以幫助你</h3>
-            <p class="text-gray-500 text-sm mb-4">這個 App 為你準備了...</p>
+            <h3 class="text-lg font-bold text-gray-800 mb-3">✨ 持續支持</h3>
+            <p class="text-gray-500 text-sm mb-4">Aqive 提供的壓力管理工具...</p>
             
             <div class="space-y-3">
               ${config.services.map(service => `

@@ -24,22 +24,22 @@
 
     <!-- Main Content -->
     <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-6">
-      <!-- Today's Energy Card -->
+      <!-- Today's Stress Dashboard -->
       <div class="mt-6 bg-gradient-to-br from-blue-400 to-blue-500 rounded-3xl p-6 shadow-lg relative overflow-hidden">
         <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-8 -mt-8 blob"></div>
         <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-6 -mb-6"></div>
         <div class="relative z-10">
           <div class="flex items-center gap-2 mb-3">
-            <span class="text-3xl">🌊</span>
-            <span class="text-white font-medium">今日頻率</span>
+            <span class="text-3xl">📊</span>
+            <span class="text-white font-medium">今日壓力指數</span>
           </div>
-          <h2 class="text-2xl font-bold text-white mb-2">流動與接納</h2>
-          <p class="text-blue-50 text-sm mb-4">今天適合讓情緒自然流動，不必急著解決所有問題</p>
+          <h2 class="text-2xl font-bold text-white mb-2">中等偏高</h2>
+          <p class="text-blue-50 text-sm mb-4">💪 建議：今天先處理最重要的 1 件事就好<br>⏰ 記得每 2 小時起身休息 5 分鐘</p>
           <div class="flex items-center gap-2">
             <div class="flex-1 h-2 bg-blue-300 rounded-full overflow-hidden">
               <div class="h-full bg-white rounded-full" style="width: 73%"></div>
             </div>
-            <span class="text-white font-bold text-sm">73%</span>
+            <span class="text-white font-bold text-sm">73</span>
           </div>
         </div>
       </div>
@@ -48,35 +48,35 @@
       <div class="mt-6">
         <h3 class="text-lg font-bold text-gray-800 mb-3">快速開始</h3>
         <div class="grid grid-cols-2 gap-3">
+          <button onclick="navigate('breath.html')" class="bg-gradient-to-br from-green-400 to-teal-400 rounded-2xl p-4 text-left shadow-md transition-smooth hover:scale-105 active:scale-95">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 character">
+              🌬️
+            </div>
+            <h4 class="text-white font-bold text-sm mb-1">2 分鐘減壓</h4>
+            <p class="text-teal-50 text-xs">呼吸練習</p>
+          </button>
+          
           <button onclick="navigate('player.html')" class="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl p-4 text-left shadow-md transition-smooth hover:scale-105 active:scale-95">
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 character">
               😌
             </div>
-            <h4 class="text-white font-bold text-sm mb-1">晨間冥想</h4>
-            <p class="text-orange-50 text-xs">3 分鐘</p>
+            <h4 class="text-white font-bold text-sm mb-1">5 分鐘充電</h4>
+            <p class="text-orange-50 text-xs">冥想放鬆</p>
           </button>
           
           <button onclick="navigate('ai-chat.html')" class="bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl p-4 text-left shadow-md transition-smooth hover:scale-105 active:scale-95">
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 character">
               💬
             </div>
-            <h4 class="text-white font-bold text-sm mb-1">AI 陪伴</h4>
-            <p class="text-pink-50 text-xs">隨時傾訴</p>
-          </button>
-          
-          <button onclick="navigate('breath.html')" class="bg-gradient-to-br from-green-400 to-teal-400 rounded-2xl p-4 text-left shadow-md transition-smooth hover:scale-105 active:scale-95">
-            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 character">
-              🌬️
-            </div>
-            <h4 class="text-white font-bold text-sm mb-1">呼吸練習</h4>
-            <p class="text-teal-50 text-xs">2 分鐘</p>
+            <h4 class="text-white font-bold text-sm mb-1">傾訴空間</h4>
+            <p class="text-pink-50 text-xs">AI 教練陪伴</p>
           </button>
           
           <button onclick="navigate('quiz.html')" class="bg-gradient-to-br from-orange-400 to-red-400 rounded-2xl p-4 text-left shadow-md transition-smooth hover:scale-105 active:scale-95">
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 character">
               ✨
             </div>
-            <h4 class="text-white font-bold text-sm mb-1">能量測驗</h4>
+            <h4 class="text-white font-bold text-sm mb-1">壓力檢測</h4>
             <p class="text-red-50 text-xs">5 分鐘</p>
           </button>
         </div>

@@ -16,8 +16,8 @@
         <button onclick="navigate('awareness-report.html')" class="w-10 h-10 flex items-center justify-center mb-4">
           <i class="fas fa-arrow-left text-white text-xl"></i>
         </button>
-        <h1 class="text-2xl font-bold text-white mb-2">為你推薦</h1>
-        <p class="text-purple-100 text-sm">基於你的覺察結果，這些內容可能對你有幫助</p>
+        <h1 class="text-2xl font-bold text-white mb-2">你的專屬減壓方案</h1>
+        <p class="text-purple-100 text-sm">基於你的壓力類型，這些方法最適合你</p>
       </div>
     </div>
 
@@ -29,10 +29,10 @@
     // 能量模式定義與推薦邏輯
     const energyPatterns = {
       mental_overload: {
-        name: '頭腦過載型',
+        name: '過度思慮型',
         emoji: '🧠',
-        description: '你的頭腦長期處於高速運轉狀態，思緒不斷，很難真正放鬆。這可能是長期壓抑情緒或過度理性思考的結果。',
-        insight: '過度理性常常是情緒麻木的表現。當我們習慣用思考來控制一切，身體的訊號就被忽略了。',
+        description: '你的大腦長期超負荷運轉，思緒不斷，很難真正放鬆。這不是你的問題，而是壓力應對模式的結果。',
+        insight: '研究顯示：長期的認知過載會提高皮質醇水平，影響睡眠與免疫系統。透過身體覺察練習，可以有效降低大腦活躍度。',
         primary: {
           type: 'practice',
           title: '撓境身體覺察',
@@ -58,10 +58,10 @@
         }
       },
       nervous_arousal: {
-        name: '神經亢奮型',
+        name: '長期緊繃型',
         emoji: '⚡',
-        description: '你的神經系統處於長期警戒狀態，容易焦慮、失眠，難以真正平靜下來。身體記住了壓力，即使理性上知道該放鬆了。',
-        insight: '焦慮不是你的問題，是神經系統需要被安撫。它一直在保護你，現在需要告訴它：你是安全的。',
+        description: '你的神經系統處於長期警戒狀態，容易焦慮、失眠，身體記住了壓力反應模式，即使理性上知道該放鬆了。',
+        insight: '科學證據：迷走神經調節呼吸練習可以在 3-5 分鐘內激活副交感神經系統，降低心率與血壓，幫助身體進入放鬆狀態。',
         primary: {
           type: 'practice',
           title: '安撫神經系統呼吸法',
@@ -87,10 +87,10 @@
         }
       },
       energy_depleted: {
-        name: '能量耗竭型',
+        name: '身心耗竭型',
         emoji: '🔋',
-        description: '長期的付出與消耗，讓你的能量儲備見底。你感到疲倦、沒動力，對生活失去熱情。這不是懶惰，是身心在呼救。',
-        insight: '空虛和疲倦，是靈魂在提醒你：該回來照顧自己了。你已經很久沒有為自己做些什麼了。',
+        description: '長期的付出與消耗，讓身心能量儲備見底。你感到疲倦、沒動力，對生活失去熱情。這不是懶惰，是身心在呼救。',
+        insight: '臨床研究：持續性疲勞與能量耗竭往往與腎上腺疲勞相關。規律的冥想與休息可以幫助身體重建能量儲備，改善壓力荷爾蒙平衡。',
         primary: {
           type: 'practice',
           title: '能量補充冥想',
@@ -116,10 +116,10 @@
         }
       },
       external_entanglement: {
-        name: '外部糾結型',
+        name: '關係壓力型',
         emoji: '🌀',
-        description: '你常常感覺被他人的期待與需求綁住，在關係中失去自己。想要好好照顧自己，卻總是顧慮太多。',
-        insight: '你不需要為所有人負責。建立健康的界限，不是自私，是自愛。',
+        description: '你常常感覺被他人的期待與需求綁住，在關係中承受過多壓力。想要好好照顧自己，卻總是顧慮太多。',
+        insight: '心理學研究：過度討好與界限模糊會導致慢性壓力累積。學習建立健康界限，可以顯著降低人際關係帶來的心理負擔。',
         primary: {
           type: 'practice',
           title: '界限覺察練習',
@@ -145,10 +145,10 @@
         }
       },
       inner_unfocused: {
-        name: '內在失焦型',
+        name: '方向迷失型',
         emoji: '🧭',
-        description: '你感到迷惘，不確定自己的方向。外在的目標很多，但內在卻空空的。你想重新開始，卻不知道從何下手。',
-        insight: '迷惘不是失敗，是靈魂在邀請你停下來，重新聆聽內在的聲音。答案一直都在你心裡。',
+        description: '你感到迷惘，不確定自己的方向。這種不確定性本身就是巨大的壓力來源。你想重新開始，卻不知道從何下手。',
+        insight: '正念研究：價值觀釐清與內在連結練習可以幫助大腦整合資訊，降低決策焦慮，找回生活的方向感與意義感。',
         primary: {
           type: 'practice',
           title: '內在指引冥想',

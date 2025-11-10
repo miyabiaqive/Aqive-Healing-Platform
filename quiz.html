@@ -27,12 +27,12 @@
   </div>
 
   <script>
-    // 三層覺察架構問題庫
+    // 壓力檢測問題庫
     const questions = [
       {
         id: 1,
-        layer: '現象覺察',
-        tag: '身體訊號',
+        layer: '壓力症狀',
+        tag: '身心訊號',
         icon: '🧘',
         color: 'from-blue-400 to-blue-500',
         question: '這幾天，你的身體最常出現哪種訊號？',
@@ -47,8 +47,8 @@
       },
       {
         id: 2,
-        layer: '情境覺察',
-        tag: '壓力來源',
+        layer: '壓力源',
+        tag: '核心原因',
         icon: '💼',
         color: 'from-purple-400 to-pink-400',
         question: '這段時間，讓你最焦慮的情境是哪一類？',
@@ -63,12 +63,12 @@
       },
       {
         id: 3,
-        layer: '根源覺察',
+        layer: '壓力模式',
         tag: '內在狀態',
         icon: '💭',
         color: 'from-green-400 to-teal-400',
         question: '當你獨處時，最常浮現的感受是？',
-        subtitle: '讓潛意識的聲音被聽見',
+        subtitle: '了解你的深層壓力模式',
         options: [
           { emoji: '😰', title: '無法放鬆，腦袋停不下來', value: 'cant_relax', pattern: 'mental_overload' },
           { emoji: '😤', title: '被期待綁住，喘不過氣', value: 'trapped', pattern: 'external_entanglement' },
@@ -95,12 +95,12 @@
       },
       {
         id: 5,
-        layer: '療癒意圖',
-        tag: '行動期待',
+        layer: '改善目標',
+        tag: '你的需求',
         icon: '✨',
         color: 'from-pink-400 to-purple-400',
-        question: '如果有一個聲音能幫你回來，你希望它幫你做什麼？',
-        subtitle: '這是你內在最深的渴望',
+        question: '如果有一個工具能幫助你，你最需要它幫你做什麼？',
+        subtitle: '選擇你最渴望的改變',
         options: [
           { emoji: '🤫', title: '讓我靜下來', value: 'calm_down', pattern: 'nervous_arousal' },
           { emoji: '🧭', title: '幫我釐清方向', value: 'find_direction', pattern: 'inner_unfocused' },
@@ -114,12 +114,12 @@
     let currentQuestion = 0;
     let responses = {};
     let patternScores = {
-      mental_overload: 0,     // 頭腦過載型
-      nervous_arousal: 0,     // 神經亢奮型
-      energy_depleted: 0,     // 能量耗竭型
-      external_entanglement: 0, // 外部糾結型
-      inner_unfocused: 0,     // 內在失焦型
-      balanced: 0             // 平衡型
+      mental_overload: 0,     // 過度思慮型
+      nervous_arousal: 0,     // 長期緊繃型
+      energy_depleted: 0,     // 身心耗竭型
+      external_entanglement: 0, // 關係壓力型
+      inner_unfocused: 0,     // 方向迷失型
+      balanced: 0             // 相對平衡
     };
 
     function renderQuestion() {

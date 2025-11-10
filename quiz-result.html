@@ -26,8 +26,8 @@
       </div>
 
       <!-- Result -->
-      <h1 class="text-3xl font-bold text-white text-center mb-3">你的能量報告已生成</h1>
-      <p class="text-purple-100 text-center mb-8">讓我們一起看看你的五境狀態</p>
+      <h1 class="text-3xl font-bold text-white text-center mb-3">正在分析你的壓力模式</h1>
+      <p class="text-purple-100 text-center mb-8">AI 正在識別壓力來源與應對方式</p>
 
       <!-- Loading Animation -->
       <div class="flex gap-2 mb-12">
@@ -39,40 +39,31 @@
 
     <!-- Bottom Card Preview -->
     <div class="bg-white rounded-t-3xl px-6 pt-6 pb-8 shadow-2xl safe-area-bottom">
-      <h3 class="font-bold text-gray-800 mb-4">你的五境分析</h3>
+      <h3 class="font-bold text-gray-800 mb-4">分析壓力數據</h3>
       
-      <div class="space-y-3 mb-6">
-        <div>
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-sm text-gray-600">🧘 身體境</span>
-            <span class="text-sm font-bold text-blue-600">85%</span>
+      <div class="space-y-4 mb-6">
+        <div class="flex items-center gap-3 animate-fade-in">
+          <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+            <i class="fas fa-check text-blue-500"></i>
           </div>
-          <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-            <div class="h-full bg-blue-400 rounded-full transition-all duration-1000" style="width: 85%"></div>
-          </div>
+          <span class="text-sm text-gray-600">辨識你的壓力類型</span>
         </div>
-        <div>
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-sm text-gray-600">💭 情緒境</span>
-            <span class="text-sm font-bold text-purple-600">68%</span>
+        <div class="flex items-center gap-3 animate-fade-in" style="animation-delay: 0.3s;">
+          <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+            <i class="fas fa-check text-purple-500"></i>
           </div>
-          <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-            <div class="h-full bg-purple-400 rounded-full transition-all duration-1000" style="width: 68%"></div>
-          </div>
+          <span class="text-sm text-gray-600">找出核心壓力源</span>
         </div>
-        <div>
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-sm text-gray-600">🧠 心智境</span>
-            <span class="text-sm font-bold text-green-600">78%</span>
+        <div class="flex items-center gap-3 animate-fade-in" style="animation-delay: 0.6s;">
+          <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
+            <i class="fas fa-sparkles text-pink-500 animate-pulse"></i>
           </div>
-          <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-            <div class="h-full bg-green-400 rounded-full transition-all duration-1000" style="width: 78%"></div>
-          </div>
+          <span class="text-sm text-gray-600">生成專屬減壓方案</span>
         </div>
       </div>
 
       <button id="viewReportBtn" onclick="viewReport()" class="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold shadow-lg transition-smooth hover:scale-105 active:scale-95">
-        查看完整報告
+        查看我的壓力分析報告
       </button>
     </div>
   </div>
