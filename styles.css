@@ -105,6 +105,23 @@ body {
   padding-top: env(safe-area-inset-top, 20px);
 }
 .safe-area-bottom {
-  padding-bottom: env(safe-area-inset-bottom, 20px);
+  padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 8px);
+}
+
+/* Enhanced mobile scrolling */
+@supports (-webkit-touch-callout: none) {
+  /* iOS specific fixes */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Ensure content can scroll past bottom navigation */
+.pb-32 {
+  padding-bottom: calc(8rem + env(safe-area-inset-bottom, 0px));
 }
 
