@@ -10,14 +10,25 @@
 </head>
 <body>
   <div class="phone-container">
-    <iframe id="app-frame" src="home.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    <iframe id="app-frame" src="" style="width: 100%; height: 100%; border: none;"></iframe>
   </div>
 
   <script>
+    // Check if user has completed onboarding
+    const hasCompletedOnboarding = localStorage.getItem('aqive_onboarding_completed');
+    const appFrame = document.getElementById('app-frame');
+    
+    // First time user goes to onboarding, returning users go to home
+    if (!hasCompletedOnboarding) {
+      appFrame.src = 'onboarding.html';
+    } else {
+      appFrame.src = 'home.html';
+    }
+
     // Navigation handler
     window.addEventListener('message', function(e) {
       if (e.data.type === 'navigate') {
-        document.getElementById('app-frame').src = e.data.page;
+        appFrame.src = e.data.page;
       }
     });
   </script>

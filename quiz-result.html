@@ -71,7 +71,7 @@
         </div>
       </div>
 
-      <button onclick="navigate('quiz-detail.html')" class="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold shadow-lg transition-smooth hover:scale-105 active:scale-95">
+      <button id="viewReportBtn" onclick="viewReport()" class="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold shadow-lg transition-smooth hover:scale-105 active:scale-95">
         查看完整報告
       </button>
     </div>
@@ -85,10 +85,25 @@
         window.location.href = page;
       }
     }
+
+    function viewReport() {
+      // 檢查是否為首次完成測驗
+      const isFirstAssessment = !localStorage.getItem('aqive_first_assessment_completed');
+      
+      if (isFirstAssessment) {
+        // 標記已完成首次測驗
+        localStorage.setItem('aqive_first_assessment_completed', 'true');
+        // 首次用戶：先看報告，報告頁面會引導到推薦頁
+        navigate('quiz-detail.html');
+      } else {
+        // 老用戶：直接看報告
+        navigate('quiz-detail.html');
+      }
+    }
     
     // Auto navigate after 3 seconds
     setTimeout(() => {
-      navigate('quiz-detail.html');
+      viewReport();
     }, 3000);
   </script>
 </body>
