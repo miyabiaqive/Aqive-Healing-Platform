@@ -87,18 +87,8 @@
     }
 
     function viewReport() {
-      // 檢查是否為首次完成測驗
-      const isFirstAssessment = !localStorage.getItem('aqive_first_assessment_completed');
-      
-      if (isFirstAssessment) {
-        // 標記已完成首次測驗
-        localStorage.setItem('aqive_first_assessment_completed', 'true');
-        // 首次用戶：先看報告，報告頁面會引導到推薦頁
-        navigate('quiz-detail.html');
-      } else {
-        // 老用戶：直接看報告
-        navigate('quiz-detail.html');
-      }
+      // 跳轉到覺察報告
+      navigate('awareness-report.html');
     }
     
     // Auto navigate after 3 seconds

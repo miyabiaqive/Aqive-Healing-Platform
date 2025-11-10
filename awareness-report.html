@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+  <div class="h-screen flex flex-col safe-area-top">
+    <!-- Header -->
+    <div id="headerSection" class="bg-gradient-to-br from-purple-500 to-pink-500 px-6 py-4 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-40 h-40 bg-white opacity-10 rounded-full -mr-12 -mt-12 blob"></div>
+      <div class="relative z-10">
+        <button onclick="navigate('home.html')" class="w-10 h-10 flex items-center justify-center mb-4">
+          <i class="fas fa-times text-white text-xl"></i>
+        </button>
+        <h1 class="text-2xl font-bold text-white mb-2">你的覺察報告</h1>
+        <p class="text-purple-100 text-sm" id="dateText">2025年11月10日</p>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 overflow-y-auto hide-scrollbar -mt-4 pb-32 px-6" id="reportContent"></div>
+  </div>
+
+  <script>
+    // 能量型態報告配置
+    const reportConfigs = {
+      mental_overload: {
+        name: '頭腦過載型',
+        emoji: '🧠',
+        color: 'from-blue-400 to-purple-400',
+        summary: '你的頭腦長期處於高速運轉狀態，很難真正放鬆下來。',
+        insights: [
+          {
+            icon: '💭',
+            title: '思緒不斷',
+            description: '腦中總有做不完的事、想不完的問題，即使休息時也停不下來。'
+          },
+          {
+            icon: '😫',
+            title: '身體緊繃',
+            description: '肩頸、頭部常感到緊繃，這是大腦過度使用的訊號。'
+          },
+          {
+            icon: '🎭',
+            title: '情緒麻木',
+            description: '習慣用理性處理一切，反而與自己的感受失聯了。'
+          }
+        ],
+        actions: [
+          {
+            type: 'immediate',
+            icon: '🌬️',
+            emoji: '💨',
+            title: '6 分鐘呼吸練習',
+            subtitle: '快速讓大腦安靜下來',
+            description: '透過專注呼吸，中斷思緒迴圈，回到當下',
+            link: 'breath.html',
+            color: 'from-teal-400 to-blue-500'
+          },
+          {
+            type: 'explore',
+            icon: '🎧',
+            emoji: '🎵',
+            title: '撓境身體覺察音頻',
+            subtitle: '從頭腦回到身體',
+            description: '氣機撓場共振，幫助你重新連結身體感知',
+            link: 'player.html',
+            color: 'from-purple-400 to-pink-400'
+          },
+          {
+            type: 'learn',
+            icon: '💬',
+            emoji: '✨',
+            title: '與 AI 對話',
+            subtitle: '釋放累積的思緒',
+            description: '透過書寫與對話，整理腦中的混亂',
+            link: 'ai-chat.html',
+            color: 'from-green-400 to-teal-400'
+          }
+        ],
+        services: [
+          {
+            icon: 'fa-wind',
+            title: '氣機撓場療癒',
+            description: '透過撓氣源寶的能量共振，調節過度活躍的神經系統'
+          },
+          {
+            icon: 'fa-spa',
+            title: '身體覺察課程',
+            description: '學習如何從頭腦回到身體，建立真正的放鬆能力'
+          },
+          {
+            icon: 'fa-book-open',
+            title: '覺察日記',
+            description: 'AI 協助你整理思緒，看見思考模式背後的情緒'
+          }
+        ]
+      },
+      nervous_arousal: {
+        name: '神經亢奮型',
+        emoji: '⚡',
+        color: 'from-orange-400 to-red-400',
+        summary: '你的神經系統長期處於警戒狀態，身體記住了壓力。',
+        insights: [
+          {
+            icon: '😰',
+            title: '容易焦慮',
+            description: '心跳加速、呼吸急促，身體總在準備應對危機。'
+          },
+          {
+            icon: '😴',
+            title: '睡眠困難',
+            description: '難以入睡或睡得不沉，神經系統無法真正放鬆。'
+          },
+          {
+            icon: '⚡',
+            title: '過度警覺',
+            description: '對聲音、環境特別敏感，隨時處於備戰狀態。'
+          }
+        ],
+        actions: [
+          {
+            type: 'immediate',
+            icon: '🌊',
+            emoji: '💙',
+            title: '安撫神經系統呼吸法',
+            subtitle: '5 分鐘平靜練習',
+            description: '特殊呼吸節奏，直接作用於迷走神經',
+            link: 'breath.html',
+            color: 'from-blue-400 to-purple-500'
+          },
+          {
+            type: 'explore',
+            icon: '🌙',
+            emoji: '✨',
+            title: '深度睡眠引導',
+            subtitle: '夜間放鬆音頻',
+            description: '幫助神經系統切換到休息模式',
+            link: 'player.html',
+            color: 'from-purple-400 to-blue-500'
+          },
+          {
+            type: 'learn',
+            icon: '🛡️',
+            emoji: '💗',
+            title: '安全感建立練習',
+            subtitle: '告訴身體：你是安全的',
+            description: '透過引導，讓神經系統重新校準',
+            link: 'player.html',
+            color: 'from-pink-400 to-orange-400'
+          }
+        ],
+        services: [
+          {
+            icon: 'fa-moon',
+            title: '睡眠修復計畫',
+            description: '21 天系統性改善睡眠，讓神經系統得到真正休息'
+          },
+          {
+            icon: 'fa-heart',
+            title: '撓定能量調節',
+            description: '使用撓定產品，穩定過度活躍的能量場'
+          },
+          {
+            icon: 'fa-spa',
+            title: '放鬆冥想課程',
+            description: '學習深層放鬆技巧，重建內在安全感'
+          }
+        ]
+      },
+      energy_depleted: {
+        name: '能量耗竭型',
+        emoji: '🔋',
+        color: 'from-yellow-400 to-orange-400',
+        summary: '長期的付出與消耗，讓你的能量儲備見底了。',
+        insights: [
+          {
+            icon: '😔',
+            title: '疲倦無力',
+            description: '即使休息也恢復不了，對任何事都提不起勁。'
+          },
+          {
+            icon: '😶',
+            title: '空虛感',
+            description: '內在空空的，不知道自己在忙什麼、為何而活。'
+          },
+          {
+            icon: '💔',
+            title: '失去熱情',
+            description: '曾經喜歡的事也變得無感，生活失去色彩。'
+          }
+        ],
+        actions: [
+          {
+            type: 'immediate',
+            icon: '✨',
+            emoji: '🌟',
+            title: '能量補充冥想',
+            subtitle: '10 分鐘重新充電',
+            description: '打開接收管道，重新連結內在生命力',
+            link: 'player.html',
+            color: 'from-yellow-400 to-orange-400'
+          },
+          {
+            type: 'explore',
+            icon: '⚡',
+            emoji: '💫',
+            title: '撓氣源寶能量同步',
+            subtitle: '補充能量場',
+            description: '透過撓場共振，為你的能量系統充電',
+            link: 'product-activate.html',
+            color: 'from-purple-400 to-pink-400'
+          },
+          {
+            type: 'learn',
+            icon: '🌱',
+            emoji: '💚',
+            title: '自我滋養計畫',
+            subtitle: '每天一個小儀式',
+            description: '重新學習照顧自己，建立能量補充習慣',
+            link: 'course-detail.html',
+            color: 'from-green-400 to-teal-400'
+          }
+        ],
+        services: [
+          {
+            icon: 'fa-battery-full',
+            title: '能量修復課程',
+            description: '系統性學習如何補充能量、設定界限、照顧自己'
+          },
+          {
+            icon: 'fa-spa',
+            title: '撓氣源寶療癒',
+            description: '透過氣機能量共振，深層補充你的生命能量'
+          },
+          {
+            icon: 'fa-calendar-check',
+            title: '每日滋養提醒',
+            description: 'AI 每天給你一個簡單的自我照顧任務'
+          }
+        ]
+      },
+      external_entanglement: {
+        name: '外部糾結型',
+        emoji: '🌀',
+        color: 'from-green-400 to-blue-400',
+        summary: '你常常感覺被他人的期待與需求綁住，在關係中失去自己。',
+        insights: [
+          {
+            icon: '😤',
+            title: '被期待綁住',
+            description: '總是在照顧別人的感受，卻忽略了自己的需求。'
+          },
+          {
+            icon: '💬',
+            title: '溝通困難',
+            description: '想表達真實想法，卻擔心破壞關係，最後選擇隱忍。'
+          },
+          {
+            icon: '😓',
+            title: '能量被消耗',
+            description: '與某些人相處後特別累，但又不知如何拒絕。'
+          }
+        ],
+        actions: [
+          {
+            type: 'immediate',
+            icon: '🛡️',
+            emoji: '💙',
+            title: '界限覺察練習',
+            subtitle: '8 分鐘回到中心',
+            description: '感知自己的能量邊界，重新找回「我」',
+            link: 'breath.html',
+            color: 'from-green-400 to-teal-400'
+          },
+          {
+            type: 'explore',
+            icon: '💬',
+            emoji: '✨',
+            title: '與 AI 探索關係模式',
+            subtitle: '理解你的人際模式',
+            description: '透過對話，看見自己在關係中的慣性',
+            link: 'ai-chat.html',
+            color: 'from-purple-400 to-pink-400'
+          },
+          {
+            type: 'learn',
+            icon: '🌱',
+            emoji: '🌿',
+            title: '關係覺察課程',
+            subtitle: '在關係中保持自己',
+            description: '學習溫柔而堅定地守護自己的空間',
+            link: 'course-detail.html',
+            color: 'from-blue-400 to-green-400'
+          }
+        ],
+        services: [
+          {
+            icon: 'fa-shield-alt',
+            title: '界限建立工作坊',
+            description: '學習在不傷害關係的前提下，保護自己的能量'
+          },
+          {
+            icon: 'fa-comments',
+            title: '非暴力溝通課程',
+            description: '學習表達真實需求，同時尊重他人'
+          },
+          {
+            icon: 'fa-heart',
+            title: '自我價值重建',
+            description: '不再從他人認可中尋找價值，回到自己'
+          }
+        ]
+      },
+      inner_unfocused: {
+        name: '內在失焦型',
+        emoji: '🧭',
+        color: 'from-purple-400 to-blue-400',
+        summary: '你感到迷惘，不確定自己的方向，內在缺乏清晰的指引。',
+        insights: [
+          {
+            icon: '❓',
+            title: '方向不明',
+            description: '不知道自己真正想要什麼，也不確定該往哪裡走。'
+          },
+          {
+            icon: '🤔',
+            title: '自我懷疑',
+            description: '做任何決定都猶豫不決，擔心選錯了路。'
+          },
+          {
+            icon: '😶',
+            title: '內在空洞',
+            description: '外在看似忙碌，但內心知道這不是真正想要的。'
+          }
+        ],
+        actions: [
+          {
+            type: 'immediate',
+            icon: '🧭',
+            emoji: '✨',
+            title: '內在指引冥想',
+            subtitle: '12 分鐘連結直覺',
+            description: '讓答案從內在自然浮現',
+            link: 'player.html',
+            color: 'from-purple-400 to-pink-400'
+          },
+          {
+            type: 'explore',
+            icon: '📝',
+            emoji: '💭',
+            title: 'AI 協助釐清',
+            subtitle: '透過對話找答案',
+            description: '在對話中，慢慢看見自己真正的渴望',
+            link: 'ai-chat.html',
+            color: 'from-blue-400 to-purple-400'
+          },
+          {
+            type: 'learn',
+            icon: '🌟',
+            emoji: '🎯',
+            title: '生命藍圖工作坊',
+            subtitle: '找到專屬於你的道路',
+            description: '系統性釐清價值觀、天賦與使命',
+            link: 'course-detail.html',
+            color: 'from-pink-400 to-orange-400'
+          }
+        ],
+        services: [
+          {
+            icon: 'fa-compass',
+            title: '方向探索課程',
+            description: '透過系統性引導，重新找到內在的羅盤'
+          },
+          {
+            icon: 'fa-book',
+            title: '覺察日記',
+            description: 'AI 協助你透過書寫，看見內在真實的聲音'
+          },
+          {
+            icon: 'fa-users',
+            title: '一對一教練',
+            description: '專業教練陪伴，幫助你看清自己的獨特道路'
+          }
+        ]
+      },
+      balanced: {
+        name: '相對平衡',
+        emoji: '☮️',
+        color: 'from-green-400 to-blue-400',
+        summary: '你目前的狀態相對平衡，有一定的自我覺察能力。',
+        insights: [
+          {
+            icon: '😌',
+            title: '基本穩定',
+            description: '你能覺察自己的狀態，也知道如何照顧自己。'
+          },
+          {
+            icon: '🌱',
+            title: '持續成長',
+            description: '你對自我探索有興趣，願意深入了解自己。'
+          },
+          {
+            icon: '✨',
+            title: '更多可能',
+            description: '現在是很好的時機，深化你的覺察與修行。'
+          }
+        ],
+        actions: [
+          {
+            type: 'immediate',
+            icon: '🧘',
+            emoji: '🌟',
+            title: '深度覺察冥想',
+            subtitle: '15 分鐘進階練習',
+            description: '探索更細微的身心狀態',
+            link: 'player.html',
+            color: 'from-blue-400 to-green-400'
+          },
+          {
+            type: 'explore',
+            icon: '📚',
+            emoji: '💡',
+            title: '探索進階課程',
+            subtitle: '深化你的修行',
+            description: '學習更深層的覺察與轉化技巧',
+            link: 'discover.html',
+            color: 'from-purple-400 to-blue-400'
+          },
+          {
+            type: 'learn',
+            icon: '🌊',
+            emoji: '✨',
+            title: '心流修煉計畫',
+            subtitle: '進入更深的狀態',
+            description: '探索意識的更深層次',
+            link: 'course-detail.html',
+            color: 'from-teal-400 to-green-400'
+          }
+        ],
+        services: [
+          {
+            icon: 'fa-graduation-cap',
+            title: '進階心流課程',
+            description: '深化覺察能力，探索意識的更深層次'
+          },
+          {
+            icon: 'fa-users',
+            title: '社群與共修',
+            description: '與同頻者一起修行，相互支持成長'
+          },
+          {
+            icon: 'fa-spa',
+            title: '氣機深度療癒',
+            description: '體驗撓場的更深層次，進入心流狀態'
+          }
+        ]
+      }
+    };
+
+    function loadReport() {
+      const pattern = localStorage.getItem('aqive_energy_pattern') || 'balanced';
+      const config = reportConfigs[pattern];
+      const responses = JSON.parse(localStorage.getItem('aqive_quiz_responses') || '{}');
+
+      // 更新日期
+      document.getElementById('dateText').textContent = new Date().toLocaleDateString('zh-TW', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      const content = document.getElementById('reportContent');
+      
+      content.innerHTML = `
+        <!-- Overall Card -->
+        <div class="bg-white rounded-t-3xl -mt-0 relative z-10 px-0 pt-6 pb-6">
+          <div class="px-6 mb-6">
+            <div class="flex items-center justify-center mb-6">
+              <div class="w-24 h-24 bg-gradient-to-br ${config.color} rounded-full flex items-center justify-center shadow-xl">
+                <span class="text-5xl">${config.emoji}</span>
+              </div>
+            </div>
+            
+            <h2 class="text-2xl font-bold text-gray-800 text-center mb-2">${config.name}</h2>
+            <p class="text-gray-600 text-center text-sm mb-6">${config.summary}</p>
+
+            <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4">
+              <div class="flex items-start gap-3">
+                <i class="fas fa-lightbulb text-blue-500 text-xl mt-1"></i>
+                <div>
+                  <h3 class="font-bold text-blue-800 text-sm mb-1">這是什麼意思？</h3>
+                  <p class="text-blue-700 text-xs leading-relaxed">
+                    這不是診斷，而是幫助你看見當下的狀態。每個人在不同階段都可能有不同的能量型態，這很正常。重要的是：你願意看見，並開始照顧自己。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Insights -->
+          <div class="px-6 mb-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-3">🔍 你可能的感受</h3>
+            <div class="space-y-3">
+              ${config.insights.map(insight => `
+                <div class="bg-gray-50 rounded-2xl p-4">
+                  <div class="flex items-start gap-3">
+                    <span class="text-2xl">${insight.icon}</span>
+                    <div class="flex-1">
+                      <h4 class="font-bold text-gray-800 text-sm mb-1">${insight.title}</h4>
+                      <p class="text-gray-600 text-xs leading-relaxed">${insight.description}</p>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="px-6 mb-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-3">🎯 你可以這樣做</h3>
+            <p class="text-gray-500 text-sm mb-4">選擇一個最適合你當下狀態的行動</p>
+            
+            <div class="space-y-3">
+              ${config.actions.map((action, idx) => `
+                <button onclick="navigate('${action.link}')" class="w-full bg-gradient-to-br ${action.color} rounded-2xl p-5 text-left shadow-lg transition-smooth hover:shadow-xl active:scale-95">
+                  <div class="flex items-center gap-4 mb-2">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                      <span class="text-3xl">${action.emoji}</span>
+                    </div>
+                    <div class="flex-1">
+                      <h4 class="text-white font-bold text-base mb-1">${action.title}</h4>
+                      <p class="text-white text-opacity-90 text-xs">${action.subtitle}</p>
+                    </div>
+                    <i class="fas fa-arrow-right text-white text-xl"></i>
+                  </div>
+                  <p class="text-white text-opacity-80 text-sm pl-16">${action.description}</p>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- App Services -->
+          <div class="px-6 mb-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-3">✨ Aqive 可以幫助你</h3>
+            <p class="text-gray-500 text-sm mb-4">這個 App 為你準備了...</p>
+            
+            <div class="space-y-3">
+              ${config.services.map(service => `
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <i class="fas ${service.icon} text-purple-500"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h4 class="font-bold text-gray-800 text-sm mb-1">${service.title}</h4>
+                      <p class="text-gray-600 text-xs">${service.description}</p>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="px-6 mb-6">
+            <div class="bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl p-6 shadow-xl">
+              <h3 class="text-xl font-bold text-white mb-2 text-center">準備好了嗎？</h3>
+              <p class="text-blue-100 text-sm mb-4 text-center">選擇一個行動，開始你的療癒之旅</p>
+              <button onclick="navigate('home.html')" class="w-full py-3 bg-white text-purple-600 rounded-full font-bold shadow-lg transition-smooth hover:scale-105 active:scale-95 mb-3">
+                進入 Aqive
+              </button>
+              <button onclick="viewDetailedReport()" class="w-full py-3 bg-white bg-opacity-20 text-white rounded-full font-medium backdrop-blur-sm transition-smooth hover:bg-opacity-30 active:scale-95">
+                查看更詳細的分析
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // 標記已完成首次評估
+      localStorage.setItem('aqive_first_assessment_completed', 'true');
+    }
+
+    function viewDetailedReport() {
+      // 可以導向更詳細的五境報告或其他分析
+      navigate('recommendations.html');
+    }
+
+    function navigate(page) {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'navigate', page: page }, '*');
+      } else {
+        window.location.href = page;
+      }
+    }
+
+    // 初始化
+    loadReport();
+  </script>
+</body>
+</html>
+
