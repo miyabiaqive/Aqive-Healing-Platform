@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-b from-teal-400 to-blue-500">
+  <div class="h-screen flex flex-col safe-area-top">
+    <!-- Header -->
+    <div class="px-6 py-4 flex items-center justify-between">
+      <button onclick="navigate('home.html')" class="w-10 h-10 flex items-center justify-center">
+        <i class="fas fa-chevron-down text-white text-xl"></i>
+      </button>
+      <h1 class="text-lg font-bold text-white">呼吸練習</h1>
+      <div class="w-10"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 flex flex-col items-center justify-center px-6">
+      <!-- Breathing Circle -->
+      <div class="relative mb-12">
+        <div id="breathCircle" class="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-4000">
+          <div class="text-center">
+            <span id="breathText" class="text-3xl font-bold text-teal-600 block mb-2">準備開始</span>
+            <span id="breathCount" class="text-lg text-teal-400"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instructions -->
+      <div class="text-center mb-8">
+        <p class="text-white text-lg mb-2" id="instruction">跟隨圓圈的節奏呼吸</p>
+        <p class="text-teal-100 text-sm">吸氣 4 秒 · 屏息 2 秒 · 吐氣 6 秒</p>
+      </div>
+
+      <!-- Progress -->
+      <div class="w-full max-w-xs mb-8">
+        <div class="flex items-center justify-between text-white text-sm mb-2">
+          <span>進度</span>
+          <span id="cycleCount">0 / 5 次</span>
+        </div>
+        <div class="h-2 bg-white bg-opacity-30 rounded-full overflow-hidden">
+          <div id="cycleProgress" class="h-full bg-white rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Controls -->
+    <div class="px-6 pb-8 safe-area-bottom">
+      <div class="flex gap-4">
+        <button id="startBtn" onclick="startBreathing()" class="flex-1 py-4 bg-white text-teal-600 rounded-full font-bold shadow-xl transition-smooth hover:scale-105 active:scale-95">
+          <i class="fas fa-play mr-2"></i>開始
+        </button>
+        <button id="pauseBtn" onclick="pauseBreathing()" class="flex-1 py-4 bg-white bg-opacity-20 text-white rounded-full font-bold backdrop-blur-sm transition-smooth hover:bg-opacity-30 active:scale-95" style="display: none;">
+          <i class="fas fa-pause mr-2"></i>暫停
+        </button>
+        <button onclick="resetBreathing()" class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm transition-smooth hover:bg-opacity-30 active:scale-95">
+          <i class="fas fa-redo text-white"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let breathingInterval;
+    let currentCycle = 0;
+    let totalCycles = 5;
+    let isBreathing = false;
+    let currentPhase = 0;
+
+    const breathCircle = document.getElementById('breathCircle');
+    const breathText = document.getElementById('breathText');
+    const breathCount = document.getElementById('breathCount');
+    const instruction = document.getElementById('instruction');
+    const cycleCount = document.getElementById('cycleCount');
+    const cycleProgress = document.getElementById('cycleProgress');
+    const startBtn = document.getElementById('startBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+
+    const phases = [
+      { name: '吸氣', duration: 4000, scale: 'scale-150', text: '深深吸氣' },
+      { name: '屏息', duration: 2000, scale: 'scale-150', text: '輕輕屏住' },
+      { name: '吐氣', duration: 6000, scale: 'scale-100', text: '慢慢呼出' }
+    ];
+
+    function startBreathing() {
+      if (isBreathing) return;
+      isBreathing = true;
+      startBtn.style.display = 'none';
+      pauseBtn.style.display = 'block';
+      breatheOneCycle();
+    }
+
+    function pauseBreathing() {
+      isBreathing = false;
+      clearTimeout(breathingInterval);
+      startBtn.style.display = 'block';
+      pauseBtn.style.display = 'none';
+      breathText.textContent = '已暫停';
+      instruction.textContent = '點擊開始繼續';
+    }
+
+    function resetBreathing() {
+      isBreathing = false;
+      clearTimeout(breathingInterval);
+      currentCycle = 0;
+      currentPhase = 0;
+      startBtn.style.display = 'block';
+      pauseBtn.style.display = 'none';
+      breathCircle.style.transform = 'scale(1)';
+      breathText.textContent = '準備開始';
+      breathCount.textContent = '';
+      instruction.textContent = '跟隨圓圈的節奏呼吸';
+      updateProgress();
+    }
+
+    function breatheOneCycle() {
+      if (!isBreathing || currentCycle >= totalCycles) {
+        if (currentCycle >= totalCycles) {
+          completeBreathing();
+        }
+        return;
+      }
+
+      const phase = phases[currentPhase];
+      breathText.textContent = phase.name;
+      breathCount.textContent = `第 ${currentCycle + 1} 次`;
+      instruction.textContent = phase.text;
+      breathCircle.style.transform = phase.scale;
+      breathCircle.style.transition = `transform ${phase.duration}ms ease-in-out`;
+
+      breathingInterval = setTimeout(() => {
+        currentPhase++;
+        if (currentPhase >= phases.length) {
+          currentPhase = 0;
+          currentCycle++;
+          updateProgress();
+        }
+        breatheOneCycle();
+      }, phase.duration);
+    }
+
+    function updateProgress() {
+      cycleCount.textContent = `${currentCycle} / ${totalCycles} 次`;
+      cycleProgress.style.width = (currentCycle / totalCycles * 100) + '%';
+    }
+
+    function completeBreathing() {
+      isBreathing = false;
+      breathText.textContent = '完成 ✨';
+      instruction.textContent = '做得很好！';
+      breathCircle.style.transform = 'scale(1)';
+      pauseBtn.style.display = 'none';
+      startBtn.innerHTML = '<i class="fas fa-check mr-2"></i>完成';
+      startBtn.onclick = () => navigate('home.html');
+      startBtn.style.display = 'block';
+    }
+
+    function navigate(page) {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'navigate', page: page }, '*');
+      } else {
+        window.location.href = page;
+      }
+    }
+  </script>
+</body>
+</html>
+

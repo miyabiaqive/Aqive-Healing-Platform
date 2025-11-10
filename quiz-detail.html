@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+  <div class="h-screen flex flex-col safe-area-top">
+    <!-- Header -->
+    <div class="bg-gradient-to-br from-purple-500 to-pink-500 px-6 py-4">
+      <div class="flex items-center justify-between mb-6">
+        <button onclick="navigate('home.html')" class="w-10 h-10 flex items-center justify-center">
+          <i class="fas fa-arrow-left text-white text-xl"></i>
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center">
+          <i class="fas fa-share-alt text-white text-xl"></i>
+        </button>
+      </div>
+      <h1 class="text-2xl font-bold text-white mb-2">你的能量報告</h1>
+      <p class="text-purple-100 text-sm">2025年11月10日</p>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 overflow-y-auto hide-scrollbar -mt-4 pb-24">
+      <!-- Overall Score -->
+      <div class="px-6 mb-6">
+        <div class="bg-white rounded-3xl p-6 shadow-lg">
+          <div class="text-center mb-4">
+            <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full mb-3 shadow-lg">
+              <span class="text-3xl font-bold text-white">77</span>
+            </div>
+            <h3 class="font-bold text-gray-800 text-lg mb-1">整體能量指數</h3>
+            <p class="text-gray-500 text-sm">高於平均值 15%</p>
+          </div>
+          <div class="p-3 bg-blue-50 rounded-xl">
+            <p class="text-sm text-blue-800">✨ 你的整體狀態良好，繼續保持規律的練習！</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Five Realms Detail -->
+      <div class="px-6 mb-6">
+        <h3 class="font-bold text-gray-800 mb-3">五境詳細分析</h3>
+        
+        <!-- Body Realm -->
+        <div class="bg-white rounded-3xl p-6 shadow-lg mb-4">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <span class="text-2xl">🧘</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-bold text-gray-800">身體境</h4>
+              <p class="text-gray-500 text-xs">身體覺察與健康狀態</p>
+            </div>
+            <span class="text-2xl font-bold text-blue-600">85</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
+            <div class="h-full bg-blue-400 rounded-full" style="width: 85%"></div>
+          </div>
+          <p class="text-gray-600 text-sm mb-3">你對身體的覺察能力很好，能夠及時感知身體的需求。建議繼續保持規律的運動與休息。</p>
+          <button class="text-blue-500 text-sm font-medium">查看建議 <i class="fas fa-arrow-right ml-1"></i></button>
+        </div>
+
+        <!-- Emotion Realm -->
+        <div class="bg-white rounded-3xl p-6 shadow-lg mb-4">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <span class="text-2xl">💭</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-bold text-gray-800">情緒境</h4>
+              <p class="text-gray-500 text-xs">情緒覺察與調節能力</p>
+            </div>
+            <span class="text-2xl font-bold text-purple-600">68</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
+            <div class="h-full bg-purple-400 rounded-full" style="width: 68%"></div>
+          </div>
+          <p class="text-gray-600 text-sm mb-3">最近情緒有些波動，建議增加情緒覺察練習，學習如何溫柔地面對自己的感受。</p>
+          <div class="flex gap-2">
+            <button onclick="navigate('player.html')" class="flex-1 py-3 bg-purple-50 text-purple-600 rounded-xl text-sm font-medium transition-smooth hover:bg-purple-100 active:scale-95">
+              開始冥想
+            </button>
+            <button onclick="navigate('ai-chat.html')" class="flex-1 py-3 bg-purple-50 text-purple-600 rounded-xl text-sm font-medium transition-smooth hover:bg-purple-100 active:scale-95">
+              AI 陪伴
+            </button>
+          </div>
+        </div>
+
+        <!-- Mind Realm -->
+        <div class="bg-white rounded-3xl p-6 shadow-lg mb-4">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <span class="text-2xl">🧠</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-bold text-gray-800">心智境</h4>
+              <p class="text-gray-500 text-xs">思維模式與專注力</p>
+            </div>
+            <span class="text-2xl font-bold text-green-600">78</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
+            <div class="h-full bg-green-400 rounded-full" style="width: 78%"></div>
+          </div>
+          <p class="text-gray-600 text-sm mb-3">思緒清晰度不錯，專注力良好。可以嘗試更深入的覺察練習。</p>
+          <button class="text-green-500 text-sm font-medium">查看建議 <i class="fas fa-arrow-right ml-1"></i></button>
+        </div>
+
+        <!-- Relationship Realm -->
+        <div class="bg-white rounded-3xl p-6 shadow-lg mb-4">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+              <span class="text-2xl">👥</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-bold text-gray-800">人際境</h4>
+              <p class="text-gray-500 text-xs">關係品質與溝通能力</p>
+            </div>
+            <span class="text-2xl font-bold text-orange-600">72</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
+            <div class="h-full bg-orange-400 rounded-full" style="width: 72%"></div>
+          </div>
+          <p class="text-gray-600 text-sm mb-3">人際關係穩定，建議持續練習同理心與非暴力溝通。</p>
+          <button class="text-orange-500 text-sm font-medium">查看建議 <i class="fas fa-arrow-right ml-1"></i></button>
+        </div>
+
+        <!-- Spirit Realm -->
+        <div class="bg-white rounded-3xl p-6 shadow-lg mb-4">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center">
+              <span class="text-2xl">✨</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-bold text-gray-800">靈性境</h4>
+              <p class="text-gray-500 text-xs">生命意義與內在連結</p>
+            </div>
+            <span class="text-2xl font-bold text-pink-600">81</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
+            <div class="h-full bg-pink-400 rounded-full" style="width: 81%"></div>
+          </div>
+          <p class="text-gray-600 text-sm mb-3">靈性連結良好，能感受到生命的意義與方向。</p>
+          <button class="text-pink-500 text-sm font-medium">查看建議 <i class="fas fa-arrow-right ml-1"></i></button>
+        </div>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="px-6 mb-6">
+        <div class="bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl p-6 shadow-lg">
+          <h3 class="text-xl font-bold text-white mb-2">下一步建議</h3>
+          <p class="text-blue-50 text-sm mb-4">根據你的能量狀態，我們為你準備了專屬計畫</p>
+          <button onclick="navigate('home.html')" class="w-full py-3 bg-white text-purple-600 rounded-full font-bold shadow-lg transition-smooth hover:scale-105 active:scale-95">
+            開始 7 天覺察之旅
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function navigate(page) {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'navigate', page: page }, '*');
+      } else {
+        window.location.href = page;
+      }
+    }
+  </script>
+</body>
+</html>
+

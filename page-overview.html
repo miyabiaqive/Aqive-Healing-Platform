@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aqive Healing Platform - 頁面總覽</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+    }
+    .page-card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-purple-100 to-pink-100 min-h-screen p-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-800 mb-3">Aqive Healing Platform</h1>
+      <p class="text-xl text-gray-600 mb-2">高保真原型 - 頁面總覽</p>
+      <p class="text-sm text-gray-500">點擊任意頁面卡片即可查看完整頁面</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+      <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+        <div class="text-3xl font-bold text-blue-600 mb-2">14</div>
+        <div class="text-gray-600 text-sm">HTML 頁面</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+        <div class="text-3xl font-bold text-purple-600 mb-2">5</div>
+        <div class="text-gray-600 text-sm">主導航頁面</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+        <div class="text-3xl font-bold text-pink-600 mb-2">8</div>
+        <div class="text-gray-600 text-sm">功能頁面</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+        <div class="text-3xl font-bold text-green-600 mb-2">100%</div>
+        <div class="text-gray-600 text-sm">設計完成度</div>
+      </div>
+    </div>
+
+    <!-- Main Entry -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">⭐ 主入口</h2>
+      <a href="index.html" target="_blank" class="block page-card">
+        <div class="bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl p-8 shadow-xl text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-2xl font-bold mb-2">index.html</h3>
+              <p class="text-purple-100 mb-4">iPhone 15 Pro 容器 - 從這裡開始完整體驗</p>
+              <span class="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm backdrop-blur-sm">
+                <i class="fas fa-mobile-alt mr-2"></i>iPhone 容器模式
+              </span>
+            </div>
+            <i class="fas fa-arrow-right text-5xl"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Main Navigation Pages -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">🧭 主導航頁面 (5)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="home.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl flex items-center justify-center mb-4">
+              <i class="fas fa-home text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">首頁</h3>
+            <p class="text-gray-600 text-sm mb-3">home.html</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-blue-100 text-blue-600 rounded text-xs">今日頻率</span>
+              <span class="px-2 py-1 bg-green-100 text-green-600 rounded text-xs">快速行動</span>
+              <span class="px-2 py-1 bg-purple-100 text-purple-600 rounded text-xs">推薦</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="discover.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl flex items-center justify-center mb-4">
+              <i class="fas fa-compass text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">探索</h3>
+            <p class="text-gray-600 text-sm mb-3">discover.html</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-blue-100 text-blue-600 rounded text-xs">課程</span>
+              <span class="px-2 py-1 bg-purple-100 text-purple-600 rounded text-xs">教師</span>
+              <span class="px-2 py-1 bg-pink-100 text-pink-600 rounded text-xs">分類</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="ai-chat.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center mb-4">
+              <i class="fas fa-comments text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">AI 陪伴</h3>
+            <p class="text-gray-600 text-sm mb-3">ai-chat.html</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-purple-100 text-purple-600 rounded text-xs">對話</span>
+              <span class="px-2 py-1 bg-pink-100 text-pink-600 rounded text-xs">抽卡</span>
+              <span class="px-2 py-1 bg-blue-100 text-blue-600 rounded text-xs">日記</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="player.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-2xl flex items-center justify-center mb-4">
+              <i class="fas fa-play-circle text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">播放器</h3>
+            <p class="text-gray-600 text-sm mb-3">player.html</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-orange-100 text-orange-600 rounded text-xs">冥想</span>
+              <span class="px-2 py-1 bg-yellow-100 text-yellow-600 rounded text-xs">音頻</span>
+              <span class="px-2 py-1 bg-green-100 text-green-600 rounded text-xs">控制</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="profile.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-4">
+              <i class="fas fa-user text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">個人檔案</h3>
+            <p class="text-gray-600 text-sm mb-3">profile.html</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-purple-100 text-purple-600 rounded text-xs">能量曲線</span>
+              <span class="px-2 py-1 bg-pink-100 text-pink-600 rounded text-xs">成就</span>
+              <span class="px-2 py-1 bg-blue-100 text-blue-600 rounded text-xs">統計</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Functional Pages -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">⚙️ 功能頁面 (8)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="course-detail.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-xl p-4 shadow hover:shadow-lg">
+            <div class="text-3xl mb-2">📚</div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">課程詳情</h4>
+            <p class="text-gray-500 text-xs">course-detail.html</p>
+          </div>
+        </a>
+
+        <a href="quiz.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-xl p-4 shadow hover:shadow-lg">
+            <div class="text-3xl mb-2">📝</div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">能量測驗</h4>
+            <p class="text-gray-500 text-xs">quiz.html</p>
+          </div>
+        </a>
+
+        <a href="quiz-result.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-xl p-4 shadow hover:shadow-lg">
+            <div class="text-3xl mb-2">⏳</div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">測驗結果</h4>
+            <p class="text-gray-500 text-xs">quiz-result.html</p>
+          </div>
+        </a>
+
+        <a href="quiz-detail.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-xl p-4 shadow hover:shadow-lg">
+            <div class="text-3xl mb-2">📊</div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">五境分析</h4>
+            <p class="text-gray-500 text-xs">quiz-detail.html</p>
+          </div>
+        </a>
+
+        <a href="product.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-xl p-4 shadow hover:shadow-lg">
+            <div class="text-3xl mb-2">📦</div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">產品列表</h4>
+            <p class="text-gray-500 text-xs">product.html</p>
+          </div>
+        </a>
+
+        <a href="product-activate.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-xl p-4 shadow hover:shadow-lg">
+            <div class="text-3xl mb-2">⚡</div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">產品啟動</h4>
+            <p class="text-gray-500 text-xs">product-activate.html</p>
+          </div>
+        </a>
+
+        <a href="breath.html" target="_blank" class="page-card">
+          <div class="bg-white rounded-xl p-4 shadow hover:shadow-lg">
+            <div class="text-3xl mb-2">🌬️</div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">呼吸練習</h4>
+            <p class="text-gray-500 text-xs">breath.html</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Documentation -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">📖 文檔資源</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="README.md" target="_blank" class="page-card">
+          <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-lg text-white">
+            <i class="fas fa-book text-4xl mb-3"></i>
+            <h3 class="text-xl font-bold mb-2">完整文檔</h3>
+            <p class="text-blue-100 text-sm">README.md - 技術架構、設計規範、開發指南</p>
+          </div>
+        </a>
+
+        <a href="使用指南.md" target="_blank" class="page-card">
+          <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 shadow-lg text-white">
+            <i class="fas fa-map text-4xl mb-3"></i>
+            <h3 class="text-xl font-bold mb-2">使用指南</h3>
+            <p class="text-green-100 text-sm">使用指南.md - 用戶旅程、演示路徑、FAQ</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Start Guide -->
+    <div class="bg-white rounded-3xl p-8 shadow-xl">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">🚀 快速開始</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+            <span class="text-2xl">1️⃣</span>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">點擊主入口</h3>
+          <p class="text-gray-600 text-sm">打開 index.html 開始完整 iPhone 容器體驗</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3">
+            <span class="text-2xl">2️⃣</span>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">探索各頁面</h3>
+          <p class="text-gray-600 text-sm">點擊上方任意頁面卡片單獨預覽功能</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-3">
+            <span class="text-2xl">3️⃣</span>
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2">查看文檔</h3>
+          <p class="text-gray-600 text-sm">閱讀 README 和使用指南了解更多細節</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center mt-12 text-gray-500 text-sm">
+      <p>Aqive Healing Platform - 高保真原型 v1.0</p>
+      <p class="mt-1">設計與開發：Aqive CDO · 2025-11-10</p>
+    </div>
+  </div>
+</body>
+</html>
+

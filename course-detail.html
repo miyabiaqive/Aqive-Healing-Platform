@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+  <div class="h-screen flex flex-col">
+    <!-- Hero Image -->
+    <div class="relative h-64 bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center">
+      <button onclick="navigate('discover.html')" class="absolute top-6 left-6 w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
+        <i class="fas fa-arrow-left text-white"></i>
+      </button>
+      <button class="absolute top-6 right-6 w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
+        <i class="fas fa-share-alt text-white"></i>
+      </button>
+      <span class="text-8xl">🧘</span>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 overflow-y-auto hide-scrollbar">
+      <div class="bg-white rounded-t-3xl -mt-6 relative z-10 px-6 pt-6 pb-32">
+        <!-- Tags -->
+        <div class="flex items-center gap-2 mb-3">
+          <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium">冥想</span>
+          <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs font-medium">初階</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-2xl font-bold text-gray-800 mb-2">正念呼吸入門</h1>
+        
+        <!-- Meta Info -->
+        <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+          <span><i class="fas fa-clock mr-1"></i>30 分鐘</span>
+          <span><i class="fas fa-users mr-1"></i>1,234 人已學習</span>
+          <span><i class="fas fa-star text-yellow-400 mr-1"></i>4.9 (328)</span>
+        </div>
+
+        <!-- Teacher Info -->
+        <div class="flex items-center gap-3 p-4 bg-gray-50 rounded-2xl mb-6">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
+            <span class="text-2xl">👩‍🏫</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-gray-800 text-sm">李靜</h3>
+            <p class="text-gray-500 text-xs">正念冥想導師 · 10 年經驗</p>
+          </div>
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-full text-xs font-medium transition-smooth hover:bg-blue-600 active:scale-95">
+            關注
+          </button>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-6">
+          <h3 class="font-bold text-gray-800 mb-2">課程介紹</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            在這個忙碌的時代，我們常常忘記停下來，好好呼吸。這堂課將帶你認識正念呼吸的基礎，學習如何透過覺察呼吸，讓心回到當下，找回內在的平靜。
+          </p>
+        </div>
+
+        <!-- Course Content -->
+        <div class="mb-6">
+          <h3 class="font-bold text-gray-800 mb-3">課程內容</h3>
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl">
+              <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-play text-white text-xs"></i>
+              </div>
+              <div class="flex-1">
+                <h4 class="font-medium text-gray-800 text-sm">1. 認識正念呼吸</h4>
+                <p class="text-gray-500 text-xs">5 分鐘</p>
+              </div>
+              <i class="fas fa-lock text-blue-300"></i>
+            </div>
+            <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+              <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-play text-white text-xs"></i>
+              </div>
+              <div class="flex-1">
+                <h4 class="font-medium text-gray-800 text-sm">2. 基礎呼吸練習</h4>
+                <p class="text-gray-500 text-xs">10 分鐘</p>
+              </div>
+              <i class="fas fa-lock text-gray-300"></i>
+            </div>
+            <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+              <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-play text-white text-xs"></i>
+              </div>
+              <div class="flex-1">
+                <h4 class="font-medium text-gray-800 text-sm">3. 日常生活中的應用</h4>
+                <p class="text-gray-500 text-xs">15 分鐘</p>
+              </div>
+              <i class="fas fa-lock text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-bold text-gray-800">學員評價</h3>
+            <button class="text-blue-500 text-sm font-medium">查看全部</button>
+          </div>
+          <div class="space-y-3">
+            <div class="p-4 bg-gray-50 rounded-2xl">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-400 rounded-full flex items-center justify-center">
+                  <span class="text-sm">👤</span>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-medium text-gray-800 text-sm">小美</h4>
+                  <div class="flex items-center gap-1">
+                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                  </div>
+                </div>
+                <span class="text-xs text-gray-400">2 天前</span>
+              </div>
+              <p class="text-gray-600 text-sm">非常實用的課程！老師講解很清楚，練習後真的感覺到心情平靜許多。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white px-6 py-4 shadow-2xl safe-area-bottom">
+      <div class="flex items-center gap-4">
+        <div class="flex-1">
+          <p class="text-gray-500 text-xs mb-1">課程費用</p>
+          <div class="flex items-center gap-2">
+            <span class="text-2xl font-bold text-gray-800">NT$ 299</span>
+            <span class="text-sm text-gray-400 line-through">NT$ 499</span>
+          </div>
+        </div>
+        <button onclick="navigate('player.html')" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-bold shadow-lg transition-smooth hover:scale-105 active:scale-95">
+          開始學習
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function navigate(page) {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'navigate', page: page }, '*');
+      } else {
+        window.location.href = page;
+      }
+    }
+  </script>
+</body>
+</html>
+

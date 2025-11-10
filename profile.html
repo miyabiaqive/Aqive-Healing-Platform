@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+  <div class="h-screen flex flex-col safe-area-top">
+    <!-- Header -->
+    <div class="bg-gradient-to-br from-purple-500 to-pink-500 px-6 pt-6 pb-20 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-40 h-40 bg-white opacity-10 rounded-full -mr-12 -mt-12 blob"></div>
+      <button class="w-10 h-10 flex items-center justify-center mb-6">
+        <i class="fas fa-cog text-white text-xl"></i>
+      </button>
+      
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
+          <span class="text-4xl">👤</span>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-white mb-1">miyabi</h1>
+          <p class="text-purple-100 text-sm">已陪伴你 87 天 ✨</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 overflow-y-auto hide-scrollbar -mt-12 pb-24">
+      <!-- Stats Cards -->
+      <div class="px-6 mb-6">
+        <div class="bg-white rounded-3xl p-6 shadow-lg">
+          <div class="grid grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-gray-800 mb-1">87</div>
+              <div class="text-xs text-gray-500">練習天數</div>
+            </div>
+            <div class="text-center border-x border-gray-100">
+              <div class="text-2xl font-bold text-gray-800 mb-1">142</div>
+              <div class="text-xs text-gray-500">累積分鐘</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-gray-800 mb-1">12</div>
+              <div class="text-xs text-gray-500">完成課程</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Energy Chart -->
+      <div class="px-6 mb-6">
+        <div class="bg-white rounded-3xl p-6 shadow-lg">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-gray-800">能量曲線</h3>
+            <button class="text-blue-500 text-sm font-medium">本週</button>
+          </div>
+          
+          <!-- Simple Chart Visualization -->
+          <div class="h-40 flex items-end justify-between gap-2 mb-4">
+            <div class="flex-1 bg-gradient-to-t from-blue-400 to-blue-300 rounded-t-lg" style="height: 60%"></div>
+            <div class="flex-1 bg-gradient-to-t from-blue-400 to-blue-300 rounded-t-lg" style="height: 75%"></div>
+            <div class="flex-1 bg-gradient-to-t from-blue-400 to-blue-300 rounded-t-lg" style="height: 55%"></div>
+            <div class="flex-1 bg-gradient-to-t from-blue-400 to-blue-300 rounded-t-lg" style="height: 80%"></div>
+            <div class="flex-1 bg-gradient-to-t from-blue-400 to-blue-300 rounded-t-lg" style="height: 70%"></div>
+            <div class="flex-1 bg-gradient-to-t from-purple-400 to-purple-300 rounded-t-lg" style="height: 85%"></div>
+            <div class="flex-1 bg-gradient-to-t from-green-400 to-green-300 rounded-t-lg" style="height: 90%"></div>
+          </div>
+          
+          <div class="flex items-center justify-between text-xs text-gray-400">
+            <span>一</span>
+            <span>二</span>
+            <span>三</span>
+            <span>四</span>
+            <span>五</span>
+            <span>六</span>
+            <span>日</span>
+          </div>
+
+          <div class="mt-4 p-3 bg-green-50 rounded-xl">
+            <p class="text-sm text-green-800">📈 本週能量提升 12%，持續保持！</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Five Realms Status -->
+      <div class="px-6 mb-6">
+        <div class="bg-white rounded-3xl p-6 shadow-lg">
+          <h3 class="font-bold text-gray-800 mb-4">五境狀態</h3>
+          <div class="space-y-3">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm text-gray-600">🧘 身體境</span>
+                <span class="text-sm font-bold text-blue-600">85%</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-400 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm text-gray-600">💭 情緒境</span>
+                <span class="text-sm font-bold text-purple-600">73%</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full bg-purple-400 rounded-full" style="width: 73%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm text-gray-600">🧠 心智境</span>
+                <span class="text-sm font-bold text-green-600">78%</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full bg-green-400 rounded-full" style="width: 78%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm text-gray-600">👥 人際境</span>
+                <span class="text-sm font-bold text-orange-600">68%</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full bg-orange-400 rounded-full" style="width: 68%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm text-gray-600">✨ 靈性境</span>
+                <span class="text-sm font-bold text-pink-600">81%</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full bg-pink-400 rounded-full" style="width: 81%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="px-6 mb-6">
+        <div class="bg-white rounded-3xl p-6 shadow-lg">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-gray-800">成就徽章</h3>
+            <button class="text-blue-500 text-sm font-medium">查看全部</button>
+          </div>
+          <div class="flex gap-3 overflow-x-auto hide-scrollbar">
+            <div class="flex-shrink-0 w-20 text-center">
+              <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl flex items-center justify-center mb-2 shadow-md">
+                <span class="text-3xl">🔥</span>
+              </div>
+              <p class="text-xs text-gray-600">7 天連續</p>
+            </div>
+            <div class="flex-shrink-0 w-20 text-center">
+              <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl flex items-center justify-center mb-2 shadow-md">
+                <span class="text-3xl">🌊</span>
+              </div>
+              <p class="text-xs text-gray-600">冥想達人</p>
+            </div>
+            <div class="flex-shrink-0 w-20 text-center">
+              <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-teal-400 rounded-2xl flex items-center justify-center mb-2 shadow-md">
+                <span class="text-3xl">🌱</span>
+              </div>
+              <p class="text-xs text-gray-600">初心者</p>
+            </div>
+            <div class="flex-shrink-0 w-20 text-center">
+              <div class="w-20 h-20 bg-gray-200 rounded-2xl flex items-center justify-center mb-2">
+                <i class="fas fa-lock text-gray-400 text-2xl"></i>
+              </div>
+              <p class="text-xs text-gray-400">未解鎖</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="px-6 mb-6">
+        <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+          <button onclick="navigate('product.html')" class="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-smooth active:bg-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-box text-purple-500"></i>
+              </div>
+              <span class="font-medium text-gray-800">我的產品</span>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400"></i>
+          </button>
+          <div class="border-t border-gray-100"></div>
+          <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-smooth active:bg-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-book text-blue-500"></i>
+              </div>
+              <span class="font-medium text-gray-800">我的課程</span>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400"></i>
+          </button>
+          <div class="border-t border-gray-100"></div>
+          <button class="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-smooth active:bg-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-heart text-green-500"></i>
+              </div>
+              <span class="font-medium text-gray-800">我的收藏</span>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white bottom-nav safe-area-bottom">
+      <div class="flex items-center justify-around py-3">
+        <button onclick="navigate('home.html')" class="flex flex-col items-center gap-1 text-gray-400">
+          <i class="fas fa-home text-xl"></i>
+          <span class="text-xs">首頁</span>
+        </button>
+        <button onclick="navigate('discover.html')" class="flex flex-col items-center gap-1 text-gray-400">
+          <i class="fas fa-compass text-xl"></i>
+          <span class="text-xs">探索</span>
+        </button>
+        <button onclick="navigate('ai-chat.html')" class="flex flex-col items-center gap-1 text-gray-400">
+          <i class="fas fa-comments text-xl"></i>
+          <span class="text-xs">AI</span>
+        </button>
+        <button onclick="navigate('player.html')" class="flex flex-col items-center gap-1 text-gray-400">
+          <i class="fas fa-play-circle text-xl"></i>
+          <span class="text-xs">播放</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-blue-500">
+          <i class="fas fa-user text-xl"></i>
+          <span class="text-xs font-medium">我的</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function navigate(page) {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'navigate', page: page }, '*');
+      } else {
+        window.location.href = page;
+      }
+    }
+  </script>
+</body>
+</html>
+
