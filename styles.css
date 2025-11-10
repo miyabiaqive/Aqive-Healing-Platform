@@ -39,6 +39,24 @@ body {
   position: relative;
 }
 
+/* Mobile: Full screen without container */
+@media (max-width: 768px) {
+  body {
+    background: #fff;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .phone-container {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
 /* Smooth transitions */
 .transition-smooth {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
