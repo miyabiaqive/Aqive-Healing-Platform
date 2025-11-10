@@ -10,178 +10,392 @@
 <body class="bg-gray-50">
   <div class="h-screen flex flex-col safe-area-top">
     <!-- Header -->
-    <div class="bg-gradient-to-br from-purple-500 to-pink-500 px-6 pt-6 pb-12 relative overflow-hidden">
+    <div id="headerSection" class="bg-gradient-to-br from-purple-500 to-pink-500 px-6 pt-6 pb-12 relative overflow-hidden">
       <div class="absolute top-0 right-0 w-40 h-40 bg-white opacity-10 rounded-full -mr-12 -mt-12 blob"></div>
       <div class="relative z-10">
         <button onclick="navigate('quiz-detail.html')" class="w-10 h-10 flex items-center justify-center mb-4">
           <i class="fas fa-arrow-left text-white text-xl"></i>
         </button>
         <h1 class="text-2xl font-bold text-white mb-2">為你推薦</h1>
-        <p class="text-purple-100 text-sm">基於你的能量狀態，這些內容可能對你有幫助</p>
+        <p class="text-purple-100 text-sm">基於你的覺察結果，這些內容可能對你有幫助</p>
       </div>
     </div>
 
     <!-- Content -->
-    <div class="flex-1 overflow-y-auto hide-scrollbar -mt-8 pb-32 px-6">
-      <!-- AI Insight Card -->
-      <div class="bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl p-6 shadow-xl mb-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-            <span class="text-2xl">🤖</span>
-          </div>
-          <div>
-            <h3 class="text-white font-bold">AI 覺察分析</h3>
-            <p class="text-blue-100 text-xs">根據你的五境狀態</p>
-          </div>
-        </div>
-        <div class="bg-white bg-opacity-20 rounded-2xl p-4 backdrop-blur-sm">
-          <p class="text-white text-sm leading-relaxed mb-3">
-            你的<strong>情緒境指數（68%）</strong>相對較低，顯示最近情緒有些波動。建議優先關注情緒覺察與釋放，學習與自己的感受溫柔相處。
-          </p>
-          <p class="text-blue-100 text-xs">
-            好消息是，你的身體境（85%）和靈性境（81%）都很不錯，這是很好的修復基礎！
-          </p>
-        </div>
-      </div>
-
-      <!-- Quick Action -->
-      <div class="mb-6">
-        <h3 class="text-lg font-bold text-gray-800 mb-3">🎯 立即開始</h3>
-        <button onclick="navigate('breath.html')" class="w-full bg-gradient-to-br from-teal-400 to-blue-500 rounded-2xl p-6 text-left shadow-lg transition-smooth hover:shadow-xl active:scale-95 mb-3">
-          <div class="flex items-center gap-4">
-            <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-              <span class="text-3xl">🌬️</span>
-            </div>
-            <div class="flex-1">
-              <h4 class="text-white font-bold text-lg mb-1">3 分鐘呼吸練習</h4>
-              <p class="text-teal-100 text-sm mb-2">快速平穩情緒，回到當下</p>
-              <div class="inline-flex items-center gap-2 px-3 py-1 bg-white bg-opacity-20 rounded-full backdrop-blur-sm">
-                <i class="fas fa-lightbulb text-yellow-300 text-xs"></i>
-                <span class="text-white text-xs font-medium">最推薦給你</span>
-              </div>
-            </div>
-            <i class="fas fa-arrow-right text-white text-2xl"></i>
-          </div>
-        </button>
-
-        <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4">
-          <div class="flex items-start gap-3">
-            <i class="fas fa-info-circle text-blue-500 text-lg mt-1"></i>
-            <div>
-              <h4 class="font-bold text-blue-800 text-sm mb-1">為什麼推薦給你？</h4>
-              <p class="text-blue-700 text-xs leading-relaxed">
-                呼吸練習是調節情緒最直接有效的方法。透過專注呼吸，你可以快速啟動副交感神經系統，讓身心回到平靜狀態。對於情緒波動較大的狀態特別有幫助。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Recommended Content -->
-      <div class="mb-6">
-        <h3 class="text-lg font-bold text-gray-800 mb-3">📚 推薦閱讀</h3>
-        <div class="bg-white rounded-2xl p-5 shadow-lg mb-3">
-          <div class="flex gap-4">
-            <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center flex-shrink-0">
-              <span class="text-3xl">📖</span>
-            </div>
-            <div class="flex-1">
-              <span class="px-2 py-1 bg-purple-100 text-purple-600 rounded text-xs font-medium">3 分鐘閱讀</span>
-              <h4 class="font-bold text-gray-800 text-sm mt-2 mb-1">情緒不是敵人，是訊息</h4>
-              <p class="text-gray-600 text-xs mb-2">了解情緒背後的需求</p>
-              <button class="text-purple-600 text-xs font-medium">
-                開始閱讀 <i class="fas fa-arrow-right ml-1"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-4">
-          <div class="flex items-start gap-3">
-            <i class="fas fa-star text-purple-500 text-lg mt-1"></i>
-            <div>
-              <h4 class="font-bold text-purple-800 text-sm mb-1">為什麼推薦這篇？</h4>
-              <p class="text-purple-700 text-xs leading-relaxed">
-                這篇文章能幫助你重新理解情緒。當情緒境偏低時，往往是因為我們在抗拒或壓抑情緒。學會接納情緒，是提升情緒境的第一步。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Recommended Course -->
-      <div class="mb-6">
-        <h3 class="text-lg font-bold text-gray-800 mb-3">🎓 推薦課程</h3>
-        <div onclick="navigate('course-detail.html')" class="bg-white rounded-2xl overflow-hidden shadow-lg transition-smooth hover:shadow-xl active:scale-95">
-          <div class="h-32 bg-gradient-to-br from-green-400 to-teal-400 flex items-center justify-center">
-            <span class="text-6xl">💚</span>
-          </div>
-          <div class="p-5">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 bg-green-100 text-green-600 rounded text-xs font-medium">情緒療癒</span>
-              <span class="px-2 py-1 bg-orange-100 text-orange-600 rounded text-xs font-medium">7 天計畫</span>
-            </div>
-            <h4 class="font-bold text-gray-800 text-lg mb-2">情緒釋放工作坊</h4>
-            <p class="text-gray-600 text-sm mb-3">由陳心怡療癒師帶領，深入探索並釋放累積的情緒能量</p>
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3 text-xs text-gray-400">
-                <span><i class="fas fa-clock mr-1"></i>60 分鐘</span>
-                <span><i class="fas fa-users mr-1"></i>234 人</span>
-              </div>
-              <div class="flex items-center gap-1">
-                <i class="fas fa-star text-yellow-400 text-sm"></i>
-                <span class="text-sm font-bold text-gray-700">4.8</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-3 bg-green-50 border-2 border-green-200 rounded-2xl p-4">
-          <div class="flex items-start gap-3">
-            <i class="fas fa-graduation-cap text-green-500 text-lg mt-1"></i>
-            <div>
-              <h4 class="font-bold text-green-800 text-sm mb-1">為什麼推薦這堂課？</h4>
-              <p class="text-green-700 text-xs leading-relaxed">
-                這是進階的情緒修復課程。如果你準備好更深入地工作，這堂課會帶你系統性地理解和轉化情緒模式，對長期提升情緒境很有幫助。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- AI Companion -->
-      <div class="mb-6">
-        <h3 class="text-lg font-bold text-gray-800 mb-3">💬 隨時陪伴</h3>
-        <button onclick="navigate('ai-chat.html')" class="w-full bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl p-6 text-left shadow-lg transition-smooth hover:shadow-xl active:scale-95">
-          <div class="flex items-center gap-4">
-            <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-              <span class="text-3xl">✨</span>
-            </div>
-            <div class="flex-1">
-              <h4 class="text-white font-bold text-lg mb-1">和 AI 聊聊</h4>
-              <p class="text-purple-100 text-sm">隨時傾訴你的感受，我會陪伴你</p>
-            </div>
-            <i class="fas fa-arrow-right text-white text-2xl"></i>
-          </div>
-        </button>
-      </div>
-
-      <!-- Bottom Actions -->
-      <div class="bg-white rounded-2xl p-6 shadow-lg mb-6">
-        <h3 class="font-bold text-gray-800 mb-3">🎯 接下來...</h3>
-        <div class="space-y-3">
-          <button onclick="navigate('home.html')" class="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-bold shadow-md transition-smooth hover:scale-105 active:scale-95">
-            開始我的療癒之旅
-          </button>
-          <button onclick="navigate('quiz-detail.html')" class="w-full py-3 bg-gray-100 text-gray-700 rounded-xl font-medium transition-smooth hover:bg-gray-200 active:scale-95">
-            再看一次完整報告
-          </button>
-        </div>
-      </div>
-    </div>
+    <div class="flex-1 overflow-y-auto hide-scrollbar -mt-8 pb-32 px-6" id="contentSection"></div>
   </div>
 
   <script>
+    // 能量模式定義與推薦邏輯
+    const energyPatterns = {
+      mental_overload: {
+        name: '頭腦過載型',
+        emoji: '🧠',
+        description: '你的頭腦長期處於高速運轉狀態，思緒不斷，很難真正放鬆。這可能是長期壓抑情緒或過度理性思考的結果。',
+        insight: '過度理性常常是情緒麻木的表現。當我們習慣用思考來控制一切，身體的訊號就被忽略了。',
+        primary: {
+          type: 'practice',
+          title: '撓境身體覺察',
+          subtitle: '6 分鐘回到身體',
+          emoji: '🌬️',
+          color: 'from-teal-400 to-blue-500',
+          description: '透過氣機的撓場共振，讓過度活躍的頭腦安靜下來，重新連結身體感知',
+          reason: '頭腦過載時，最需要的不是更多思考，而是回到身體。撓境能幫助你透過身體覺察，釋放累積的緊繃。',
+          link: 'breath.html'
+        },
+        reading: {
+          title: '過度理性是情緒麻木的表現',
+          time: '3 分鐘閱讀',
+          reason: '這篇文章會幫助你理解：為什麼越聰明的人，越容易與自己的感受失聯。'
+        },
+        course: {
+          title: '身心放鬆深度課程',
+          teacher: '李靜老師',
+          duration: '4 週計畫',
+          students: 328,
+          rating: 4.9,
+          reason: '系統性地學習如何從頭腦回到身體，建立真正的放鬆能力。'
+        }
+      },
+      nervous_arousal: {
+        name: '神經亢奮型',
+        emoji: '⚡',
+        description: '你的神經系統處於長期警戒狀態，容易焦慮、失眠，難以真正平靜下來。身體記住了壓力，即使理性上知道該放鬆了。',
+        insight: '焦慮不是你的問題，是神經系統需要被安撫。它一直在保護你，現在需要告訴它：你是安全的。',
+        primary: {
+          type: 'practice',
+          title: '安撫神經系統呼吸法',
+          subtitle: '5 分鐘找回平靜',
+          emoji: '🌊',
+          color: 'from-blue-400 to-purple-500',
+          description: '特別設計的呼吸節奏，幫助過度活躍的神經系統重新校準，找回內在的平靜',
+          reason: '當神經系統長期亢奮，最有效的方式是透過呼吸調節。這個練習能直接作用於迷走神經，啟動放鬆反應。',
+          link: 'breath.html'
+        },
+        reading: {
+          title: '你的焦慮，其實是身體在說話',
+          time: '4 分鐘閱讀',
+          reason: '了解焦慮背後的生理機制，幫助你與焦慮和平共處。'
+        },
+        course: {
+          title: '深度睡眠修復計畫',
+          teacher: '陳心怡療癒師',
+          duration: '21 天',
+          students: 567,
+          rating: 4.8,
+          reason: '系統性改善睡眠品質，讓神經系統得到真正的休息。'
+        }
+      },
+      energy_depleted: {
+        name: '能量耗竭型',
+        emoji: '🔋',
+        description: '長期的付出與消耗，讓你的能量儲備見底。你感到疲倦、沒動力，對生活失去熱情。這不是懶惰，是身心在呼救。',
+        insight: '空虛和疲倦，是靈魂在提醒你：該回來照顧自己了。你已經很久沒有為自己做些什麼了。',
+        primary: {
+          type: 'practice',
+          title: '能量補充冥想',
+          subtitle: '10 分鐘重新充電',
+          emoji: '✨',
+          color: 'from-yellow-400 to-orange-400',
+          description: '透過撓氣源寶的能量共振，配合引導冥想，幫助你重新連結內在的生命力',
+          reason: '當能量耗竭時，不是要你做更多，而是要學會接收。這個練習會幫助你打開接收的管道。',
+          link: 'player.html'
+        },
+        reading: {
+          title: '允許自己休息，不是軟弱',
+          time: '3 分鐘閱讀',
+          reason: '重新定義「休息」的意義，學會不帶罪惡感地照顧自己。'
+        },
+        course: {
+          title: '自我滋養 7 日計畫',
+          teacher: '王美玲老師',
+          duration: '7 天',
+          students: 892,
+          rating: 4.9,
+          reason: '每天一個簡單的自我照顧儀式，重建你與自己的連結。'
+        }
+      },
+      external_entanglement: {
+        name: '外部糾結型',
+        emoji: '🌀',
+        description: '你常常感覺被他人的期待與需求綁住，在關係中失去自己。想要好好照顧自己，卻總是顧慮太多。',
+        insight: '你不需要為所有人負責。建立健康的界限，不是自私，是自愛。',
+        primary: {
+          type: 'practice',
+          title: '界限覺察練習',
+          subtitle: '8 分鐘回到中心',
+          emoji: '🛡️',
+          color: 'from-green-400 to-teal-400',
+          description: '學習感知自己的能量邊界，練習溫柔而堅定地守護自己的空間',
+          reason: '當你常常感覺被他人消耗，最重要的是重新建立「我」的感知。這個練習會幫助你找回自己的中心。',
+          link: 'breath.html'
+        },
+        reading: {
+          title: '說不，是一種自我照顧',
+          time: '5 分鐘閱讀',
+          reason: '了解為什麼建立界限對你和他人都好。'
+        },
+        course: {
+          title: '關係中的自我覺察',
+          teacher: '陳心怡療癒師',
+          duration: '6 週',
+          students: 445,
+          rating: 4.7,
+          reason: '學習在關係中保持自己，不再過度付出或犧牲。'
+        }
+      },
+      inner_unfocused: {
+        name: '內在失焦型',
+        emoji: '🧭',
+        description: '你感到迷惘，不確定自己的方向。外在的目標很多，但內在卻空空的。你想重新開始，卻不知道從何下手。',
+        insight: '迷惘不是失敗，是靈魂在邀請你停下來，重新聆聽內在的聲音。答案一直都在你心裡。',
+        primary: {
+          type: 'practice',
+          title: '內在指引冥想',
+          subtitle: '12 分鐘連結直覺',
+          emoji: '🌟',
+          color: 'from-purple-400 to-pink-400',
+          description: '透過引導式冥想，連結你的內在智慧，讓答案自然浮現',
+          reason: '當你不知道往哪裡走時，最需要的不是外在的建議，而是重新連結你的內在羅盤。',
+          link: 'player.html'
+        },
+        reading: {
+          title: '迷惘是找到自己的必經之路',
+          time: '4 分鐘閱讀',
+          reason: '重新框架迷惘的意義，看見它的禮物。'
+        },
+        course: {
+          title: '生命藍圖覺察工作坊',
+          teacher: '李靜老師',
+          duration: '8 週',
+          students: 234,
+          rating: 4.8,
+          reason: '系統性地釐清你的價值觀、天賦與使命，找到專屬於你的道路。'
+        }
+      },
+      balanced: {
+        name: '相對平衡',
+        emoji: '☮️',
+        description: '你目前的狀態相對平衡，有一定的自我覺察能力。繼續保持規律的自我照顧，會越來越好。',
+        insight: '平衡不是終點，是一個持續的過程。繼續深化你的覺察，會發現更多可能性。',
+        primary: {
+          type: 'practice',
+          title: '深度覺察冥想',
+          subtitle: '15 分鐘進階練習',
+          emoji: '🧘',
+          color: 'from-blue-400 to-green-400',
+          description: '適合已有基礎的你，深入探索更細微的身心狀態',
+          reason: '你已經建立了很好的基礎，現在可以更深入地探索內在世界。',
+          link: 'player.html'
+        },
+        reading: {
+          title: '從覺察到轉化：下一階段的旅程',
+          time: '6 分鐘閱讀',
+          reason: '了解如何將覺察轉化為實際的生命改變。'
+        },
+        course: {
+          title: '進階心流修煉',
+          teacher: '李靜老師',
+          duration: '12 週',
+          students: 156,
+          rating: 4.9,
+          reason: '深化你的修行，探索意識的更深層次。'
+        }
+      }
+    };
+
+    function loadRecommendations() {
+      // 從 LocalStorage 讀取能量模式
+      const pattern = localStorage.getItem('aqive_energy_pattern') || 'balanced';
+      const config = energyPatterns[pattern];
+
+      const content = document.getElementById('contentSection');
+      
+      content.innerHTML = `
+        <!-- AI Insight Card -->
+        <div class="bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl p-6 shadow-xl mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+              <span class="text-2xl">${config.emoji}</span>
+            </div>
+            <div>
+              <h3 class="text-white font-bold">AI 覺察分析</h3>
+              <p class="text-blue-100 text-xs">你的能量型態：${config.name}</p>
+            </div>
+          </div>
+          <div class="bg-white bg-opacity-20 rounded-2xl p-4 backdrop-blur-sm mb-3">
+            <p class="text-white text-sm leading-relaxed">
+              ${config.description}
+            </p>
+          </div>
+          <div class="bg-white bg-opacity-10 rounded-xl p-3 backdrop-blur-sm">
+            <p class="text-blue-100 text-xs leading-relaxed">
+              💡 ${config.insight}
+            </p>
+          </div>
+        </div>
+
+        <!-- Primary Recommendation -->
+        <div class="mb-6">
+          <h3 class="text-lg font-bold text-gray-800 mb-3">🎯 最推薦給你</h3>
+          <button onclick="navigate('${config.primary.link}')" class="w-full bg-gradient-to-br ${config.primary.color} rounded-2xl p-6 text-left shadow-lg transition-smooth hover:shadow-xl active:scale-95 mb-3">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                <span class="text-3xl">${config.primary.emoji}</span>
+              </div>
+              <div class="flex-1">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-white bg-opacity-30 rounded-full backdrop-blur-sm mb-2">
+                  <i class="fas fa-star text-yellow-300 text-xs"></i>
+                  <span class="text-white text-xs font-medium">特別為你推薦</span>
+                </div>
+                <h4 class="text-white font-bold text-lg mb-1">${config.primary.title}</h4>
+                <p class="text-white text-opacity-80 text-sm">${config.primary.subtitle}</p>
+              </div>
+              <i class="fas fa-arrow-right text-white text-2xl"></i>
+            </div>
+            <p class="text-white text-opacity-90 text-sm mb-3">${config.primary.description}</p>
+          </button>
+
+          <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-lightbulb text-blue-500 text-lg mt-1"></i>
+              <div>
+                <h4 class="font-bold text-blue-800 text-sm mb-1">為什麼推薦給你？</h4>
+                <p class="text-blue-700 text-xs leading-relaxed">
+                  ${config.primary.reason}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reading Recommendation -->
+        <div class="mb-6">
+          <h3 class="text-lg font-bold text-gray-800 mb-3">📚 延伸閱讀</h3>
+          <div class="bg-white rounded-2xl p-5 shadow-lg mb-3">
+            <div class="flex gap-4">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="text-3xl">📖</span>
+              </div>
+              <div class="flex-1">
+                <span class="px-2 py-1 bg-purple-100 text-purple-600 rounded text-xs font-medium">${config.reading.time}</span>
+                <h4 class="font-bold text-gray-800 text-sm mt-2 mb-1">${config.reading.title}</h4>
+                <button class="text-purple-600 text-xs font-medium mt-2">
+                  開始閱讀 <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-4">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-book-open text-purple-500 text-lg mt-1"></i>
+              <div>
+                <h4 class="font-bold text-purple-800 text-sm mb-1">為什麼推薦這篇？</h4>
+                <p class="text-purple-700 text-xs leading-relaxed">
+                  ${config.reading.reason}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Recommendation -->
+        <div class="mb-6">
+          <h3 class="text-lg font-bold text-gray-800 mb-3">🎓 深度學習</h3>
+          <div onclick="navigate('course-detail.html')" class="bg-white rounded-2xl overflow-hidden shadow-lg transition-smooth hover:shadow-xl active:scale-95 mb-3">
+            <div class="h-32 bg-gradient-to-br from-green-400 to-teal-400 flex items-center justify-center">
+              <span class="text-6xl">💚</span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2 py-1 bg-green-100 text-green-600 rounded text-xs font-medium">進階課程</span>
+                <span class="px-2 py-1 bg-orange-100 text-orange-600 rounded text-xs font-medium">${config.course.duration}</span>
+              </div>
+              <h4 class="font-bold text-gray-800 text-lg mb-2">${config.course.title}</h4>
+              <p class="text-gray-600 text-sm mb-3">由 ${config.course.teacher} 帶領</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3 text-xs text-gray-400">
+                  <span><i class="fas fa-users mr-1"></i>${config.course.students} 人</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <i class="fas fa-star text-yellow-400 text-sm"></i>
+                  <span class="text-sm font-bold text-gray-700">${config.course.rating}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-green-50 border-2 border-green-200 rounded-2xl p-4">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-graduation-cap text-green-500 text-lg mt-1"></i>
+              <div>
+                <h4 class="font-bold text-green-800 text-sm mb-1">為什麼推薦這堂課？</h4>
+                <p class="text-green-700 text-xs leading-relaxed">
+                  ${config.course.reason}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Companion -->
+        <div class="mb-6">
+          <h3 class="text-lg font-bold text-gray-800 mb-3">💬 隨時陪伴</h3>
+          <button onclick="navigate('ai-chat.html')" class="w-full bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl p-6 text-left shadow-lg transition-smooth hover:shadow-xl active:scale-95">
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                <span class="text-3xl">✨</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-white font-bold text-lg mb-1">和 AI 聊聊</h4>
+                <p class="text-purple-100 text-sm">隨時傾訴你的感受，我會陪伴你</p>
+              </div>
+              <i class="fas fa-arrow-right text-white text-2xl"></i>
+            </div>
+          </button>
+        </div>
+
+        <!-- Bottom Actions -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg mb-6">
+          <h3 class="font-bold text-gray-800 mb-3">🎯 接下來...</h3>
+          <div class="space-y-3">
+            <button onclick="navigate('home.html')" class="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-bold shadow-md transition-smooth hover:scale-105 active:scale-95">
+              開始我的療癒之旅
+            </button>
+            <button onclick="navigate('quiz-detail.html')" class="w-full py-3 bg-gray-100 text-gray-700 rounded-xl font-medium transition-smooth hover:bg-gray-200 active:scale-95">
+              再看一次完整報告
+            </button>
+          </div>
+        </div>
+      `;
+
+      // 儲存已查看推薦
+      localStorage.setItem('aqive_first_recommendation_seen', 'true');
+      
+      // 儲存推薦數據（供後端分析）
+      saveRecommendationData(pattern, config);
+    }
+
+    function saveRecommendationData(pattern, config) {
+      const data = {
+        user_id: 'demo_user',
+        session_id: Date.now(),
+        energy_pattern: pattern,
+        pattern_name: config.name,
+        timestamp: new Date().toISOString(),
+        recommendations: {
+          primary: config.primary.title,
+          reading: config.reading.title,
+          course: config.course.title
+        }
+      };
+      
+      // 儲存到 LocalStorage（實際應發送到後端）
+      localStorage.setItem('aqive_last_recommendation', JSON.stringify(data));
+      console.log('Recommendation data saved:', data);
+    }
+
     function navigate(page) {
       if (window.parent !== window) {
         window.parent.postMessage({ type: 'navigate', page: page }, '*');
@@ -190,9 +404,8 @@
       }
     }
 
-    // 標記用戶已完成首次推薦流程
-    localStorage.setItem('aqive_first_recommendation_seen', 'true');
+    // 初始化載入
+    loadRecommendations();
   </script>
 </body>
 </html>
-

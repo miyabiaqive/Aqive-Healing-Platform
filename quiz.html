@@ -16,92 +16,207 @@
       </button>
       <div class="flex-1 mx-4">
         <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-          <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500" style="width: 40%"></div>
+          <div id="progressBar" class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500" style="width: 20%"></div>
         </div>
       </div>
-      <span class="text-sm font-medium text-gray-600">2/5</span>
+      <span id="stepIndicator" class="text-sm font-medium text-gray-600">1/5</span>
     </div>
 
-    <!-- Content -->
-    <div class="flex-1 flex flex-col px-6 py-8">
-      <!-- Question -->
-      <div class="mb-8">
-        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-medium">情緒境</span>
-        <h1 class="text-2xl font-bold text-gray-800 mt-4 mb-3">最近一週，你的情緒狀態如何？</h1>
-        <p class="text-gray-500 text-sm">選擇最符合你感受的選項</p>
-      </div>
-
-      <!-- Visual Character -->
-      <div class="flex justify-center mb-8">
-        <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blob flex items-center justify-center shadow-lg">
-          <span class="text-6xl">💭</span>
-        </div>
-      </div>
-
-      <!-- Options -->
-      <div class="space-y-3 mb-8">
-        <button class="w-full p-4 bg-white rounded-2xl text-left shadow-sm transition-smooth hover:shadow-md hover:scale-102 active:scale-98">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <span class="text-2xl">😊</span>
-            </div>
-            <div class="flex-1">
-              <h3 class="font-bold text-gray-800 text-sm mb-1">平靜穩定</h3>
-              <p class="text-gray-500 text-xs">大部分時間都感到平和</p>
-            </div>
-          </div>
-        </button>
-
-        <button class="w-full p-4 bg-white rounded-2xl text-left shadow-sm transition-smooth hover:shadow-md hover:scale-102 active:scale-98">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <span class="text-2xl">😌</span>
-            </div>
-            <div class="flex-1">
-              <h3 class="font-bold text-gray-800 text-sm mb-1">偶有起伏</h3>
-              <p class="text-gray-500 text-xs">有時平靜，有時焦慮</p>
-            </div>
-          </div>
-        </button>
-
-        <button class="w-full p-4 bg-white rounded-2xl text-left shadow-sm transition-smooth hover:shadow-md hover:scale-102 active:scale-98 border-2 border-purple-500">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <span class="text-2xl">😰</span>
-            </div>
-            <div class="flex-1">
-              <h3 class="font-bold text-gray-800 text-sm mb-1">經常焦慮</h3>
-              <p class="text-gray-500 text-xs">常感到緊張或不安</p>
-            </div>
-          </div>
-        </button>
-
-        <button class="w-full p-4 bg-white rounded-2xl text-left shadow-sm transition-smooth hover:shadow-md hover:scale-102 active:scale-98">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <span class="text-2xl">😔</span>
-            </div>
-            <div class="flex-1">
-              <h3 class="font-bold text-gray-800 text-sm mb-1">低落疲憊</h3>
-              <p class="text-gray-500 text-xs">感到沮喪或失去動力</p>
-            </div>
-          </div>
-        </button>
-      </div>
-
-      <!-- Actions -->
-      <div class="mt-auto">
-        <button onclick="navigate('quiz-result.html')" class="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold shadow-lg transition-smooth hover:scale-105 active:scale-95">
-          下一題
-        </button>
-        <button class="w-full py-3 text-gray-500 text-sm font-medium mt-3">
-          跳過此題
-        </button>
-      </div>
-    </div>
+    <!-- Content Container -->
+    <div id="questionContainer" class="flex-1 flex flex-col px-6 py-8"></div>
   </div>
 
   <script>
+    // 三層覺察架構問題庫
+    const questions = [
+      {
+        id: 1,
+        layer: '現象覺察',
+        tag: '身體訊號',
+        icon: '🧘',
+        color: 'from-blue-400 to-blue-500',
+        question: '這幾天，你的身體最常出現哪種訊號？',
+        subtitle: '選擇最貼近你感受的選項',
+        options: [
+          { emoji: '😴', title: '睡不好／失眠', value: 'sleep_issue', pattern: 'nervous_arousal' },
+          { emoji: '😫', title: '頭痛肩頸緊繃', value: 'tension', pattern: 'mental_overload' },
+          { emoji: '😮‍💨', title: '胸悶呼吸急促', value: 'breath_tight', pattern: 'nervous_arousal' },
+          { emoji: '😔', title: '疲倦沒動力', value: 'fatigue', pattern: 'energy_depleted' },
+          { emoji: '🤔', title: '身體還好，但心很累', value: 'mental_tired', pattern: 'mental_overload' }
+        ]
+      },
+      {
+        id: 2,
+        layer: '情境覺察',
+        tag: '壓力來源',
+        icon: '💼',
+        color: 'from-purple-400 to-pink-400',
+        question: '這段時間，讓你最焦慮的情境是哪一類？',
+        subtitle: '誠實地面對自己的感受',
+        options: [
+          { emoji: '🎯', title: '工作目標壓力', value: 'work_pressure', pattern: 'mental_overload' },
+          { emoji: '👨‍👩‍👧', title: '家庭關係緊張', value: 'family_stress', pattern: 'external_entanglement' },
+          { emoji: '💬', title: '人際溝通卡住', value: 'communication', pattern: 'external_entanglement' },
+          { emoji: '❓', title: '自我懷疑／方向迷惘', value: 'self_doubt', pattern: 'inner_unfocused' },
+          { emoji: '😌', title: '目前壓力還好', value: 'low_stress', pattern: 'balanced' }
+        ]
+      },
+      {
+        id: 3,
+        layer: '根源覺察',
+        tag: '內在狀態',
+        icon: '💭',
+        color: 'from-green-400 to-teal-400',
+        question: '當你獨處時，最常浮現的感受是？',
+        subtitle: '讓潛意識的聲音被聽見',
+        options: [
+          { emoji: '😰', title: '無法放鬆，腦袋停不下來', value: 'cant_relax', pattern: 'mental_overload' },
+          { emoji: '😤', title: '被期待綁住，喘不過氣', value: 'trapped', pattern: 'external_entanglement' },
+          { emoji: '😶', title: '空虛，不知道為何而做', value: 'empty', pattern: 'energy_depleted' },
+          { emoji: '😟', title: '對未來焦慮，缺乏安全感', value: 'anxious_future', pattern: 'nervous_arousal' },
+          { emoji: '🌱', title: '想重新開始但不知從何下手', value: 'restart', pattern: 'inner_unfocused' }
+        ]
+      },
+      {
+        id: 4,
+        layer: '放鬆意象',
+        tag: '深層需求',
+        icon: '🌊',
+        color: 'from-orange-400 to-yellow-400',
+        question: '當你想到「放鬆」時，腦中第一個畫面是？',
+        subtitle: '跟隨直覺選擇',
+        options: [
+          { emoji: '😴', title: '睡覺／休息', value: 'sleep', pattern: 'energy_depleted' },
+          { emoji: '✈️', title: '旅行／換個環境', value: 'travel', pattern: 'external_entanglement' },
+          { emoji: '📵', title: '關掉手機／斷開連結', value: 'disconnect', pattern: 'mental_overload' },
+          { emoji: '🧘', title: '靜坐／冥想', value: 'meditation', pattern: 'balanced' },
+          { emoji: '😞', title: '沒辦法放鬆', value: 'cant_relax_visual', pattern: 'nervous_arousal' }
+        ]
+      },
+      {
+        id: 5,
+        layer: '療癒意圖',
+        tag: '行動期待',
+        icon: '✨',
+        color: 'from-pink-400 to-purple-400',
+        question: '如果有一個聲音能幫你回來，你希望它幫你做什麼？',
+        subtitle: '這是你內在最深的渴望',
+        options: [
+          { emoji: '🤫', title: '讓我靜下來', value: 'calm_down', pattern: 'nervous_arousal' },
+          { emoji: '🧭', title: '幫我釐清方向', value: 'find_direction', pattern: 'inner_unfocused' },
+          { emoji: '🌬️', title: '提醒我還在呼吸', value: 'breathe', pattern: 'mental_overload' },
+          { emoji: '💗', title: '讓我重新感覺到自己', value: 'feel_self', pattern: 'energy_depleted' },
+          { emoji: '🛡️', title: '幫我建立界限', value: 'boundaries', pattern: 'external_entanglement' }
+        ]
+      }
+    ];
+
+    let currentQuestion = 0;
+    let responses = {};
+    let patternScores = {
+      mental_overload: 0,     // 頭腦過載型
+      nervous_arousal: 0,     // 神經亢奮型
+      energy_depleted: 0,     // 能量耗竭型
+      external_entanglement: 0, // 外部糾結型
+      inner_unfocused: 0,     // 內在失焦型
+      balanced: 0             // 平衡型
+    };
+
+    function renderQuestion() {
+      const q = questions[currentQuestion];
+      const container = document.getElementById('questionContainer');
+      
+      container.innerHTML = `
+        <!-- Question -->
+        <div class="mb-6">
+          <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-medium">${q.layer} · ${q.tag}</span>
+          <h1 class="text-2xl font-bold text-gray-800 mt-4 mb-2">${q.question}</h1>
+          <p class="text-gray-500 text-sm">${q.subtitle}</p>
+        </div>
+
+        <!-- Visual -->
+        <div class="flex justify-center mb-6">
+          <div class="w-28 h-28 bg-gradient-to-br ${q.color} rounded-full blob flex items-center justify-center shadow-lg">
+            <span class="text-6xl">${q.icon}</span>
+          </div>
+        </div>
+
+        <!-- Options -->
+        <div class="space-y-3 mb-6 flex-1 overflow-y-auto">
+          ${q.options.map((opt, idx) => `
+            <button onclick="selectOption(${idx})" class="option-btn w-full p-4 bg-white rounded-2xl text-left shadow-sm transition-smooth hover:shadow-md hover:scale-102 active:scale-98">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span class="text-2xl">${opt.emoji}</span>
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-bold text-gray-800 text-sm">${opt.title}</h3>
+                </div>
+              </div>
+            </button>
+          `).join('')}
+        </div>
+
+        <!-- Navigation Hint -->
+        <div class="text-center text-gray-400 text-xs">
+          選擇一個選項後自動進入下一題
+        </div>
+      `;
+    }
+
+    function selectOption(optionIndex) {
+      const q = questions[currentQuestion];
+      const selected = q.options[optionIndex];
+      
+      // 記錄回答
+      responses[`q${q.id}`] = {
+        question: q.question,
+        answer: selected.title,
+        value: selected.value,
+        pattern: selected.pattern
+      };
+      
+      // 累積模式分數
+      patternScores[selected.pattern]++;
+      
+      // 視覺反饋
+      const buttons = document.querySelectorAll('.option-btn');
+      buttons[optionIndex].classList.add('border-2', 'border-purple-500');
+      
+      // 短暫延遲後進入下一題
+      setTimeout(() => {
+        currentQuestion++;
+        
+        if (currentQuestion < questions.length) {
+          updateProgress();
+          renderQuestion();
+        } else {
+          completeQuiz();
+        }
+      }, 300);
+    }
+
+    function updateProgress() {
+      const progress = ((currentQuestion + 1) / questions.length) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+      document.getElementById('stepIndicator').textContent = `${currentQuestion + 1}/${questions.length}`;
+    }
+
+    function completeQuiz() {
+      // 判定主要能量模式
+      const dominantPattern = Object.keys(patternScores).reduce((a, b) => 
+        patternScores[a] > patternScores[b] ? a : b
+      );
+      
+      // 儲存結果
+      localStorage.setItem('aqive_quiz_responses', JSON.stringify(responses));
+      localStorage.setItem('aqive_energy_pattern', dominantPattern);
+      localStorage.setItem('aqive_pattern_scores', JSON.stringify(patternScores));
+      
+      // 進入結果頁
+      navigate('quiz-result.html');
+    }
+
     function navigate(page) {
       if (window.parent !== window) {
         window.parent.postMessage({ type: 'navigate', page: page }, '*');
@@ -109,6 +224,9 @@
         window.location.href = page;
       }
     }
+
+    // 初始化
+    renderQuestion();
   </script>
 </body>
 </html>
