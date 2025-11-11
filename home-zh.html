@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="mountain-bg min-h-screen pb-24">
+    
+    <!-- Header -->
+    <div class="p-6 pt-16">
+        <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-2xl">
+                    😊
+                </div>
+                <div>
+                    <p class="text-white/70 text-sm">午安，</p>
+                    <h1 class="text-white text-2xl font-semibold">雅婷</h1>
+                </div>
+            </div>
+            <button onclick="navigate('settings-zh.html')" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+                <i class="fas fa-cog text-white"></i>
+            </button>
+        </div>
+
+        <!-- Mood Check-in -->
+        <button onclick="navigate('mood-checkin-zh.html')" class="w-full glass-card rounded-3xl p-6 flex items-center gap-4 transition-smooth hover:scale-105">
+            <span class="text-4xl">😊</span>
+            <span class="text-white text-lg font-medium">今天感覺如何？</span>
+        </button>
+    </div>
+
+    <!-- Recently Played -->
+    <div class="px-6 mt-8">
+        <h2 class="text-white text-xl font-semibold mb-4">最近播放</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div onclick="navigate('player-zh.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-white text-xs">冥想</span>
+                    <h3 class="font-semibold text-white mt-2">每日平靜</h3>
+                    <p class="text-white/80 text-sm">10 分鐘</p>
+                </div>
+            </div>
+            <div onclick="navigate('player-zh.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-white text-xs">睡眠</span>
+                    <h3 class="font-semibold text-white mt-2">保持愉悅</h3>
+                    <p class="text-white/80 text-sm">10 分鐘</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your Favorites -->
+    <div class="px-6 mt-8">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-white text-xl font-semibold">我的最愛</h2>
+            <button class="w-8 h-8 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+                <i class="fas fa-search text-white text-sm"></i>
+            </button>
+        </div>
+        <div class="space-y-3">
+            <div onclick="navigate('player-zh.html')" class="glass-card rounded-2xl p-4 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=100&h=100&fit=crop" class="w-16 h-16 rounded-xl object-cover">
+                <div class="flex-1">
+                    <h3 class="text-white font-medium">海洋之聲</h3>
+                    <p class="text-white/60 text-sm">音樂 • 10 分鐘</p>
+                </div>
+                <i class="fas fa-heart text-pink-400"></i>
+            </div>
+            <div onclick="navigate('player-zh.html')" class="glass-card rounded-2xl p-4 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=100&h=100&fit=crop" class="w-16 h-16 rounded-xl object-cover">
+                <div class="flex-1">
+                    <h3 class="text-white font-medium">晨間能量</h3>
+                    <p class="text-white/60 text-sm">冥想 • 5 分鐘</p>
+                </div>
+                <i class="fas fa-heart text-pink-400"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="flex justify-around items-center px-6">
+            <a href="#" onclick="navigate('home-zh.html'); return false" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>首頁</span>
+            </a>
+            <a href="#" onclick="navigate('discover-zh.html'); return false" class="nav-item">
+                <i class="fas fa-compass"></i>
+                <span>探索</span>
+            </a>
+            <a href="#" onclick="navigate('ai-chat-zh.html'); return false" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>AI 陪伴</span>
+            </a>
+            <a href="#" onclick="navigate('profile-zh.html'); return false" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function navigate(page) {
+            parent.postMessage({ action: 'navigate', page: page }, '*');
+        }
+    </script>
+</body>
+</html>
+

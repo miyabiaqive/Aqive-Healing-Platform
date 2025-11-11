@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white min-h-screen">
+    
+    <!-- Hero Image -->
+    <div class="relative h-64">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <button onclick="navigate('discover.html')" class="absolute top-16 left-6 w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-arrow-left text-white"></i>
+        </button>
+        <button class="absolute top-16 right-6 w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-heart text-white"></i>
+        </button>
+    </div>
+
+    <!-- Content -->
+    <div class="p-6">
+        <!-- Title & Teacher -->
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Mindful Morning</h1>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-blue-400"></div>
+                <div>
+                    <p class="font-medium text-gray-900">Sarah Chen</p>
+                    <p class="text-gray-600 text-sm">Mindfulness Teacher</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 text-sm text-gray-600">
+                <div class="flex items-center gap-1">
+                    <i class="fas fa-star text-yellow-500"></i>
+                    <span class="font-medium">4.9</span>
+                    <span>(2.1k)</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <i class="fas fa-users"></i>
+                    <span>5.2k students</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-3">About this course</h2>
+            <p class="text-gray-600 leading-relaxed">
+                Start your day with clarity and calm. This 5-session course teaches you practical mindfulness techniques to cultivate awareness and reduce morning anxiety.
+            </p>
+        </div>
+
+        <!-- Sessions -->
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-3">Sessions</h2>
+            <div class="space-y-3">
+                <div onclick="navigate('player.html')" class="bg-gray-50 rounded-2xl p-4 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-play text-purple-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-900">Session 1: Introduction</h3>
+                        <p class="text-gray-600 text-sm">8 min</p>
+                    </div>
+                    <i class="fas fa-lock text-gray-300"></i>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-4 flex items-center gap-4 opacity-60">
+                    <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-play text-gray-400"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-900">Session 2: Body Scan</h3>
+                        <p class="text-gray-600 text-sm">10 min</p>
+                    </div>
+                    <i class="fas fa-lock text-gray-400"></i>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-4 flex items-center gap-4 opacity-60">
+                    <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-play text-gray-400"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-900">Session 3: Breath Awareness</h3>
+                        <p class="text-gray-600 text-sm">12 min</p>
+                    </div>
+                    <i class="fas fa-lock text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="fixed bottom-0 left-0 right-0 p-6 bg-white border-t border-gray-200">
+        <button onclick="navigate('player.html')" class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full py-4 font-semibold text-lg shadow-lg">
+            Start Learning
+        </button>
+    </div>
+
+    <script>
+        function navigate(page) {
+            parent.postMessage({ action: 'navigate', page: page }, '*');
+        }
+    </script>
+</body>
+</html>
+
