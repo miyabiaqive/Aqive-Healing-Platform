@@ -1,218 +1,265 @@
 # Aqive Healing Platform - 高保真原型
 
-## 📱 專案概述
+專業壓力管理與能量平衡平台的雙版本原型設計
 
-這是 Aqive Healing Platform 的高保真 HTML 原型，基於 PRD v1.4 設計，呈現完整的用戶體驗流程。
+## 🌐 線上訪問
 
-### 設計特色
-- ✨ 可愛友善的角色感元素
-- 🎨 現代化 UI 設計，符合 iPhone 15 Pro 螢幕比例（393 x 852）
-- 🌈 柔和漸層色彩與流暢動效
-- 📱 完整的手機端交互體驗
-- 🎯 符合身心靈療癒平台的溫暖氛圍
+### 版本選擇頁面
+**https://miyabiaqive.github.io/Aqive-Healing-Platform/**
 
-## 🗂️ 頁面結構
-
-### 主要頁面
-1. **index.html** - 主入口（iPhone 容器）
-2. **home.html** - 首頁/Dashboard
-3. **discover.html** - 探索頁面
-4. **ai-chat.html** - AI 對話陪伴
-5. **player.html** - 冥想音頻播放器
-6. **profile.html** - 個人檔案
-
-### 功能頁面
-7. **course-detail.html** - 課程詳情
-8. **quiz.html** - 能量測驗問卷
-9. **quiz-result.html** - 測驗結果（過渡頁）
-10. **quiz-detail.html** - 五境詳細分析
-11. **product.html** - 我的產品列表
-12. **product-activate.html** - 產品能量同步
-13. **breath.html** - 呼吸練習
-
-### 樣式文件
-14. **styles.css** - 自定義樣式
-
-## 🚀 快速開始
-
-### 方法一：本地開啟
-1. 在瀏覽器中打開 `index.html`
-2. 即可在 iPhone 容器中瀏覽所有頁面
-
-### 方法二：直接瀏覽單頁
-直接在瀏覽器打開任何 HTML 頁面（如 `home.html`）即可單獨預覽
-
-## 🎨 技術架構
-
-### 技術棧
-- **HTML5** - 語義化標籤
-- **Tailwind CSS** - 快速樣式開發（CDN）
-- **Font Awesome 6** - 圖標庫（CDN）
-- **Vanilla JavaScript** - 輕量級交互
-
-### 設計規範
-- **配色方案**：
-  - 主色：`#D7E6E3`（柔和青綠）
-  - 次色：`#C8B6E2`（能量紫）
-  - 強調色：`#F5E6CC`（金光）
-- **字體**：系統字體 + Noto Sans TC
-- **圓角**：2xl (16px) 至 3xl (24px)
-- **陰影**：柔和多層次
-
-## 📐 頁面導航關係
-
-```
-index.html (主容器)
-│
-├─ home.html (首頁)
-│  ├─ player.html (冥想播放)
-│  ├─ ai-chat.html (AI 對話)
-│  ├─ breath.html (呼吸練習)
-│  ├─ quiz.html → quiz-result.html → quiz-detail.html
-│  ├─ course-detail.html
-│  └─ product.html → product-activate.html
-│
-├─ discover.html (探索)
-│  └─ course-detail.html
-│
-├─ ai-chat.html (AI)
-│
-├─ player.html (播放器)
-│
-└─ profile.html (個人)
-   ├─ product.html
-   └─ (我的課程、收藏等)
-```
-
-## 🎯 核心功能展示
-
-### 1. 今日頻率與快速行動（home.html）
-- 每日能量狀態展示
-- 快速啟動冥想、AI 對話、呼吸練習
-- 個人化推薦課程
-
-### 2. AI 陪伴對話（ai-chat.html）
-- 對話式介面
-- 快速話題按鈕
-- 抽卡功能展示
-- 行動建議卡片
-
-### 3. 冥想音頻播放（player.html）
-- 全螢幕沉浸式播放器
-- 進度控制
-- 播放列表預覽
-
-### 4. 五境能量測驗（quiz.html 系列）
-- 問卷流程
-- 生成動畫
-- 五境詳細分析（身體/情緒/心智/人際/靈性）
-
-### 5. 產品能量同步（product.html 系列）
-- 產品列表與狀態
-- 啟動儀式動畫
-- 使用記錄追蹤
-
-### 6. 呼吸練習（breath.html）
-- 視覺引導呼吸
-- 4-2-6 呼吸法
-- 進度追蹤
-
-## 💡 互動亮點
-
-1. **柔和動畫**：
-   - Blob 形狀變形（`@keyframes morph`）
-   - 能量光暈效果（`energy-glow`）
-   - 平滑過渡（`transition-smooth`）
-
-2. **友善角色**：
-   - Emoji 作為視覺角色
-   - 圓潤的卡片設計
-   - 明亮漸層色彩
-
-3. **引導式體驗**：
-   - 清晰的操作指引
-   - 進度條反饋
-   - 完成成就感
-
-## 📱 響應式設計
-
-- iPhone 15 Pro 比例（393 x 852）
-- Safe Area 處理
-- 適配瀏海屏幕
-- 底部導航避讓
-
-## 🎨 轉為 Figma 說明
-
-### 建議流程
-1. 使用 Figma 的 "Import from HTML" 插件
-2. 或使用截圖後在 Figma 中重建
-3. 所有尺寸、間距、顏色都已標準化，便於重建
-
-### 設計 Token
-```css
-/* 間距系統 */
-gap-2: 8px
-gap-3: 12px
-gap-4: 16px
-gap-6: 24px
-
-/* 圓角系統 */
-rounded-xl: 12px
-rounded-2xl: 16px
-rounded-3xl: 24px
-rounded-full: 9999px
-
-/* 陰影系統 */
-shadow-sm: 0 1px 2px rgba(0,0,0,0.05)
-shadow-md: 0 4px 6px rgba(0,0,0,0.1)
-shadow-lg: 0 10px 15px rgba(0,0,0,0.1)
-shadow-xl: 0 20px 25px rgba(0,0,0,0.1)
-```
-
-## 🔧 自定義與擴展
-
-### 修改顏色
-在 `styles.css` 的 `:root` 中修改 CSS 變數：
-```css
-:root {
-  --primary: #D7E6E3;
-  --secondary: #C8B6E2;
-  --accent: #F5E6CC;
-}
-```
-
-### 新增頁面
-1. 複製任一現有頁面
-2. 修改內容
-3. 確保包含 `navigate()` 函數
-4. 在相關頁面加入導航按鈕
-
-## 📊 頁面統計
-
-- 總頁面數：13 頁
-- 總行數：約 3,500 行
-- 使用 Token：優化後約 50,000 tokens
-- 開發時間：完整流程設計
-
-## 🎯 下一步建議
-
-1. **整合真實數據**：串接後端 API
-2. **動畫優化**：加入 Lottie 或 Spline 3D
-3. **互動增強**：觸覺反饋（Haptic Feedback）
-4. **多語言支持**：i18n 系統
-5. **暗黑模式**：依據 PRD 需求實作
-
-## 👥 目標用戶體驗
-
-✅ **輕鬆** - 介面友善，一看就懂  
-✅ **有趣** - 角色元素讓療癒變得可愛  
-✅ **專業** - 五境模型完整呈現  
-✅ **安心** - 柔和色彩與引導流程  
-✅ **成就** - 進度追蹤與徽章系統
+### 直接訪問各版本
+- **V1.0**: https://miyabiaqive.github.io/Aqive-Healing-Platform/p1/
+- **V2.0**: https://miyabiaqive.github.io/Aqive-Healing-Platform/p2/
 
 ---
 
-**設計與開發**：Aqive CDO  
-**版本**：v1.0  
-**日期**：2025-11-10
+## 📦 專案結構
+
+```
+Aqive-Healing-Platform/
+├── index.html          # 版本選擇入口頁面
+├── p1/                 # Version 1.0 原型
+│   ├── index.html      # V1.0 入口
+│   ├── README.md       # V1.0 說明文件
+│   └── ...             # 21 個原型頁面
+└── p2/                 # Version 2.0 原型
+    ├── index.html      # V2.0 入口
+    ├── README.md       # V2.0 說明文件
+    └── ...             # 24 個原型頁面
+```
+
+---
+
+## 🎨 版本對比
+
+### Version 1.0 - 三層覺察架構版本
+
+#### 核心特色
+- ✅ **三層覺察架構**: 平衡理性、潛意識觸發與行動導向分類
+- ✅ **五種能量類型**: 心智過載、神經緊繃、能量耗竭、外部纏繞、內在渙散
+- ✅ **對話式問卷**: 5 個核心問題引導（現象、情境、根源、意象、覺察）
+- ✅ **智慧推薦系統**: 根據能量類型推薦內容與課程
+
+#### 視覺設計
+- **風格**: 可愛友善、溫暖親近
+- **色調**: 柔和青綠 `#D7E6E3`、能量紫 `#C8B6E2`、金光 `#F5E6CC`
+- **氛圍**: 放鬆、有趣、陪伴感
+
+#### 頁面數量
+**21 個頁面**，包含：
+- 首頁、探索、AI 陪伴、個人檔案
+- 問卷系統（quiz, quiz-detail, quiz-result）
+- 覺察報告（awareness-report）
+- 智慧推薦（recommendations）
+- 引導流程（onboarding）
+- 冥想播放器、呼吸練習、課程詳情
+- 產品整合（product, product-activate）
+
+#### 文件資源
+- 📄 `三層覺察架構說明.md` - 完整架構文件
+- 📄 `FLOW-E-說明.md` - 問題覺察流程
+- 📄 `使用指南.md` - 用戶操作指南
+
+---
+
+### Version 2.0 - PSS-10 壓力評估版本
+
+#### 核心特色
+- ✅ **PSS-10 量表**: 科學驗證的壓力感知評估工具
+- ✅ **雙語支援**: 繁體中文 + English 完整雙語版本
+- ✅ **壓力管理助手**: 基於評估結果的個性化對話
+- ✅ **情緒追蹤增強**: 心情、身體訊號、壓力來源全面記錄
+
+#### 視覺設計
+- **風格**: 專業科技、現代化、清晰明確
+- **色調**: 深靛藍 `#00095e`、智慧藍 `#132090`、平衡紫 `#e4cbf4`
+- **氛圍**: 專業、可信、科學驗證
+
+#### 頁面數量
+**24 個頁面**（12 個功能 × 2 種語言），包含：
+- 首頁、探索、壓力管理助手、個人檔案
+- PSS-10 評估流程（onboarding, pss-assessment, assessment-result）
+- 增強版情緒記錄（mood-checkin）
+- 冥想播放器、呼吸練習、課程詳情
+- 系統頁面（index 歡迎頁、page-overview、all-pages-showcase）
+
+#### 文件資源
+- 📄 `PRD-v2.0.md` - 產品需求文件
+- 📄 `版本差異分析.md` - V1 與 V2 詳細對比
+- 📄 `差異總覽-快速參考.md` - 快速決策參考
+- 📄 `PSS-10評估流程說明.md` - 評估流程詳細說明
+- 📄 `頁面導航地圖.md` - 頁面結構與導航邏輯
+- 📄 `DEPLOYMENT.md` - 部署指南
+
+---
+
+## 🔄 版本演進邏輯
+
+### 從 V1.0 到 V2.0 的升級
+
+#### 保留的核心
+- ✅ 情緒追蹤與記錄
+- ✅ AI 助手對話（改名為壓力管理助手）
+- ✅ 冥想音頻播放器
+- ✅ 呼吸練習引導
+- ✅ 課程系統
+
+#### 主要改進
+1. **評估方法專業化**: 從自創三層覺察 → PSS-10 科學量表
+2. **視覺風格升級**: 從可愛風 → 專業科技風
+3. **國際化支援**: 從單語 → 雙語版本
+4. **功能增強**: 情緒記錄加入身體訊號、壓力來源追蹤
+
+#### 融合建議
+未來可考慮將 V1 的「三層覺察架構」作為 V2 的**進階功能模組**，提供更深入的自我覺察工具。
+
+---
+
+## 🚀 快速開始
+
+### 本地查看
+1. Clone 專案到本地
+   ```bash
+   git clone https://github.com/miyabiaqive/Aqive-Healing-Platform.git
+   cd Aqive-Healing-Platform
+   ```
+
+2. 開啟版本選擇頁面
+   - 直接在瀏覽器中打開 `index.html`
+   - 或使用 Live Server 等工具
+
+3. 選擇要查看的版本
+   - 點擊 V1.0 卡片 → 進入 `p1/index.html`
+   - 點擊 V2.0 卡片 → 進入 `p2/index.html`
+
+### 線上訪問
+直接訪問 GitHub Pages：
+- **入口**: https://miyabiaqive.github.io/Aqive-Healing-Platform/
+- **V1.0**: https://miyabiaqive.github.io/Aqive-Healing-Platform/p1/
+- **V2.0**: https://miyabiaqive.github.io/Aqive-Healing-Platform/p2/
+
+---
+
+## 🛠 技術規格
+
+### 共同技術棧
+- **框架**: HTML5 + Tailwind CSS
+- **圖標**: Font Awesome 6.4
+- **字體**: 
+  - 中文: Noto Sans TC
+  - 英文: Poppins
+- **動畫**: CSS Transitions + Custom Animations
+- **數據存儲**: LocalStorage
+- **響應式**: Mobile-first design (iPhone 15 Pro 比例)
+
+### V1.0 特有
+- 自定義三層覺察問卷邏輯
+- 五種能量類型分類演算法
+
+### V2.0 特有
+- PSS-10 評分系統
+- 雙語切換機制
+- i18n 本地化適配
+
+---
+
+## 📊 數據結構
+
+### V1.0 LocalStorage Keys
+- `aqive_quiz_results` - 問卷結果
+- `aqive_energy_type` - 能量類型
+- `aqive_recommendations` - 推薦內容
+
+### V2.0 LocalStorage Keys
+- `aqive_onboarding_status` - 引導完成狀態
+- `aqive_assessment_results` - PSS-10 評估結果
+- `aqive_mood_entries` - 情緒記錄條目
+- `aqive_language_preference` - 語言偏好
+
+---
+
+## 📱 最佳體驗建議
+
+### 推薦設備
+- iPhone 15 Pro 或類似尺寸手機
+- Chrome / Safari 最新版本
+- 豎屏模式
+
+### 體驗流程
+
+#### V1.0 完整體驗
+1. 進入 `index.html` 或 `START-HERE.html`
+2. 點擊「開始覺察」
+3. 完成 5 個對話式問題
+4. 查看能量類型診斷
+5. 獲取個性化推薦
+6. 探索課程與冥想內容
+
+#### V2.0 完整體驗
+1. 首次訪問 `home-zh.html` 自動引導至 `onboarding-zh.html`
+2. 完成 PSS-10 壓力評估（10 題 + 2 補充題）
+3. 查看壓力指數與分類
+4. 根據推薦開始使用壓力管理工具
+5. 記錄每日情緒與身體狀況
+6. 與壓力管理助手對話獲取支援
+
+---
+
+## 🎯 適用場景
+
+### V1.0 適合
+- 需要深度自我覺察的用戶
+- 偏好溫暖陪伴感的使用者
+- 對心理能量類型感興趣的人群
+
+### V2.0 適合
+- 需要科學評估工具的用戶
+- 高壓力白領與創業者
+- 國際用戶（雙語支援）
+- 偏好專業科技感的使用者
+
+---
+
+## 📝 版本更新記錄
+
+### V2.0 (2024-11-12) ✨ 最新
+- ✅ 完整 PSS-10 評估流程
+- ✅ 中英雙語版本
+- ✅ 壓力管理助手重新設計
+- ✅ 增強版情緒記錄（身體訊號 + 壓力來源）
+- ✅ 課程系統升級（進度追蹤）
+- ✅ GitHub Pages 部署
+- ✅ 版本選擇入口頁面
+
+### V1.0 (2024-11-10)
+- ✅ 三層覺察架構
+- ✅ 五種能量類型
+- ✅ 對話式問卷系統
+- ✅ 智慧推薦引擎
+- ✅ 21 個原型頁面
+
+---
+
+## 🔗 相關資源
+
+### 設計文件
+- [V1.0 README](p1/README.md)
+- [V2.0 README](p2/README.md)
+- [V2.0 PRD](p2/PRD-v2.0.md)
+- [版本差異分析](p2/版本差異分析.md)
+
+### GitHub Repository
+https://github.com/miyabiaqive/Aqive-Healing-Platform
+
+---
+
+## 📧 聯繫方式
+
+如有任何問題或建議，請通過 GitHub Issues 反饋。
+
+---
+
+**© 2024 Aqive Healing Platform. All rights reserved.**
+
+打造專業的壓力管理與能量平衡平台 🌟
 

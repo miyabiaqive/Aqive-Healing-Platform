@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white min-h-screen pb-40 overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="p-6 pt-16">
+        <h1 class="text-3xl font-bold text-gray-900 mb-6">探索</h1>
+        
+        <!-- Search -->
+        <div class="relative">
+            <input type="text" placeholder="搜尋課程、老師..." class="w-full bg-gray-100 rounded-2xl px-5 py-4 pl-12 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="px-6">
+        <div class="flex gap-2 overflow-x-auto hide-scrollbar">
+            <button class="px-6 py-2 bg-purple-600 text-white rounded-full text-sm font-medium whitespace-nowrap">全部</button>
+            <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap">睡眠</button>
+            <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap">焦慮</button>
+            <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap">壓力</button>
+            <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium whitespace-nowrap">專注</button>
+        </div>
+    </div>
+
+    <!-- Featured -->
+    <div class="px-6 mt-8">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">精選課程</h2>
+        <div onclick="navigate('course-detail-zh.html')" class="relative rounded-3xl overflow-hidden h-48" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="absolute inset-0 flex flex-col justify-end p-6">
+                <span class="text-white/90 text-sm mb-2">新課程</span>
+                <h3 class="text-white text-2xl font-bold mb-2">7 天壓力釋放</h3>
+                <p class="text-white/80 text-sm">轉化你與壓力的關係</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Courses -->
+    <div class="px-6 mt-8">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">熱門課程</h2>
+        <div class="space-y-4">
+            <div onclick="navigate('course-detail-zh.html')" class="flex gap-4 bg-gray-50 rounded-2xl p-4">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=200&fit=crop" class="w-24 h-24 rounded-xl object-cover">
+                <div class="flex-1">
+                    <h3 class="font-semibold text-gray-900 mb-1">正念晨光</h3>
+                    <p class="text-gray-600 text-sm mb-2">陳雅琳 • 5 堂課</p>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-star text-yellow-500 text-sm"></i>
+                        <span class="text-gray-700 text-sm font-medium">4.9</span>
+                        <span class="text-gray-500 text-sm">(2.1k)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div onclick="navigate('course-detail-zh.html')" class="flex gap-4 bg-gray-50 rounded-2xl p-4">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=200&h=200&fit=crop" class="w-24 h-24 rounded-xl object-cover">
+                <div class="flex-1">
+                    <h3 class="font-semibold text-gray-900 mb-1">深度睡眠之旅</h3>
+                    <p class="text-gray-600 text-sm mb-2">王志明 • 7 堂課</p>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-star text-yellow-500 text-sm"></i>
+                        <span class="text-gray-700 text-sm font-medium">4.8</span>
+                        <span class="text-gray-500 text-sm">(1.8k)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="navigate('course-detail-zh.html')" class="flex gap-4 bg-gray-50 rounded-2xl p-4">
+                <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=200&h=200&fit=crop" class="w-24 h-24 rounded-xl object-cover">
+                <div class="flex-1">
+                    <h3 class="font-semibold text-gray-900 mb-1">專注心流</h3>
+                    <p class="text-gray-600 text-sm mb-2">李美玲 • 10 堂課</p>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-star text-yellow-500 text-sm"></i>
+                        <span class="text-gray-700 text-sm font-medium">4.9</span>
+                        <span class="text-gray-500 text-sm">(3.2k)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="flex justify-around items-center px-6">
+            <a href="#" onclick="navigate('home-zh.html'); return false" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首頁</span>
+            </a>
+            <a href="#" onclick="navigate('discover-zh.html'); return false" class="nav-item active">
+                <i class="fas fa-compass"></i>
+                <span>探索</span>
+            </a>
+            <a href="#" onclick="navigate('ai-chat-zh.html'); return false" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>助手</span>
+            </a>
+            <a href="#" onclick="navigate('profile-zh.html'); return false" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white min-h-screen pb-40 overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="p-6 pt-16">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                <i class="fas fa-sparkles text-white text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900">Stress Management Assistant</h1>
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-gray-600 text-sm">Online</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Messages -->
+    <div class="px-6 space-y-4 pb-32">
+        <!-- AI Message -->
+        <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-robot text-white text-sm"></i>
+            </div>
+            <div class="flex-1">
+                <div class="bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                    <p class="text-gray-800">Hi Jessica! I'm your stress management companion 💙 I noticed your recent stress score is 27. Let's work together to restore your inner balance. What would you like to talk about today?</p>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">2:30 PM</span>
+            </div>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex gap-3 justify-end">
+            <div class="flex-1 text-right">
+                <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl rounded-tr-sm p-4 inline-block">
+                    <p class="text-white">The workload is overwhelming, I can't breathe, and I'm having trouble sleeping...</p>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">2:31 PM</span>
+            </div>
+        </div>
+
+        <!-- AI Message with Actions -->
+        <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-robot text-white text-sm"></i>
+            </div>
+            <div class="flex-1">
+                <div class="bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                    <p class="text-gray-800 mb-3">I completely understand how you feel. Continuous high-pressure work can definitely affect sleep quality and mental health. Let's start with these scientifically-validated methods to help your body and mind return to a stable state:</p>
+                    <div class="space-y-2">
+                        <button onclick="navigate('breath.html')" class="w-full bg-white rounded-xl p-3 flex items-center gap-3 hover:shadow-md transition-smooth">
+                            <span class="text-2xl">🌬️</span>
+                            <div class="text-left">
+                                <p class="font-medium text-gray-900 text-sm">4-7-8 Deep Breathing</p>
+                                <p class="text-gray-600 text-xs">Quick anxiety relief • 5 min</p>
+                            </div>
+                        </button>
+                        <button onclick="navigate('player.html')" class="w-full bg-white rounded-xl p-3 flex items-center gap-3 hover:shadow-md transition-smooth">
+                            <span class="text-2xl">😴</span>
+                            <div class="text-left">
+                                <p class="font-medium text-gray-900 text-sm">Sleep Recovery Guide</p>
+                                <p class="text-gray-600 text-xs">Improve sleep quality • 20 min</p>
+                            </div>
+                        </button>
+                        <button onclick="navigate('course-detail.html')" class="w-full bg-white rounded-xl p-3 flex items-center gap-3 hover:shadow-md transition-smooth">
+                            <span class="text-2xl">🛡️</span>
+                            <div class="text-left">
+                                <p class="font-medium text-gray-900 text-sm">Boundary Setting Workshop</p>
+                                <p class="text-gray-600 text-xs">Learn to say no • 25 min</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">2:32 PM</span>
+            </div>
+        </div>
+
+        <!-- User Response -->
+        <div class="flex gap-3 justify-end">
+            <div class="flex-1 text-right">
+                <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl rounded-tr-sm p-4 inline-block">
+                    <p class="text-white">Thanks, I'd like to try the breathing exercise</p>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">2:33 PM</span>
+            </div>
+        </div>
+
+        <!-- AI Encouragement -->
+        <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-robot text-white text-sm"></i>
+            </div>
+            <div class="flex-1">
+                <div class="bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                    <p class="text-gray-800">Great choice! 🌟 Deep breathing activates your parasympathetic nervous system, helping shift from "fight or flight" to "rest and digest" mode. Remember, taking care of yourself isn't selfish—it's responsible. You've got this! 💪</p>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">2:33 PM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="fixed bottom-24 left-0 right-0 px-6">
+        <div class="bg-white border-t border-gray-200 pt-3">
+            <div class="flex gap-2 mb-3 overflow-x-auto hide-scrollbar">
+                <button class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium whitespace-nowrap">🔥 Dealing with burnout?</button>
+                <button class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium whitespace-nowrap">😰 How to calm anxiety?</button>
+                <button class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium whitespace-nowrap">💤 Improve sleep quality</button>
+                <button class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium whitespace-nowrap">🎯 Time management tips</button>
+            </div>
+            
+            <!-- Input -->
+            <div class="flex gap-2">
+                <input type="text" placeholder="Type your message..." class="flex-1 bg-gray-100 rounded-full px-5 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <button class="w-12 h-12 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-paper-plane text-white"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="flex justify-around items-center px-6">
+            <a href="#" onclick="navigate('home.html'); return false" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" onclick="navigate('discover.html'); return false" class="nav-item">
+                <i class="fas fa-compass"></i>
+                <span>Discover</span>
+            </a>
+            <a href="#" onclick="navigate('ai-chat.html'); return false" class="nav-item active">
+                <i class="fas fa-comments"></i>
+                <span>Assistant</span>
+            </a>
+            <a href="#" onclick="navigate('profile.html'); return false" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+    </script>
+</body>
+</html>
+

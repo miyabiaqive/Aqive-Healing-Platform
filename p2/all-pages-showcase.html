@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqive v2.0 - 所有頁面展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        * { font-family: 'Poppins', 'Noto Sans TC', sans-serif; }
+        
+        .phone-frame {
+            width: 300px;
+            height: 650px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 32px;
+            padding: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .phone-frame:hover {
+            transform: scale(1.05);
+        }
+        
+        .phone-notch {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 24px;
+            background: #000;
+            border-radius: 0 0 16px 16px;
+            z-index: 100;
+        }
+        
+        .phone-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 26px;
+            background: white;
+            pointer-events: none;
+        }
+        
+        .page-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .page-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen py-12">
+    
+    <!-- Header -->
+    <div class="container mx-auto px-6 mb-12">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold text-white mb-4">📱 所有頁面展示</h1>
+            <p class="text-xl text-purple-300 mb-2">Aqive Healing Platform v2.0</p>
+            <p class="text-gray-400">完整的 11 個頁面原型預覽</p>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="flex gap-4 justify-center mt-8">
+            <a href="index.html" class="px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur rounded-full text-white font-medium transition-all">
+                <i class="fas fa-mobile-alt mr-2"></i>
+                iPhone 容器
+            </a>
+            <a href="page-overview.html" class="px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur rounded-full text-white font-medium transition-all">
+                <i class="fas fa-th-large mr-2"></i>
+                頁面總覽
+            </a>
+            <a href="README.md" target="_blank" class="px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur rounded-full text-white font-medium transition-all">
+                <i class="fas fa-book mr-2"></i>
+                README
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Pages Section -->
+    <div class="container mx-auto px-6 mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <i class="fas fa-star text-yellow-400"></i>
+            主要頁面 (4個)
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- Home -->
+            <div class="page-card rounded-3xl p-6">
+                <div class="mb-4">
+                    <h3 class="text-white text-2xl font-bold mb-2">1. Home</h3>
+                    <p class="text-purple-300 text-sm mb-1">首頁</p>
+                    <p class="text-gray-400 text-xs">home.html</p>
+                </div>
+                <div class="phone-frame mb-4">
+                    <div class="phone-notch"></div>
+                    <iframe src="home.html" class="phone-iframe"></iframe>
+                </div>
+                <div class="space-y-2 text-sm text-gray-300">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>情緒 check-in</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>Recently played</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>Your favorites</span>
+                    </div>
+                </div>
+                <a href="home.html" target="_blank" class="mt-4 block w-full text-center py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full text-sm font-medium transition-all">
+                    打開頁面
+                </a>
+            </div>
+
+            <!-- Discover -->
+            <div class="page-card rounded-3xl p-6">
+                <div class="mb-4">
+                    <h3 class="text-white text-2xl font-bold mb-2">2. Discover</h3>
+                    <p class="text-purple-300 text-sm mb-1">探索</p>
+                    <p class="text-gray-400 text-xs">discover.html</p>
+                </div>
+                <div class="phone-frame mb-4">
+                    <div class="phone-notch"></div>
+                    <iframe src="discover.html" class="phone-iframe"></iframe>
+                </div>
+                <div class="space-y-2 text-sm text-gray-300">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>搜尋框</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>分類篩選</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>熱門課程</span>
+                    </div>
+                </div>
+                <a href="discover.html" target="_blank" class="mt-4 block w-full text-center py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full text-sm font-medium transition-all">
+                    打開頁面
+                </a>
+            </div>
+
+            <!-- Stress Assistant -->
+            <div class="page-card rounded-3xl p-6">
+                <div class="mb-4">
+                    <h3 class="text-white text-2xl font-bold mb-2">3. Stress Assistant</h3>
+                    <p class="text-purple-300 text-sm mb-1">壓力管理助手</p>
+                    <p class="text-gray-400 text-xs">ai-chat.html</p>
+                </div>
+                <div class="phone-frame mb-4">
+                    <div class="phone-notch"></div>
+                    <iframe src="ai-chat.html" class="phone-iframe"></iframe>
+                </div>
+                <div class="space-y-2 text-sm text-gray-300">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>對話介面</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>快速行動</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>情緒支援</span>
+                    </div>
+                </div>
+                <a href="ai-chat.html" target="_blank" class="mt-4 block w-full text-center py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full text-sm font-medium transition-all">
+                    打開頁面
+                </a>
+            </div>
+
+            <!-- Profile -->
+            <div class="page-card rounded-3xl p-6">
+                <div class="mb-4">
+                    <h3 class="text-white text-2xl font-bold mb-2">4. Profile</h3>
+                    <p class="text-purple-300 text-sm mb-1">個人檔案</p>
+                    <p class="text-gray-400 text-xs">profile.html</p>
+                </div>
+                <div class="phone-frame mb-4">
+                    <div class="phone-notch"></div>
+                    <iframe src="profile.html" class="phone-iframe"></iframe>
+                </div>
+                <div class="space-y-2 text-sm text-gray-300">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>統計數據</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>能量進度</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                        <span>我的課程</span>
+                    </div>
+                </div>
+                <a href="profile.html" target="_blank" class="mt-4 block w-full text-center py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full text-sm font-medium transition-all">
+                    打開頁面
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Feature Pages Section -->
+    <div class="container mx-auto px-6 mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <i class="fas fa-layer-group text-blue-400"></i>
+            功能頁面 (5個)
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+            
+            <!-- Mood Check-in -->
+            <div class="page-card rounded-3xl p-6">
+                <div class="mb-4">
+                    <h3 class="text-white text-xl font-bold mb-2">5. Mood Check-in</h3>
+                    <p class="text-purple-300 text-sm mb-1">情緒記錄</p>
+                    <p class="text-gray-400 text-xs">mood-checkin.html</p>
+                </div>
+                <div class="phone-frame mb-4">
+                    <div class="phone-notch"></div>
+                    <iframe src="mood-checkin.html" class="phone-iframe"></iframe>
+                </div>
+                <a href="mood-checkin.html" target="_blank" class="mt-4 block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-all">
+                    打開頁面
+                </a>
+            </div>
+
+            <!-- Player -->
+            <div class="page-card rounded-3xl p-6">
+                <div class="mb-4">
+                    <h3 class="text-white text-xl font-bold mb-2">6. Player</h3>
+                    <p class="text-purple-300 text-sm mb-1">播放器</p>
+                    <p class="text-gray-400 text-xs">player.html</p>
+                </div>
+                <div class="phone-frame mb-4">
+                    <div class="phone-notch"></div>
+                    <iframe src="player.html" class="phone-iframe"></iframe>
+                </div>
+                <a href="player.html" target="_blank" class="mt-4 block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-all">
+                    打開頁面
+                </a>
+            </div>
+
+            <!-- Breathing -->
+            <div class="page-card rounded-3xl p-6">
+                <div class="mb-4">
+                    <h3 class="text-white text-xl font-bold mb-2">7. Breathing</h3>
+                    <p class="text-purple-300 text-sm mb-1">呼吸練習</p>
+                    <p class="text-gray-400 text-xs">breath.html</p>
+                </div>
+                <div class="phone-frame mb-4">
+                    <div class="phone-notch"></div>
+                    <iframe src="breath.html" class="phone-iframe"></iframe>
+                </div>
+                <a href="breath.html" target="_blank" class="mt-4 block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-all">
+                    打開頁面
+                </a>
+            </div>
+
+            <!-- Course Detail -->
+            <div class="page-card rounded-3xl p-6">
+                <div class="mb-4">
+                    <h3 class="text-white text-xl font-bold mb-2">8. Course Detail</h3>
+                    <p class="text-purple-300 text-sm mb-1">課程詳情</p>
+                    <p class="text-gray-400 text-xs">course-detail.html</p>
+                </div>
+                <div class="phone-frame mb-4">
+                    <div class="phone-notch"></div>
+                    <iframe src="course-detail.html" class="phone-iframe"></iframe>
+                </div>
+                <a href="course-detail.html" target="_blank" class="mt-4 block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-all">
+                    打開頁面
+                </a>
+            </div>
+
+            <!-- Settings -->
+            <div class="page-card rounded-3xl p-6">
+                <div class="mb-4">
+                    <h3 class="text-white text-xl font-bold mb-2">9. Settings</h3>
+                    <p class="text-purple-300 text-sm mb-1">設置</p>
+                    <p class="text-gray-400 text-xs">settings.html</p>
+                </div>
+                <div class="phone-frame mb-4">
+                    <div class="phone-notch"></div>
+                    <iframe src="settings.html" class="phone-iframe"></iframe>
+                </div>
+                <a href="settings.html" target="_blank" class="mt-4 block w-full text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-all">
+                    打開頁面
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container mx-auto px-6 text-center text-gray-400">
+        <div class="border-t border-white/10 pt-8">
+            <p class="text-lg mb-2">🎨 共 11 個頁面原型</p>
+            <p class="text-sm mb-4">HTML + Tailwind CSS · iPhone 15 Pro 尺寸 · 可直接轉 Figma</p>
+            <p class="text-purple-400 font-medium">"能量流動，人回穩定"</p>
+            <p class="text-xs mt-4">Aqive Healing Platform v2.0 · 2025</p>
+        </div>
+    </div>
+
+</body>
+</html>
+

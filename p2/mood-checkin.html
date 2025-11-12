@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Check-in</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="mountain-bg min-h-screen pb-40 overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="p-6 pt-16 flex items-center justify-between">
+        <button onclick="navigate('home.html')" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-arrow-left text-white"></i>
+        </button>
+        <h1 class="text-white text-2xl font-semibold">Mood check-in</h1>
+        <button onclick="navigate('home.html')" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-times text-white"></i>
+        </button>
+    </div>
+
+    <!-- Current Mood -->
+    <div class="px-6 mt-6">
+        <div class="glass-card rounded-3xl p-6">
+            <div class="flex items-center gap-4">
+                <span class="mood-emoji">😊</span>
+                <div>
+                    <p class="text-white/70 text-sm">Today mood:</p>
+                    <p class="text-white text-xl font-semibold">happiness</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Week Calendar -->
+    <div class="px-6 mt-6">
+        <div class="glass-card rounded-3xl p-6">
+            <h3 class="text-white text-lg font-semibold mb-4">Week of Aug, 3</h3>
+            <div class="grid grid-cols-7 gap-2 mb-4">
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">Mon</p>
+                    <div class="calendar-day active">
+                        <span class="mood-emoji text-xl">😊</span>
+                    </div>
+                    <p class="text-white text-xs mt-1">3</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">Tue</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">4</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">Wed</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">5</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">Thu</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">6</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">Fri</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">7</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">Sat</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">8</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">Sun</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">9</span>
+                    </div>
+                </div>
+            </div>
+            <button class="text-white/80 text-sm font-medium">View history</button>
+        </div>
+    </div>
+
+    <!-- Recommended -->
+    <div class="px-6 mt-6 pb-24">
+        <h2 class="text-white text-xl font-semibold mb-4">Recommended for you</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div onclick="navigate('player.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <h3 class="font-semibold text-white">Calm your mind</h3>
+                    <p class="text-white/80 text-sm">10 min</p>
+                </div>
+            </div>
+            <div onclick="navigate('player.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <h3 class="font-semibold text-white">Brightest Blue</h3>
+                    <p class="text-white/80 text-sm">10 min</p>
+                </div>
+            </div>
+            <div onclick="navigate('player.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <h3 class="font-semibold text-white">Daily calm</h3>
+                    <p class="text-white/80 text-sm">5 min</p>
+                </div>
+            </div>
+            <div onclick="navigate('player.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <h3 class="font-semibold text-white">Sleep better</h3>
+                    <p class="text-white/80 text-sm">15 min</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+    </script>
+</body>
+</html>
+

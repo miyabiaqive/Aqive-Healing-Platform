@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aqive Healing Platform - Prototype</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="phone-container">
+    <iframe id="app-frame" src="" style="width: 100%; height: 100%; border: none;"></iframe>
+  </div>
+
+  <script>
+    // Check if on mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                     || window.innerWidth <= 768;
+    
+    // Check if user has completed onboarding
+    const hasCompletedOnboarding = localStorage.getItem('aqive_onboarding_completed');
+    
+    // On mobile: redirect directly to page (no iframe container)
+    if (isMobile) {
+      const targetPage = !hasCompletedOnboarding ? 'onboarding.html' : 'home.html';
+      window.location.href = targetPage;
+    } else {
+      // On desktop: use iframe with phone container
+      const appFrame = document.getElementById('app-frame');
+      
+      if (!hasCompletedOnboarding) {
+        appFrame.src = 'onboarding.html';
+      } else {
+        appFrame.src = 'home.html';
+      }
+
+      // Navigation handler
+      window.addEventListener('message', function(e) {
+        if (e.data.type === 'navigate') {
+          appFrame.src = e.data.page;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="mountain-bg min-h-screen flex flex-col">
+    
+    <!-- Header -->
+    <div class="p-6 pt-16 flex items-center justify-between">
+        <button onclick="navigate('home.html')" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-chevron-down text-white"></i>
+        </button>
+        <button class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-ellipsis-h text-white"></i>
+        </button>
+    </div>
+
+    <!-- Cover Art -->
+    <div class="flex-1 flex items-center justify-center px-12">
+        <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop" class="w-full h-full object-cover">
+        </div>
+    </div>
+
+    <!-- Player Controls -->
+    <div class="p-8 pb-12">
+        <!-- Info -->
+        <div class="text-center mb-8">
+            <h1 class="text-white text-2xl font-bold mb-2">Daily Calm</h1>
+            <p class="text-white/70">Sarah Chen</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="mb-6">
+            <div class="h-1 bg-white/20 rounded-full overflow-hidden">
+                <div class="h-full bg-white rounded-full" style="width: 35%"></div>
+            </div>
+            <div class="flex justify-between text-white/60 text-sm mt-2">
+                <span>3:30</span>
+                <span>10:00</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex items-center justify-center gap-8 mb-6">
+            <button class="w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+                <i class="fas fa-backward text-white text-lg"></i>
+            </button>
+            <button class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
+                <i class="fas fa-pause text-purple-600 text-2xl"></i>
+            </button>
+            <button class="w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+                <i class="fas fa-forward text-white text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Additional Controls -->
+        <div class="flex items-center justify-between">
+            <button class="w-10 h-10 flex items-center justify-center">
+                <i class="fas fa-heart text-white/50 text-xl"></i>
+            </button>
+            <button class="w-10 h-10 flex items-center justify-center">
+                <i class="fas fa-list text-white/50 text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+    </script>
+</body>
+</html>
+

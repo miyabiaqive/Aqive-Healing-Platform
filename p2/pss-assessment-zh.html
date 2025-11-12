@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壓力評估</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 min-h-screen pb-20 overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="bg-gradient-to-br from-purple-600 to-blue-600 p-6 pt-16 pb-8 sticky top-0 z-10">
+        <div class="flex items-center justify-between mb-4">
+            <button onclick="goBack()" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                <i class="fas fa-arrow-left text-white"></i>
+            </button>
+            <div class="text-white text-sm">
+                <span id="current-question">1</span> / 13
+            </div>
+        </div>
+        <div class="w-full bg-white/20 rounded-full h-2 overflow-hidden">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-300" style="width: 7.7%"></div>
+        </div>
+    </div>
+
+    <!-- Question Container -->
+    <div class="p-6">
+        <div id="question-container">
+            <!-- Questions will be inserted here dynamically -->
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            // PSS-10 問題（針對高階白領創業者優化）
+            {
+                id: 1,
+                text: "在過去一個月，有多少次你因為突發事件而感到心煩意亂？",
+                type: "pss",
+                reverse: false
+            },
+            {
+                id: 2,
+                text: "在過去一個月，有多少次你覺得無法掌控生活中重要的事情？",
+                type: "pss",
+                reverse: false
+            },
+            {
+                id: 3,
+                text: "在過去一個月，有多少次你感到緊張和壓力？",
+                type: "pss",
+                reverse: false
+            },
+            {
+                id: 4,
+                text: "在過去一個月，有多少次你成功處理了惱人的生活麻煩？",
+                type: "pss",
+                reverse: true
+            },
+            {
+                id: 5,
+                text: "在過去一個月，有多少次你覺得能有效應對生活中的重要改變？",
+                type: "pss",
+                reverse: true
+            },
+            {
+                id: 6,
+                text: "在過去一個月，有多少次你對於處理私人問題的能力感到有信心？",
+                type: "pss",
+                reverse: true
+            },
+            {
+                id: 7,
+                text: "在過去一個月，有多少次你覺得事情的發展都如你所願？",
+                type: "pss",
+                reverse: true
+            },
+            {
+                id: 8,
+                text: "在過去一個月，有多少次你發現自己無法應付所有必須做的事？",
+                type: "pss",
+                reverse: false
+            },
+            {
+                id: 9,
+                text: "在過去一個月，有多少次你能夠控制生活中的煩躁事？",
+                type: "pss",
+                reverse: true
+            },
+            {
+                id: 10,
+                text: "在過去一個月，有多少次你覺得一切都在掌控之中？",
+                type: "pss",
+                reverse: true
+            },
+            // 身體與能量訊號補充題
+            {
+                id: 11,
+                text: "最近是否經常感到呼吸急促、胸悶或肌肉緊繃？",
+                type: "body",
+                reverse: false
+            },
+            {
+                id: 12,
+                text: "你是否覺得即使睡醒後仍感到疲憊無力？",
+                type: "body",
+                reverse: false
+            },
+            {
+                id: 13,
+                text: "獨處時，你是否經常覺得無法停下來，腦中仍在思考工作？",
+                type: "mental",
+                reverse: false
+            }
+        ];
+
+        const options = [
+            { value: 0, label: "從不" },
+            { value: 1, label: "幾乎從不" },
+            { value: 2, label: "有時候" },
+            { value: 3, label: "相當經常" },
+            { value: 4, label: "總是如此" }
+        ];
+
+        let currentQuestionIndex = 0;
+        let answers = {};
+
+        function renderQuestion() {
+            const question = questions[currentQuestionIndex];
+            const container = document.getElementById('question-container');
+            
+            container.innerHTML = `
+                <div class="fade-in">
+                    <div class="mb-2 text-sm text-purple-600 font-medium">
+                        ${question.type === 'pss' ? '壓力感知' : question.type === 'body' ? '身體訊號' : '心智狀態'}
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-8 leading-relaxed">
+                        ${question.text}
+                    </h2>
+                    <div class="space-y-3">
+                        ${options.map(option => `
+                            <button onclick="selectAnswer(${option.value})" 
+                                class="w-full p-4 rounded-2xl border-2 border-gray-200 hover:border-purple-400 hover:bg-purple-50 transition-all text-left ${answers[question.id] === option.value ? 'border-purple-500 bg-purple-50' : ''}">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-900 font-medium">${option.label}</span>
+                                    ${answers[question.id] === option.value ? '<i class="fas fa-check-circle text-purple-600"></i>' : '<div class="w-6 h-6 rounded-full border-2 border-gray-300"></div>'}
+                                </div>
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Update progress
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        }
+
+        function selectAnswer(value) {
+            const question = questions[currentQuestionIndex];
+            answers[question.id] = value;
+            
+            // Auto-advance after short delay
+            setTimeout(() => {
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    renderQuestion();
+                } else {
+                    // All questions answered, calculate results
+                    calculateResults();
+                }
+            }, 300);
+        }
+
+        function calculateResults() {
+            let pssScore = 0;
+            let bodySignalScore = 0;
+            let mentalSignalScore = 0;
+
+            questions.forEach(question => {
+                const answer = answers[question.id] || 0;
+                
+                if (question.type === 'pss') {
+                    // Handle reverse scoring for PSS questions
+                    if (question.reverse) {
+                        pssScore += (4 - answer);
+                    } else {
+                        pssScore += answer;
+                    }
+                } else if (question.type === 'body') {
+                    bodySignalScore += answer;
+                } else if (question.type === 'mental') {
+                    mentalSignalScore += answer;
+                }
+            });
+
+            // Store results in localStorage
+            const results = {
+                pssScore,
+                bodySignalScore,
+                mentalSignalScore,
+                totalScore: pssScore + bodySignalScore + mentalSignalScore,
+                timestamp: new Date().toISOString(),
+                answers: answers
+            };
+
+            localStorage.setItem('aqive_assessment_results', JSON.stringify(results));
+            localStorage.setItem('aqive_onboarding_status', 'completed');
+
+            // Navigate to results page
+            navigate('assessment-result-zh.html');
+        }
+
+        function goBack() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            } else {
+                if (confirm('確定要離開評估嗎？你的進度將不會被保存。')) {
+                    navigate('onboarding-zh.html');
+                }
+            }
+        }
+
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+
+        // Initialize first question
+        renderQuestion();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="mountain-bg min-h-screen pb-40 overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="p-6 pt-16">
+        <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-2xl">
+                    😊
+                </div>
+                <div>
+                    <p class="text-white/70 text-sm">Good afternoon,</p>
+                    <h1 class="text-white text-2xl font-semibold">Jessica</h1>
+                </div>
+            </div>
+            <button onclick="navigate('settings.html')" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+                <i class="fas fa-cog text-white"></i>
+            </button>
+        </div>
+
+        <!-- Mood Check-in -->
+        <button onclick="navigate('mood-checkin.html')" class="w-full glass-card rounded-3xl p-6 flex items-center gap-4 transition-smooth hover:scale-105">
+            <span class="text-4xl">😊</span>
+            <span class="text-white text-lg font-medium">How are you feeling?</span>
+        </button>
+    </div>
+
+    <!-- Recently Played -->
+    <div class="px-6 mt-8">
+        <h2 class="text-white text-xl font-semibold mb-4">Recently played</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div onclick="navigate('player.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-white text-xs">Meditation</span>
+                    <h3 class="font-semibold text-white mt-2">Daily calm</h3>
+                    <p class="text-white/80 text-sm">10 min</p>
+                </div>
+            </div>
+            <div onclick="navigate('player.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <span class="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-white text-xs">Sleep</span>
+                    <h3 class="font-semibold text-white mt-2">Stay happy</h3>
+                    <p class="text-white/80 text-sm">10 min</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your Favorites -->
+    <div class="px-6 mt-8">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-white text-xl font-semibold">Your favorites</h2>
+            <button onclick="navigate('discover.html')" class="w-8 h-8 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+                <i class="fas fa-search text-white text-sm"></i>
+            </button>
+        </div>
+        <div class="space-y-3">
+            <div onclick="navigate('course-detail.html')" class="glass-card rounded-2xl p-4 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=100&h=100&fit=crop" class="w-16 h-16 rounded-xl object-cover">
+                <div class="flex-1">
+                    <h3 class="text-white font-medium">Stress Management Workshop</h3>
+                    <p class="text-white/60 text-sm">Course • 8 lessons • In progress</p>
+                </div>
+                <i class="fas fa-heart text-pink-400"></i>
+            </div>
+            <div onclick="navigate('course-detail.html')" class="glass-card rounded-2xl p-4 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=100&h=100&fit=crop" class="w-16 h-16 rounded-xl object-cover">
+                <div class="flex-1">
+                    <h3 class="text-white font-medium">Sleep Quality Improvement</h3>
+                    <p class="text-white/60 text-sm">Course • 7 lessons • 3 completed</p>
+                </div>
+                <i class="fas fa-heart text-pink-400"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="flex justify-around items-center px-6">
+            <a href="#" onclick="navigate('home.html'); return false" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" onclick="navigate('discover.html'); return false" class="nav-item">
+                <i class="fas fa-compass"></i>
+                <span>Discover</span>
+            </a>
+            <a href="#" onclick="navigate('ai-chat.html'); return false" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>Assistant</span>
+            </a>
+            <a href="#" onclick="navigate('profile.html'); return false" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+    </script>
+</body>
+</html>
+

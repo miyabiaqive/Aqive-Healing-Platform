@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壓力管理助手</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white min-h-screen pb-40 overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="p-6 pt-16">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                <i class="fas fa-sparkles text-white text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900">壓力管理助手</h1>
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-gray-600 text-sm">在線中</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Messages -->
+    <div class="px-6 space-y-4 pb-32">
+        <!-- AI Message -->
+        <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-robot text-white text-sm"></i>
+            </div>
+            <div class="flex-1">
+                <div class="bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                    <p class="text-gray-800">你好，雅婷！我是你的壓力管理助手 💙 注意到你最近的壓力指數是 27 分，讓我們一起找回內在的平衡。今天想聊些什麼呢？</p>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">下午 2:30</span>
+            </div>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex gap-3 justify-end">
+            <div class="flex-1 text-right">
+                <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl rounded-tr-sm p-4 inline-block">
+                    <p class="text-white">工作量太大了，感覺喘不過氣，晚上也睡不好...</p>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">下午 2:31</span>
+            </div>
+        </div>
+
+        <!-- AI Message with Actions -->
+        <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-robot text-white text-sm"></i>
+            </div>
+            <div class="flex-1">
+                <div class="bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                    <p class="text-gray-800 mb-3">我完全理解你的感受。持續的高壓工作確實會影響睡眠品質和身心健康。讓我們從這些科學驗證的方法開始，幫助你的身體和心智回到穩定狀態：</p>
+                    <div class="space-y-2">
+                        <button onclick="navigate('breath-zh.html')" class="w-full bg-white rounded-xl p-3 flex items-center gap-3 hover:shadow-md transition-smooth">
+                            <span class="text-2xl">🌬️</span>
+                            <div class="text-left">
+                                <p class="font-medium text-gray-900 text-sm">4-7-8 深度呼吸法</p>
+                                <p class="text-gray-600 text-xs">快速降低焦慮 • 5 分鐘</p>
+                            </div>
+                        </button>
+                        <button onclick="navigate('player-zh.html')" class="w-full bg-white rounded-xl p-3 flex items-center gap-3 hover:shadow-md transition-smooth">
+                            <span class="text-2xl">😴</span>
+                            <div class="text-left">
+                                <p class="font-medium text-gray-900 text-sm">睡眠修復引導</p>
+                                <p class="text-gray-600 text-xs">改善睡眠品質 • 20 分鐘</p>
+                            </div>
+                        </button>
+                        <button onclick="navigate('course-detail-zh.html')" class="w-full bg-white rounded-xl p-3 flex items-center gap-3 hover:shadow-md transition-smooth">
+                            <span class="text-2xl">🛡️</span>
+                            <div class="text-left">
+                                <p class="font-medium text-gray-900 text-sm">邊界設定工作坊</p>
+                                <p class="text-gray-600 text-xs">學習說不與優先級管理 • 25 分鐘</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">下午 2:32</span>
+            </div>
+        </div>
+
+        <!-- User Response -->
+        <div class="flex gap-3 justify-end">
+            <div class="flex-1 text-right">
+                <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl rounded-tr-sm p-4 inline-block">
+                    <p class="text-white">謝謝，我想試試呼吸練習</p>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">下午 2:33</span>
+            </div>
+        </div>
+
+        <!-- AI Encouragement -->
+        <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-robot text-white text-sm"></i>
+            </div>
+            <div class="flex-1">
+                <div class="bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                    <p class="text-gray-800">很棒的選擇！🌟 深呼吸能啟動副交感神經系統，幫助身體從「戰鬥或逃跑」模式切換到「休息與修復」模式。記住，照顧好自己不是自私，而是對自己和身邊人負責的表現。加油！💪</p>
+                </div>
+                <span class="text-gray-400 text-xs mt-1 block">下午 2:33</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="fixed bottom-24 left-0 right-0 px-6">
+        <div class="bg-white border-t border-gray-200 pt-3">
+            <div class="flex gap-2 mb-3 overflow-x-auto hide-scrollbar">
+                <button class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium whitespace-nowrap">🔥 工作倦怠怎麼辦？</button>
+                <button class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium whitespace-nowrap">😰 焦慮時如何平靜？</button>
+                <button class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium whitespace-nowrap">💤 改善睡眠品質</button>
+                <button class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium whitespace-nowrap">🎯 時間管理技巧</button>
+            </div>
+            
+            <!-- Input -->
+            <div class="flex gap-2">
+                <input type="text" placeholder="輸入你的訊息..." class="flex-1 bg-gray-100 rounded-full px-5 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <button class="w-12 h-12 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-paper-plane text-white"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="flex justify-around items-center px-6">
+            <a href="#" onclick="navigate('home-zh.html'); return false" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首頁</span>
+            </a>
+            <a href="#" onclick="navigate('discover-zh.html'); return false" class="nav-item">
+                <i class="fas fa-compass"></i>
+                <span>探索</span>
+            </a>
+            <a href="#" onclick="navigate('ai-chat-zh.html'); return false" class="nav-item active">
+                <i class="fas fa-comments"></i>
+                <span>助手</span>
+            </a>
+            <a href="#" onclick="navigate('profile-zh.html'); return false" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+    </script>
+</body>
+</html>
+

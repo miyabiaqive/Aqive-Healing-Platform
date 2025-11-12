@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    
+    <!-- Header -->
+    <div class="p-6 pt-16 bg-white">
+        <div class="flex items-center gap-4">
+            <button onclick="navigate('profile.html')" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+                <i class="fas fa-arrow-left text-gray-700"></i>
+            </button>
+            <h1 class="text-2xl font-bold text-gray-900">Settings</h1>
+        </div>
+    </div>
+
+    <!-- Settings Groups -->
+    <div class="p-6 space-y-6">
+        
+        <!-- Account -->
+        <div>
+            <h3 class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wide">Account</h3>
+            <div class="bg-white rounded-2xl overflow-hidden">
+                <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-user text-gray-600"></i>
+                        <span class="text-gray-900">Edit Profile</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </button>
+                <div class="border-t border-gray-100"></div>
+                <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-lock text-gray-600"></i>
+                        <span class="text-gray-900">Privacy</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Preferences -->
+        <div>
+            <h3 class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wide">Preferences</h3>
+            <div class="bg-white rounded-2xl overflow-hidden">
+                <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-bell text-gray-600"></i>
+                        <span class="text-gray-900">Notifications</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-gray-500 text-sm">On</span>
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                    </div>
+                </button>
+                <div class="border-t border-gray-100"></div>
+                <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-moon text-gray-600"></i>
+                        <span class="text-gray-900">Dark Mode</span>
+                    </div>
+                    <label class="relative inline-block w-12 h-6">
+                        <input type="checkbox" class="opacity-0 w-0 h-0">
+                        <span class="absolute inset-0 bg-gray-300 rounded-full transition-all cursor-pointer"></span>
+                    </label>
+                </button>
+                <div class="border-t border-gray-100"></div>
+                <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-language text-gray-600"></i>
+                        <span class="text-gray-900">Language</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-gray-500 text-sm">繁體中文</span>
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Support -->
+        <div>
+            <h3 class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wide">Support</h3>
+            <div class="bg-white rounded-2xl overflow-hidden">
+                <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-question-circle text-gray-600"></i>
+                        <span class="text-gray-900">Help Center</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </button>
+                <div class="border-t border-gray-100"></div>
+                <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-gray-600"></i>
+                        <span class="text-gray-900">Contact Us</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <button class="w-full bg-white rounded-2xl p-4 text-red-600 font-medium hover:bg-red-50">
+            <i class="fas fa-sign-out-alt mr-2"></i>
+            Log Out
+        </button>
+    </div>
+
+    <script>
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+    </script>
+</body>
+</html>
+

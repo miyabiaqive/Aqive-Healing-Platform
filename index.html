@@ -1,48 +1,210 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aqive Healing Platform - Prototype</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="phone-container">
-    <iframe id="app-frame" src="" style="width: 100%; height: 100%; border: none;"></iframe>
-  </div>
-
-  <script>
-    // Check if on mobile device
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
-                     || window.innerWidth <= 768;
-    
-    // Check if user has completed onboarding
-    const hasCompletedOnboarding = localStorage.getItem('aqive_onboarding_completed');
-    
-    // On mobile: redirect directly to page (no iframe container)
-    if (isMobile) {
-      const targetPage = !hasCompletedOnboarding ? 'onboarding.html' : 'home.html';
-      window.location.href = targetPage;
-    } else {
-      // On desktop: use iframe with phone container
-      const appFrame = document.getElementById('app-frame');
-      
-      if (!hasCompletedOnboarding) {
-        appFrame.src = 'onboarding.html';
-      } else {
-        appFrame.src = 'home.html';
-      }
-
-      // Navigation handler
-      window.addEventListener('message', function(e) {
-        if (e.data.type === 'navigate') {
-          appFrame.src = e.data.page;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqive Healing Platform - 版本選擇</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
-      });
-    }
-  </script>
+        .version-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .version-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .feature-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-6">
+    <div class="max-w-6xl w-full">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-white mb-4">Aqive Healing Platform</h1>
+            <p class="text-xl text-white/80 mb-2">選擇要查看的原型版本</p>
+            <p class="text-sm text-white/60">Choose the prototype version to view</p>
+        </div>
+
+        <!-- Version Cards -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Version 1.0 -->
+            <a href="p1/index.html" class="version-card rounded-3xl p-8 block">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Version 1.0</h2>
+                        <p class="text-white/70">三層覺察架構版本</p>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                </div>
+
+                <div class="space-y-4 mb-6">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <p class="text-white font-medium">三層覺察架構</p>
+                            <p class="text-white/60 text-sm">五種心理能量類型分類</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <p class="text-white font-medium">對話式問卷設計</p>
+                            <p class="text-white/60 text-sm">5 個核心問題引導</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <p class="text-white font-medium">智慧推薦系統</p>
+                            <p class="text-white/60 text-sm">根據能量類型推薦內容</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="feature-badge px-3 py-1 rounded-full text-white text-xs">可愛風格</span>
+                    <span class="feature-badge px-3 py-1 rounded-full text-white text-xs">溫暖色調</span>
+                    <span class="feature-badge px-3 py-1 rounded-full text-white text-xs">問題覺察</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/20">
+                    <span class="text-white/60 text-sm">📂 21 個頁面</span>
+                    <span class="text-white font-medium flex items-center gap-2">
+                        查看 V1.0 <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Version 2.0 -->
+            <a href="p2/index.html" class="version-card rounded-3xl p-8 block">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Version 2.0</h2>
+                        <p class="text-white/70">PSS-10 壓力評估版本</p>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                </div>
+
+                <div class="space-y-4 mb-6">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <p class="text-white font-medium">PSS-10 壓力量表</p>
+                            <p class="text-white/60 text-sm">科學驗證的壓力評估工具</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <p class="text-white font-medium">雙語支援</p>
+                            <p class="text-white/60 text-sm">繁體中文 + English</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <p class="text-white font-medium">壓力管理助手</p>
+                            <p class="text-white/60 text-sm">個性化對話與推薦</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="feature-badge px-3 py-1 rounded-full text-white text-xs">專業風格</span>
+                    <span class="feature-badge px-3 py-1 rounded-full text-white text-xs">科技感設計</span>
+                    <span class="feature-badge px-3 py-1 rounded-full text-white text-xs">雙語版本</span>
+                    <span class="feature-badge px-3 py-1 rounded-full text-white text-xs bg-yellow-500/30">最新版</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-white/20">
+                    <span class="text-white/60 text-sm">📂 24 個頁面</span>
+                    <span class="text-white font-medium flex items-center gap-2">
+                        查看 V2.0 <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="mt-12 version-card rounded-3xl p-8">
+            <h3 class="text-2xl font-bold text-white mb-6 text-center">版本對比 Version Comparison</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-white">
+                    <thead>
+                        <tr class="border-b border-white/20">
+                            <th class="text-left py-3 px-4">功能特色</th>
+                            <th class="text-center py-3 px-4">V1.0</th>
+                            <th class="text-center py-3 px-4">V2.0</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-white/80">
+                        <tr class="border-b border-white/10">
+                            <td class="py-3 px-4">核心評估方法</td>
+                            <td class="text-center py-3 px-4">三層覺察架構</td>
+                            <td class="text-center py-3 px-4">PSS-10 量表</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-3 px-4">視覺風格</td>
+                            <td class="text-center py-3 px-4">可愛溫暖</td>
+                            <td class="text-center py-3 px-4">專業科技</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-3 px-4">語言支援</td>
+                            <td class="text-center py-3 px-4">繁體中文</td>
+                            <td class="text-center py-3 px-4">中文 + English</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-3 px-4">情緒記錄</td>
+                            <td class="text-center py-3 px-4"><i class="fas fa-check text-green-400"></i></td>
+                            <td class="text-center py-3 px-4"><i class="fas fa-check text-green-400"></i> 增強版</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-3 px-4">AI 助手</td>
+                            <td class="text-center py-3 px-4"><i class="fas fa-check text-green-400"></i></td>
+                            <td class="text-center py-3 px-4"><i class="fas fa-check text-green-400"></i> 壓力管理</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-3 px-4">課程系統</td>
+                            <td class="text-center py-3 px-4"><i class="fas fa-check text-green-400"></i></td>
+                            <td class="text-center py-3 px-4"><i class="fas fa-check text-green-400"></i> 進度追蹤</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4">首次使用引導</td>
+                            <td class="text-center py-3 px-4">問卷引導</td>
+                            <td class="text-center py-3 px-4">PSS-10 評估</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12">
+            <p class="text-white/60 text-sm">
+                <i class="fas fa-info-circle mr-2"></i>
+                兩個版本均為高保真原型，點擊上方卡片即可查看
+            </p>
+            <p class="text-white/40 text-xs mt-2">
+                Both versions are high-fidelity prototypes. Click the cards above to view.
+            </p>
+        </div>
+    </div>
 </body>
 </html>
 

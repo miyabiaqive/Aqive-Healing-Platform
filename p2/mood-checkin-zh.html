@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情緒記錄</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="mountain-bg min-h-screen pb-40 overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="p-6 pt-16 flex items-center justify-between">
+        <button onclick="navigate('home-zh.html')" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-arrow-left text-white"></i>
+        </button>
+        <h1 class="text-white text-2xl font-semibold">情緒記錄</h1>
+        <button onclick="navigate('home-zh.html')" class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-times text-white"></i>
+        </button>
+    </div>
+
+    <!-- Question -->
+    <div class="px-6 mt-6">
+        <h2 class="text-white text-2xl font-bold mb-2">今天感覺如何？</h2>
+        <p class="text-white/70 text-sm mb-6">選擇最貼近你此刻感受的情緒</p>
+        
+        <!-- Mood Selection -->
+        <div class="grid grid-cols-5 gap-3 mb-6">
+            <button onclick="selectMood('很好', '😄')" class="mood-option" data-mood="很好">
+                <span class="text-4xl mb-2">😄</span>
+                <span class="text-white text-xs">很好</span>
+            </button>
+            <button onclick="selectMood('愉快', '😊')" class="mood-option" data-mood="愉快">
+                <span class="text-4xl mb-2">😊</span>
+                <span class="text-white text-xs">愉快</span>
+            </button>
+            <button onclick="selectMood('平靜', '😌')" class="mood-option" data-mood="平靜">
+                <span class="text-4xl mb-2">😌</span>
+                <span class="text-white text-xs">平靜</span>
+            </button>
+            <button onclick="selectMood('疲憊', '😔')" class="mood-option" data-mood="疲憊">
+                <span class="text-4xl mb-2">😔</span>
+                <span class="text-white text-xs">疲憊</span>
+            </button>
+            <button onclick="selectMood('焦慮', '😰')" class="mood-option" data-mood="焦慮">
+                <span class="text-4xl mb-2">😰</span>
+                <span class="text-white text-xs">焦慮</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Body Signals -->
+    <div class="px-6 mt-6">
+        <h3 class="text-white text-lg font-semibold mb-4">身體訊號</h3>
+        <div class="glass-card rounded-3xl p-6">
+            <p class="text-white/80 text-sm mb-4">有感受到以下症狀嗎？（可多選）</p>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="toggleBodySignal('頭痛')" class="body-signal-btn" data-signal="頭痛">
+                    <span class="text-xl mr-2">🤕</span>
+                    <span>頭痛</span>
+                </button>
+                <button onclick="toggleBodySignal('肌肉緊繃')" class="body-signal-btn" data-signal="肌肉緊繃">
+                    <span class="text-xl mr-2">💪</span>
+                    <span>肌肉緊繃</span>
+                </button>
+                <button onclick="toggleBodySignal('心跳加速')" class="body-signal-btn" data-signal="心跳加速">
+                    <span class="text-xl mr-2">💓</span>
+                    <span>心跳加速</span>
+                </button>
+                <button onclick="toggleBodySignal('呼吸急促')" class="body-signal-btn" data-signal="呼吸急促">
+                    <span class="text-xl mr-2">😮‍💨</span>
+                    <span>呼吸急促</span>
+                </button>
+                <button onclick="toggleBodySignal('胃部不適')" class="body-signal-btn" data-signal="胃部不適">
+                    <span class="text-xl mr-2">🤢</span>
+                    <span>胃部不適</span>
+                </button>
+                <button onclick="toggleBodySignal('疲勞無力')" class="body-signal-btn" data-signal="疲勞無力">
+                    <span class="text-xl mr-2">😴</span>
+                    <span>疲勞無力</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stress Triggers -->
+    <div class="px-6 mt-6">
+        <h3 class="text-white text-lg font-semibold mb-4">壓力來源</h3>
+        <div class="glass-card rounded-3xl p-6">
+            <p class="text-white/80 text-sm mb-4">什麼讓你有壓力？（可多選）</p>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="toggleTrigger('工作任務')" class="trigger-btn" data-trigger="工作任務">
+                    💼 工作任務
+                </button>
+                <button onclick="toggleTrigger('人際關係')" class="trigger-btn" data-trigger="人際關係">
+                    👥 人際關係
+                </button>
+                <button onclick="toggleTrigger('時間壓力')" class="trigger-btn" data-trigger="時間壓力">
+                    ⏰ 時間壓力
+                </button>
+                <button onclick="toggleTrigger('財務壓力')" class="trigger-btn" data-trigger="財務壓力">
+                    💰 財務壓力
+                </button>
+                <button onclick="toggleTrigger('健康問題')" class="trigger-btn" data-trigger="健康問題">
+                    🏥 健康問題
+                </button>
+                <button onclick="toggleTrigger('家庭事務')" class="trigger-btn" data-trigger="家庭事務">
+                    🏠 家庭事務
+                </button>
+                <button onclick="toggleTrigger('決策困擾')" class="trigger-btn" data-trigger="決策困擾">
+                    🤔 決策困擾
+                </button>
+                <button onclick="toggleTrigger('其他')" class="trigger-btn" data-trigger="其他">
+                    ⭐ 其他
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="px-6 mt-6">
+        <h3 class="text-white text-lg font-semibold mb-4">心情筆記（選填）</h3>
+        <div class="glass-card rounded-3xl p-6">
+            <textarea 
+                id="mood-notes" 
+                placeholder="寫下今天發生的事或你的想法..." 
+                class="w-full bg-white/10 text-white rounded-2xl p-4 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/40"
+            ></textarea>
+        </div>
+    </div>
+
+    <!-- Save Button -->
+    <div class="px-6 mt-6 pb-8">
+        <button onclick="saveMoodEntry()" class="w-full bg-white text-purple-600 rounded-full py-4 font-semibold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105">
+            儲存今日記錄
+        </button>
+    </div>
+
+    <!-- Week Calendar -->
+    <div class="px-6 mt-6">
+        <div class="glass-card rounded-3xl p-6">
+            <h3 class="text-white text-lg font-semibold mb-4">8月第1週</h3>
+            <div class="grid grid-cols-7 gap-2 mb-4">
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">一</p>
+                    <div class="calendar-day active">
+                        <span class="mood-emoji text-xl">😊</span>
+                    </div>
+                    <p class="text-white text-xs mt-1">3</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">二</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">4</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">三</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">5</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">四</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">6</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">五</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">7</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">六</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">8</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-white/60 text-xs mb-2">日</p>
+                    <div class="calendar-day">
+                        <span class="text-white/40">9</span>
+                    </div>
+                </div>
+            </div>
+            <button class="text-white/80 text-sm font-medium">查看歷史記錄</button>
+        </div>
+    </div>
+
+    <!-- Recommended -->
+    <div class="px-6 mt-6 pb-24">
+        <h2 class="text-white text-xl font-semibold mb-4">為你推薦</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div onclick="navigate('player-zh.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <h3 class="font-semibold text-white">平靜內心</h3>
+                    <p class="text-white/80 text-sm">10 分鐘</p>
+                </div>
+            </div>
+            <div onclick="navigate('player-zh.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <h3 class="font-semibold text-white">最美藍調</h3>
+                    <p class="text-white/80 text-sm">10 分鐘</p>
+                </div>
+            </div>
+            <div onclick="navigate('player-zh.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <h3 class="font-semibold text-white">每日平靜</h3>
+                    <p class="text-white/80 text-sm">5 分鐘</p>
+                </div>
+            </div>
+            <div onclick="navigate('player-zh.html')" class="content-card" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=300&fit=crop')">
+                <div class="content-card-info">
+                    <h3 class="font-semibold text-white">優質睡眠</h3>
+                    <p class="text-white/80 text-sm">15 分鐘</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .mood-option {
+            @apply glass-card rounded-2xl p-3 flex flex-col items-center transition-all hover:scale-105;
+        }
+        .mood-option.selected {
+            @apply bg-white/30 ring-2 ring-white;
+        }
+        .body-signal-btn, .trigger-btn {
+            @apply bg-white/10 text-white rounded-full px-4 py-2 text-sm transition-all hover:bg-white/20;
+        }
+        .body-signal-btn.selected, .trigger-btn.selected {
+            @apply bg-white text-purple-600 font-medium;
+        }
+    </style>
+
+    <script>
+        let moodData = {
+            mood: null,
+            moodEmoji: null,
+            bodySignals: [],
+            triggers: [],
+            notes: ''
+        };
+
+        function selectMood(mood, emoji) {
+            moodData.mood = mood;
+            moodData.moodEmoji = emoji;
+            
+            // Update UI
+            document.querySelectorAll('.mood-option').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            event.target.closest('.mood-option').classList.add('selected');
+        }
+
+        function toggleBodySignal(signal) {
+            const btn = event.target.closest('.body-signal-btn');
+            const index = moodData.bodySignals.indexOf(signal);
+            
+            if (index > -1) {
+                moodData.bodySignals.splice(index, 1);
+                btn.classList.remove('selected');
+            } else {
+                moodData.bodySignals.push(signal);
+                btn.classList.add('selected');
+            }
+        }
+
+        function toggleTrigger(trigger) {
+            const btn = event.target.closest('.trigger-btn');
+            const index = moodData.triggers.indexOf(trigger);
+            
+            if (index > -1) {
+                moodData.triggers.splice(index, 1);
+                btn.classList.remove('selected');
+            } else {
+                moodData.triggers.push(trigger);
+                btn.classList.add('selected');
+            }
+        }
+
+        function saveMoodEntry() {
+            // Get notes
+            moodData.notes = document.getElementById('mood-notes').value;
+            
+            // Validate
+            if (!moodData.mood) {
+                alert('請選擇你的心情');
+                return;
+            }
+            
+            // Add timestamp
+            moodData.timestamp = new Date().toISOString();
+            
+            // Get existing entries
+            const existingEntries = JSON.parse(localStorage.getItem('aqive_mood_entries') || '[]');
+            
+            // Add new entry
+            existingEntries.push(moodData);
+            
+            // Save to localStorage
+            localStorage.setItem('aqive_mood_entries', JSON.stringify(existingEntries));
+            
+            // Show success message
+            showSuccessMessage();
+        }
+
+        function showSuccessMessage() {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-check mr-2"></i>記錄已儲存！';
+            btn.classList.add('bg-green-500', 'text-white');
+            btn.classList.remove('bg-white', 'text-purple-600');
+            
+            setTimeout(() => {
+                navigate('home-zh.html');
+            }, 1500);
+        }
+
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+
+        // Load today's entry if exists
+        function loadTodayEntry() {
+            const today = new Date().toISOString().split('T')[0];
+            const entries = JSON.parse(localStorage.getItem('aqive_mood_entries') || '[]');
+            const todayEntry = entries.find(entry => entry.timestamp.startsWith(today));
+            
+            if (todayEntry) {
+                // Pre-fill the form
+                moodData = { ...todayEntry };
+                
+                // Select mood
+                document.querySelectorAll('.mood-option').forEach(btn => {
+                    if (btn.dataset.mood === todayEntry.mood) {
+                        btn.classList.add('selected');
+                    }
+                });
+                
+                // Select body signals
+                todayEntry.bodySignals.forEach(signal => {
+                    document.querySelectorAll('.body-signal-btn').forEach(btn => {
+                        if (btn.dataset.signal === signal) {
+                            btn.classList.add('selected');
+                        }
+                    });
+                });
+                
+                // Select triggers
+                todayEntry.triggers.forEach(trigger => {
+                    document.querySelectorAll('.trigger-btn').forEach(btn => {
+                        if (btn.dataset.trigger === trigger) {
+                            btn.classList.add('selected');
+                        }
+                    });
+                });
+                
+                // Fill notes
+                document.getElementById('mood-notes').value = todayEntry.notes || '';
+            }
+        }
+
+        // Load on page ready
+        document.addEventListener('DOMContentLoaded', loadTodayEntry);
+    </script>
+</body>
+</html>
+

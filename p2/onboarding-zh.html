@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歡迎來到 Aqive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 min-h-screen flex items-center justify-center p-6">
+    
+    <div class="max-w-md w-full">
+        <!-- Logo/Icon -->
+        <div class="text-center mb-8">
+            <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                <i class="fas fa-spa text-5xl text-white"></i>
+            </div>
+            <h1 class="text-4xl font-bold text-white mb-3">歡迎來到 Aqive</h1>
+            <p class="text-white/80 text-lg">能量流動，人回穩定</p>
+        </div>
+
+        <!-- Welcome Message -->
+        <div class="glass-card rounded-3xl p-8 mb-6">
+            <h2 class="text-2xl font-semibold text-white mb-4">在你忙碌的日常裡</h2>
+            <p class="text-white/90 text-base leading-relaxed mb-4">
+                這 10 分鐘是回到自己、傾聽身體的機會。
+            </p>
+            <p class="text-white/90 text-base leading-relaxed">
+                讓我們透過簡短的評估，了解你當前的壓力狀態，為你量身推薦最適合的療癒內容。
+            </p>
+        </div>
+
+        <!-- Features -->
+        <div class="space-y-3 mb-8">
+            <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-clipboard-list text-white text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-white font-medium">科學化壓力評估</h3>
+                    <p class="text-white/70 text-sm">基於 PSS-10 量表，精準了解你的狀態</p>
+                </div>
+            </div>
+            <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-brain text-white text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-white font-medium">智慧推薦系統</h3>
+                    <p class="text-white/70 text-sm">根據你的需求，推薦最適合的課程</p>
+                </div>
+            </div>
+            <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-chart-line text-white text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-white font-medium">持續追蹤成長</h3>
+                    <p class="text-white/70 text-sm">記錄你的療癒旅程，見證能量回穩</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <button onclick="startAssessment()" class="w-full bg-white text-purple-600 rounded-full py-4 font-semibold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 mb-4">
+            <i class="fas fa-arrow-right mr-2"></i>
+            開始評估（約 10 分鐘）
+        </button>
+
+        <!-- Skip Option -->
+        <button onclick="skipToHome()" class="w-full text-white/70 text-sm py-2 hover:text-white transition-colors">
+            暫時跳過，稍後再做
+        </button>
+    </div>
+
+    <script>
+        function startAssessment() {
+            navigate('pss-assessment-zh.html');
+        }
+
+        function skipToHome() {
+            // Mark as onboarding completed but skipped
+            localStorage.setItem('aqive_onboarding_status', 'skipped');
+            navigate('home-zh.html');
+        }
+
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+    </script>
+</body>
+</html>
+

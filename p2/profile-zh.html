@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人檔案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 min-h-screen pb-40 overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="bg-gradient-to-br from-purple-600 to-blue-600 p-6 pt-16 pb-8 rounded-b-3xl">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-white text-2xl font-bold">個人檔案</h1>
+            <button onclick="navigate('settings-zh.html')" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                <i class="fas fa-cog text-white"></i>
+            </button>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-4xl">
+                😊
+            </div>
+            <div>
+                <h2 class="text-white text-xl font-bold">陳雅婷</h2>
+                <p class="text-white/80 text-sm">2024年8月加入</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="px-6 -mt-4">
+        <div class="bg-white rounded-2xl p-4 shadow-lg grid grid-cols-3 gap-4">
+            <div class="text-center">
+                <p class="text-2xl font-bold text-gray-900">15</p>
+                <p class="text-gray-600 text-sm">連續天數</p>
+            </div>
+            <div class="text-center border-x border-gray-200">
+                <p class="text-2xl font-bold text-gray-900">42</p>
+                <p class="text-gray-600 text-sm">完成次數</p>
+            </div>
+            <div class="text-center">
+                <p class="text-2xl font-bold text-gray-900">8.5</p>
+                <p class="text-gray-600 text-sm">累積時數</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stress Assessment Card -->
+    <div class="px-6 mt-6">
+        <div class="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-1">壓力評估</h3>
+                    <p class="text-sm text-gray-600" id="last-assessment-date">尚未評估</p>
+                </div>
+                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center">
+                    <span id="stress-score-display" class="text-2xl font-bold text-purple-600">--</span>
+                </div>
+            </div>
+            <button onclick="navigate('pss-assessment-zh.html')" class="w-full bg-white text-purple-600 rounded-full py-3 font-medium shadow-sm hover:shadow transition-all">
+                <i class="fas fa-redo mr-2"></i>
+                <span id="assessment-button-text">開始評估</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Energy Progress -->
+    <div class="px-6 mt-6">
+        <div class="bg-white rounded-2xl p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">能量水平</h3>
+            <div class="space-y-3">
+                <div>
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-gray-600">覺察</span>
+                        <span class="text-purple-600 font-medium">85%</span>
+                    </div>
+                    <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-gray-600">靜定</span>
+                        <span class="text-purple-600 font-medium">72%</span>
+                    </div>
+                    <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style="width: 72%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-gray-600">活力</span>
+                        <span class="text-purple-600 font-medium">68%</span>
+                    </div>
+                    <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style="width: 68%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Courses -->
+    <div class="px-6 mt-6">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-gray-900">我的課程</h3>
+            <button class="text-purple-600 text-sm font-medium">查看全部</button>
+        </div>
+        <div class="space-y-3">
+            <div onclick="navigate('course-detail-zh.html')" class="bg-white rounded-2xl p-4 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=100&h=100&fit=crop" class="w-16 h-16 rounded-xl object-cover">
+                <div class="flex-1">
+                    <h4 class="font-semibold text-gray-900 mb-1">正念晨光</h4>
+                    <div class="flex items-center gap-2">
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-purple-500 rounded-full" style="width: 60%"></div>
+                        </div>
+                        <span class="text-gray-600 text-xs">3/5</span>
+                    </div>
+                </div>
+            </div>
+            <div onclick="navigate('course-detail-zh.html')" class="bg-white rounded-2xl p-4 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=100&h=100&fit=crop" class="w-16 h-16 rounded-xl object-cover">
+                <div class="flex-1">
+                    <h4 class="font-semibold text-gray-900 mb-1">睡眠之旅</h4>
+                    <div class="flex items-center gap-2">
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-purple-500 rounded-full" style="width: 30%"></div>
+                        </div>
+                        <span class="text-gray-600 text-xs">2/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="flex justify-around items-center px-6">
+            <a href="#" onclick="navigate('home-zh.html'); return false" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首頁</span>
+            </a>
+            <a href="#" onclick="navigate('discover-zh.html'); return false" class="nav-item">
+                <i class="fas fa-compass"></i>
+                <span>探索</span>
+            </a>
+            <a href="#" onclick="navigate('ai-chat-zh.html'); return false" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>助手</span>
+            </a>
+            <a href="#" onclick="navigate('profile-zh.html'); return false" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Load assessment results
+        function loadAssessmentResults() {
+            const results = JSON.parse(localStorage.getItem('aqive_assessment_results') || '{}');
+            
+            if (results.pssScore !== undefined) {
+                // Display score
+                document.getElementById('stress-score-display').textContent = results.pssScore;
+                
+                // Display date
+                const date = new Date(results.timestamp);
+                const dateStr = date.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('last-assessment-date').textContent = `上次評估：${dateStr}`;
+                
+                // Change button text
+                document.getElementById('assessment-button-text').textContent = '重新評估';
+            }
+        }
+
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+
+        // Load results on page load
+        loadAssessmentResults();
+    </script>
+</body>
+</html>
+
