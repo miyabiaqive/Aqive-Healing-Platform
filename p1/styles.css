@@ -1,15 +1,15 @@
 /* Aqive Healing Platform - Custom Styles */
 
 :root {
-  --primary: #D7E6E3;
-  --secondary: #C8B6E2;
-  --accent: #F5E6CC;
-  --dark: #2D3748;
-  --light: #F7FAFC;
-  --blue: #4299E1;
-  --orange: #ED8936;
-  --green: #48BB78;
-  --pink: #ED64A6;
+  --primary: #E8DEFF;
+  --secondary: #D4E4FF;
+  --accent: #FFF5F5;
+  --dark: #1A202C;
+  --light: #FAFBFC;
+  --blue: #93C5FD;
+  --purple: #C4B5FD;
+  --pink: #FBCFE8;
+  --green: #86EFAC;
 }
 
 * {
@@ -20,12 +20,13 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Noto Sans TC', sans-serif;
+  background: linear-gradient(135deg, #EDE9FE 0%, #E0E7FF 50%, #DBEAFE 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 400;
 }
 
 /* iPhone 15 Pro Container */
