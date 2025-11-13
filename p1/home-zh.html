@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aqive - 首頁</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-b from-purple-50 via-blue-50 to-white overflow-hidden">
+  <div class="h-screen flex flex-col safe-area-top">
+    <!-- Header -->
+    <div class="px-6 pt-6 pb-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-200 to-blue-200 rounded-full overflow-hidden flex items-center justify-center">
+            <span class="text-xl">👤</span>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-gray-900">嗨，miyabi</h1>
+            <p class="text-sm text-gray-500">今天過得怎麼樣？</p>
+          </div>
+        </div>
+        <button class="w-10 h-10 bg-white rounded-full shadow-sm flex items-center justify-center hover:shadow-md transition-smooth">
+          <i class="fas fa-search text-gray-600"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-6">
+      <!-- Toggle Buttons -->
+      <div class="flex items-center gap-3 mb-6">
+        <button class="px-6 py-2.5 bg-white rounded-full text-gray-900 font-medium text-sm shadow-sm">
+          專注力
+        </button>
+        <button class="px-6 py-2.5 bg-gray-100 rounded-full text-gray-400 font-medium text-sm">
+          獨特性
+        </button>
+      </div>
+
+      <!-- Daily Mood Log -->
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">每日心情記錄</h3>
+        <div class="flex items-center justify-between">
+          <button class="w-14 h-14 rounded-full bg-red-100 flex items-center justify-center text-2xl hover:scale-110 transition-smooth">
+            😠
+          </button>
+          <button class="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center text-2xl hover:scale-110 transition-smooth">
+            😟
+          </button>
+          <button class="w-14 h-14 rounded-full bg-yellow-100 flex items-center justify-center text-2xl hover:scale-110 transition-smooth">
+            😐
+          </button>
+          <button class="w-14 h-14 rounded-full bg-teal-100 flex items-center justify-center text-2xl hover:scale-110 transition-smooth">
+            🙂
+          </button>
+          <button class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-2xl hover:scale-110 transition-smooth">
+            😄
+          </button>
+        </div>
+      </div>
+
+      <!-- Practice Cards -->
+      <div class="space-y-4">
+        <!-- Card 1: Inhale Exhale -->
+        <button onclick="navigate('breath.html')" class="w-full bg-white rounded-3xl p-6 text-left shadow-sm hover:shadow-md transition-smooth active:scale-98 flex items-center gap-4">
+          <div class="flex-shrink-0">
+            <svg class="w-20 h-20" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="40" fill="#E0E7FF"/>
+              <path d="M30 45 Q40 30 50 45" stroke="#6366F1" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <circle cx="35" cy="42" r="2" fill="#6366F1"/>
+              <circle cx="45" cy="42" r="2" fill="#6366F1"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h4 class="text-base font-semibold text-gray-900 mb-1">吸氣 <span class="font-bold">呼氣</span>，找回平衡</h4>
+            <p class="text-sm text-gray-500">5 分鐘</p>
+          </div>
+          <i class="fas fa-arrow-right text-gray-400"></i>
+        </button>
+
+        <!-- Card 2: Breathe in, Breathe out -->
+        <button onclick="navigate('player.html')" class="w-full bg-white rounded-3xl p-6 text-left shadow-sm hover:shadow-md transition-smooth active:scale-98 flex items-center gap-4">
+          <div class="flex-shrink-0">
+            <svg class="w-20 h-20" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="40" fill="#FEF3C7"/>
+              <path d="M25 50 Q40 30 55 50" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <circle cx="35" cy="45" r="2" fill="#F59E0B"/>
+              <circle cx="45" cy="45" r="2" fill="#F59E0B"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h4 class="text-base font-semibold text-gray-900 mb-1"><span class="font-bold">深呼吸</span>，釋放壓力</h4>
+            <p class="text-sm text-gray-500">10 分鐘</p>
+          </div>
+          <i class="fas fa-arrow-right text-gray-400"></i>
+        </button>
+
+        <!-- Card 3: Deep Breaths -->
+        <button onclick="navigate('ai-chat.html')" class="w-full bg-white rounded-3xl p-6 text-left shadow-sm hover:shadow-md transition-smooth active:scale-98 flex items-center gap-4">
+          <div class="flex-shrink-0">
+            <svg class="w-20 h-20" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="40" fill="#DBEAFE"/>
+              <path d="M30 48 Q40 35 50 48" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <circle cx="36" cy="44" r="2" fill="#3B82F6"/>
+              <circle cx="44" cy="44" r="2" fill="#3B82F6"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h4 class="text-base font-semibold text-gray-900 mb-1">專注呼吸，<span class="font-bold">清晰思緒</span></h4>
+            <p class="text-sm text-gray-500">15 分鐘</p>
+          </div>
+          <i class="fas fa-arrow-right text-gray-400"></i>
+        </button>
+      </div>
+
+      <!-- Bottom Text Section -->
+      <div class="mt-8 mb-8">
+        <button onclick="navigate('discover.html')" class="w-full text-left">
+          <h3 class="text-base font-medium text-gray-600 mb-2">探索內在潛能</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">心理健康是一個人情緒、心理和社交健康的綜合體現。透過每天的練習，你將發現更好的自己。</p>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 safe-area-bottom">
+      <div class="flex items-center justify-around py-4 px-6">
+        <button class="flex flex-col items-center gap-1.5 text-indigo-500">
+          <i class="fas fa-home text-2xl"></i>
+        </button>
+        <button onclick="navigate('discover.html')" class="flex flex-col items-center gap-1.5 text-gray-300 hover:text-gray-600 transition-smooth">
+          <i class="fas fa-compass text-2xl"></i>
+        </button>
+        <button onclick="navigate('ai-chat.html')" class="flex flex-col items-center gap-1.5 text-gray-300 hover:text-gray-600 transition-smooth">
+          <i class="fas fa-comments text-2xl"></i>
+        </button>
+        <button onclick="navigate('profile.html')" class="flex flex-col items-center gap-1.5 text-gray-300 hover:text-gray-600 transition-smooth">
+          <i class="fas fa-user text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function navigate(page) {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'navigate', page: page }, '*');
+      } else {
+        window.location.href = page;
+      }
+    }
+  </script>
+</body>
+</html>
+

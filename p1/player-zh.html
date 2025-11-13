@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aqive - 播放器</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+  <div class="h-screen flex flex-col safe-area-top">
+    <!-- Header -->
+    <div class="px-6 py-6 flex items-center justify-between">
+      <button onclick="navigate('home-zh.html')" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center transition-smooth hover:bg-gray-200">
+        <i class="fas fa-chevron-left text-gray-700 text-lg"></i>
+      </button>
+      <button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center transition-smooth hover:bg-gray-200">
+        <i class="fas fa-ellipsis-h text-gray-700 text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col items-center justify-center px-8">
+      <!-- Title -->
+      <div class="text-center mb-8">
+        <p class="text-gray-500 text-sm mb-2">5 分鐘</p>
+        <h1 class="text-2xl font-semibold text-gray-900 mb-1">吸氣 <span class="font-bold">呼氣</span></h1>
+        <h1 class="text-2xl font-bold text-gray-900">找回平衡</h1>
+      </div>
+
+      <!-- 3D Sphere Visual -->
+      <div class="relative mb-12">
+        <div class="w-64 h-64 flex items-center justify-center">
+          <!-- Outer glow -->
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full blur-3xl opacity-60"></div>
+          
+          <!-- Main sphere -->
+          <div class="relative w-56 h-56 rounded-full bg-gradient-to-br from-gray-100 via-white to-gray-200 shadow-2xl">
+            <!-- Highlights -->
+            <div class="absolute top-8 left-8 w-20 h-20 bg-white rounded-full blur-2xl opacity-60"></div>
+            <div class="absolute bottom-12 right-12 w-16 h-16 bg-gray-200 rounded-full blur-xl opacity-40"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="text-center mb-8 max-w-xs">
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">呼吸練習</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">專注於呼吸，讓思緒回到當下。透過規律的呼吸，你將感受到內心的平靜與安定。</p>
+      </div>
+
+      <!-- Play Button -->
+      <button class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center shadow-lg transition-smooth hover:scale-105 active:scale-95 mb-8">
+        <i class="fas fa-play text-indigo-500 text-xl ml-1"></i>
+      </button>
+    </div>
+
+    <!-- Bottom Home Indicator -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white safe-area-bottom">
+      <div class="h-1 bg-gray-200 rounded-full mx-auto mb-2" style="width: 134px;"></div>
+    </div>
+  </div>
+
+  <script>
+    function navigate(page) {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'navigate', page: page }, '*');
+      } else {
+        window.location.href = page;
+      }
+    }
+  </script>
+</body>
+</html>
+
