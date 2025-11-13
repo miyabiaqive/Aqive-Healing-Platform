@@ -7,47 +7,44 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-white">
   <div class="h-screen flex flex-col safe-area-top">
     <!-- Header -->
-    <div class="bg-white px-6 py-4 shadow-sm">
+    <div class="bg-white px-6 py-6 border-b border-gray-100">
       <div class="flex items-center justify-between mb-4">
-        <h1 class="text-2xl font-bold text-gray-800">探索</h1>
-        <button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+        <h1 class="text-2xl font-bold text-gray-900">探索</h1>
+        <button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center transition-smooth hover:bg-gray-200">
           <i class="fas fa-search text-gray-600"></i>
         </button>
       </div>
       
       <!-- Category Tabs -->
-      <div class="flex gap-2 overflow-x-auto hide-scrollbar">
-        <button class="px-4 py-2 bg-blue-500 text-white rounded-full text-sm font-medium flex-shrink-0 transition-smooth active:scale-95">
+      <div class="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
+        <button class="px-5 py-2.5 bg-indigo-500 text-white rounded-full text-sm font-medium flex-shrink-0 transition-smooth shadow-sm active:scale-95">
           全部
         </button>
-        <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm flex-shrink-0 transition-smooth hover:bg-gray-200 active:scale-95">
+        <button class="px-5 py-2.5 bg-gray-100 text-gray-600 rounded-full text-sm font-medium flex-shrink-0 transition-smooth hover:bg-gray-200 active:scale-95">
           冥想
         </button>
-        <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm flex-shrink-0 transition-smooth hover:bg-gray-200 active:scale-95">
-          情緒療癒
+        <button class="px-5 py-2.5 bg-gray-100 text-gray-600 rounded-full text-sm font-medium flex-shrink-0 transition-smooth hover:bg-gray-200 active:scale-95">
+          情緒覺察
         </button>
-        <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm flex-shrink-0 transition-smooth hover:bg-gray-200 active:scale-95">
-          身體覺察
-        </button>
-        <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm flex-shrink-0 transition-smooth hover:bg-gray-200 active:scale-95">
-          靈性成長
+        <button class="px-5 py-2.5 bg-gray-100 text-gray-600 rounded-full text-sm font-medium flex-shrink-0 transition-smooth hover:bg-gray-200 active:scale-95">
+          身心平衡
         </button>
       </div>
     </div>
 
     <!-- Content -->
-    <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-6">
+    <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-6 bg-gray-50">
       <!-- Featured Banner -->
-      <div class="mt-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl p-6 shadow-lg relative overflow-hidden">
+      <div class="mt-6 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-3xl p-6 shadow-sm relative overflow-hidden">
         <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-8 -mt-8"></div>
         <div class="relative z-10">
-          <span class="px-3 py-1 bg-white bg-opacity-20 rounded-full text-white text-xs font-medium">精選課程</span>
-          <h2 class="text-2xl font-bold text-white mt-3 mb-2">21 天覺察之旅</h2>
-          <p class="text-purple-50 text-sm mb-4">由 10 位資深療癒師共同帶領</p>
-          <button class="px-6 py-3 bg-white text-purple-600 rounded-full font-bold text-sm shadow-lg transition-smooth hover:scale-105 active:scale-95">
+          <span class="px-3 py-1.5 bg-white bg-opacity-20 backdrop-blur-sm rounded-full text-white text-xs font-semibold">精選課程</span>
+          <h2 class="text-2xl font-bold text-white mt-4 mb-2">21 天正念之旅</h2>
+          <p class="text-indigo-50 text-sm mb-5">建立每日練習習慣，重新連結自己</p>
+          <button class="px-6 py-3 bg-white text-indigo-600 rounded-full font-semibold text-sm shadow-md transition-smooth hover:scale-105 active:scale-95">
             立即開始
           </button>
         </div>
@@ -164,27 +161,19 @@
     </div>
 
     <!-- Bottom Navigation -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white bottom-nav safe-area-bottom">
-      <div class="flex items-center justify-around py-3">
-        <button onclick="navigate('home.html')" class="flex flex-col items-center gap-1 text-gray-400">
-          <i class="fas fa-home text-xl"></i>
-          <span class="text-xs">首頁</span>
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 safe-area-bottom">
+      <div class="flex items-center justify-around py-4 px-6">
+        <button onclick="navigate('home-zh.html')" class="flex flex-col items-center gap-1.5 text-gray-300 hover:text-gray-600 transition-smooth">
+          <i class="fas fa-home text-2xl"></i>
         </button>
-        <button class="flex flex-col items-center gap-1 text-blue-500">
-          <i class="fas fa-compass text-xl"></i>
-          <span class="text-xs font-medium">探索</span>
+        <button class="flex flex-col items-center gap-1.5 text-indigo-500">
+          <i class="fas fa-compass text-2xl"></i>
         </button>
-        <button onclick="navigate('ai-chat.html')" class="flex flex-col items-center gap-1 text-gray-400">
-          <i class="fas fa-comments text-xl"></i>
-          <span class="text-xs">AI</span>
+        <button onclick="navigate('ai-chat.html')" class="flex flex-col items-center gap-1.5 text-gray-300 hover:text-gray-600 transition-smooth">
+          <i class="fas fa-comments text-2xl"></i>
         </button>
-        <button onclick="navigate('player.html')" class="flex flex-col items-center gap-1 text-gray-400">
-          <i class="fas fa-play-circle text-xl"></i>
-          <span class="text-xs">播放</span>
-        </button>
-        <button onclick="navigate('profile.html')" class="flex flex-col items-center gap-1 text-gray-400">
-          <i class="fas fa-user text-xl"></i>
-          <span class="text-xs">我的</span>
+        <button onclick="navigate('profile.html')" class="flex flex-col items-center gap-1.5 text-gray-300 hover:text-gray-600 transition-smooth">
+          <i class="fas fa-user text-2xl"></i>
         </button>
       </div>
     </div>

@@ -7,43 +7,53 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gradient-to-b from-teal-400 to-blue-500">
+<body class="bg-white">
   <div class="h-screen flex flex-col safe-area-top">
     <!-- Header -->
-    <div class="px-6 py-4 flex items-center justify-between">
-      <button onclick="navigate('home.html')" class="w-10 h-10 flex items-center justify-center">
-        <i class="fas fa-chevron-down text-white text-xl"></i>
+    <div class="px-6 py-6 flex items-center justify-between">
+      <button onclick="navigate('home-zh.html')" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center transition-smooth hover:bg-gray-200">
+        <i class="fas fa-chevron-left text-gray-700 text-lg"></i>
       </button>
-      <h1 class="text-lg font-bold text-white">呼吸練習</h1>
-      <div class="w-10"></div>
+      <button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center transition-smooth hover:bg-gray-200">
+        <i class="fas fa-ellipsis-h text-gray-700 text-lg"></i>
+      </button>
     </div>
 
     <!-- Content -->
-    <div class="flex-1 flex flex-col items-center justify-center px-6">
+    <div class="flex-1 flex flex-col items-center justify-center px-8">
+      <!-- Title -->
+      <div class="text-center mb-8">
+        <p class="text-gray-500 text-sm mb-2">5 分鐘練習</p>
+        <h1 class="text-2xl font-semibold text-gray-900 mb-1">呼吸<span class="font-bold">覺察</span></h1>
+      </div>
+
       <!-- Breathing Circle -->
       <div class="relative mb-12">
-        <div id="breathCircle" class="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-4000">
-          <div class="text-center">
-            <span id="breathText" class="text-3xl font-bold text-teal-600 block mb-2">準備開始</span>
-            <span id="breathCount" class="text-lg text-teal-400"></span>
+        <div id="breathCircle" class="w-64 h-64 bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-full flex items-center justify-center shadow-2xl transition-all duration-4000 border border-gray-100">
+          <!-- Outer glow -->
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full blur-2xl opacity-0 transition-opacity duration-1000" id="breathGlow"></div>
+          
+          <div class="text-center relative z-10">
+            <span id="breathText" class="text-2xl font-semibold text-gray-700 block mb-2">準備開始</span>
+            <span id="breathCount" class="text-sm text-gray-400"></span>
           </div>
         </div>
       </div>
 
       <!-- Instructions -->
-      <div class="text-center mb-8">
-        <p class="text-white text-lg mb-2" id="instruction">跟隨圓圈的節奏呼吸</p>
-        <p class="text-teal-100 text-sm">吸氣 4 秒 · 屏息 2 秒 · 吐氣 6 秒</p>
+      <div class="text-center mb-8 max-w-xs">
+        <p class="text-gray-700 text-base mb-2 font-medium" id="instruction">跟隨圓圈的節奏呼吸</p>
+        <p class="text-gray-400 text-sm">吸氣 4 秒 · 屏息 2 秒 · 吐氣 6 秒</p>
       </div>
 
       <!-- Progress -->
       <div class="w-full max-w-xs mb-8">
-        <div class="flex items-center justify-between text-white text-sm mb-2">
+        <div class="flex items-center justify-between text-gray-600 text-sm mb-2">
           <span>進度</span>
           <span id="cycleCount">0 / 5 次</span>
         </div>
-        <div class="h-2 bg-white bg-opacity-30 rounded-full overflow-hidden">
-          <div id="cycleProgress" class="h-full bg-white rounded-full transition-all duration-300" style="width: 0%"></div>
+        <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div id="cycleProgress" class="h-full bg-indigo-500 rounded-full transition-all duration-300" style="width: 0%"></div>
         </div>
       </div>
     </div>
@@ -51,16 +61,21 @@
     <!-- Bottom Controls -->
     <div class="px-6 pb-8 safe-area-bottom">
       <div class="flex gap-4">
-        <button id="startBtn" onclick="startBreathing()" class="flex-1 py-4 bg-white text-teal-600 rounded-full font-bold shadow-xl transition-smooth hover:scale-105 active:scale-95">
-          <i class="fas fa-play mr-2"></i>開始
+        <button id="startBtn" onclick="startBreathing()" class="flex-1 py-4 bg-indigo-500 text-white rounded-full font-semibold shadow-lg transition-smooth hover:scale-105 active:scale-95">
+          <i class="fas fa-play mr-2"></i>開始練習
         </button>
-        <button id="pauseBtn" onclick="pauseBreathing()" class="flex-1 py-4 bg-white bg-opacity-20 text-white rounded-full font-bold backdrop-blur-sm transition-smooth hover:bg-opacity-30 active:scale-95" style="display: none;">
+        <button id="pauseBtn" onclick="pauseBreathing()" class="flex-1 py-4 bg-gray-200 text-gray-700 rounded-full font-semibold transition-smooth hover:bg-gray-300 active:scale-95" style="display: none;">
           <i class="fas fa-pause mr-2"></i>暫停
         </button>
-        <button onclick="resetBreathing()" class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm transition-smooth hover:bg-opacity-30 active:scale-95">
-          <i class="fas fa-redo text-white"></i>
+        <button onclick="resetBreathing()" class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center transition-smooth hover:bg-gray-200 active:scale-95">
+          <i class="fas fa-redo text-gray-600"></i>
         </button>
       </div>
+    </div>
+
+    <!-- Bottom Home Indicator -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white safe-area-bottom">
+      <div class="h-1 bg-gray-200 rounded-full mx-auto mb-2" style="width: 134px;"></div>
     </div>
   </div>
 
@@ -74,6 +89,7 @@
     const breathCircle = document.getElementById('breathCircle');
     const breathText = document.getElementById('breathText');
     const breathCount = document.getElementById('breathCount');
+    const breathGlow = document.getElementById('breathGlow');
     const instruction = document.getElementById('instruction');
     const cycleCount = document.getElementById('cycleCount');
     const cycleProgress = document.getElementById('cycleProgress');
@@ -81,9 +97,9 @@
     const pauseBtn = document.getElementById('pauseBtn');
 
     const phases = [
-      { name: '吸氣', duration: 4000, scale: 'scale-150', text: '深深吸氣' },
-      { name: '屏息', duration: 2000, scale: 'scale-150', text: '輕輕屏住' },
-      { name: '吐氣', duration: 6000, scale: 'scale-100', text: '慢慢呼出' }
+      { name: '吸氣', duration: 4000, scale: 'scale-125', text: '深深吸氣', glow: true },
+      { name: '屏息', duration: 2000, scale: 'scale-125', text: '輕輕屏住', glow: true },
+      { name: '吐氣', duration: 6000, scale: 'scale-100', text: '慢慢呼出', glow: false }
     ];
 
     function startBreathing() {
@@ -131,6 +147,13 @@
       instruction.textContent = phase.text;
       breathCircle.style.transform = phase.scale;
       breathCircle.style.transition = `transform ${phase.duration}ms ease-in-out`;
+      
+      // Add/remove glow effect
+      if (phase.glow) {
+        breathGlow.style.opacity = '0.6';
+      } else {
+        breathGlow.style.opacity = '0';
+      }
 
       breathingInterval = setTimeout(() => {
         currentPhase++;
@@ -153,9 +176,10 @@
       breathText.textContent = '完成 ✨';
       instruction.textContent = '做得很好！';
       breathCircle.style.transform = 'scale(1)';
+      breathGlow.style.opacity = '0';
       pauseBtn.style.display = 'none';
-      startBtn.innerHTML = '<i class="fas fa-check mr-2"></i>完成';
-      startBtn.onclick = () => navigate('home.html');
+      startBtn.innerHTML = '<i class="fas fa-check mr-2"></i>完成練習';
+      startBtn.onclick = () => navigate('home-zh.html');
       startBtn.style.display = 'block';
     }
 
