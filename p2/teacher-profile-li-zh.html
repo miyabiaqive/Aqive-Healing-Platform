@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李心怡 博士 - 講師資料</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="mountain-bg min-h-screen pb-24 overflow-y-auto">
+    
+    <!-- Header with Background -->
+    <div class="relative">
+        <div class="h-48 bg-gradient-to-br from-purple-600 to-blue-600"></div>
+        <button onclick="history.back()" class="absolute top-6 left-6 w-10 h-10 rounded-full bg-black/30 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-arrow-left text-white"></i>
+        </button>
+        <button class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/30 backdrop-blur flex items-center justify-center">
+            <i class="fas fa-share-alt text-white"></i>
+        </button>
+    </div>
+
+    <!-- Profile Card -->
+    <div class="px-6 -mt-20">
+        <div class="glass-card rounded-3xl p-6 mb-6">
+            <div class="flex flex-col items-center text-center">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" class="w-32 h-32 rounded-full object-cover border-4 border-white/20 mb-4">
+                <h1 class="text-white text-2xl font-bold mb-2">李心怡 博士</h1>
+                <p class="text-white/80 text-base mb-1">臨床心理師 · 壓力管理專家</p>
+                <p class="text-white/60 text-sm mb-4">15年職場心理諮詢經驗</p>
+                
+                <div class="flex items-center gap-6 mb-6">
+                    <div class="text-center">
+                        <div class="text-white text-2xl font-bold">2.3k</div>
+                        <div class="text-white/60 text-xs">學員</div>
+                    </div>
+                    <div class="w-px h-8 bg-white/20"></div>
+                    <div class="text-center">
+                        <div class="text-white text-2xl font-bold">12</div>
+                        <div class="text-white/60 text-xs">課程</div>
+                    </div>
+                    <div class="w-px h-8 bg-white/20"></div>
+                    <div class="text-center">
+                        <div class="text-white text-2xl font-bold">28</div>
+                        <div class="text-white/60 text-xs">文章</div>
+                    </div>
+                    <div class="w-px h-8 bg-white/20"></div>
+                    <div class="text-center">
+                        <div class="text-white text-2xl font-bold">4.9</div>
+                        <div class="text-white/60 text-xs">評分</div>
+                    </div>
+                </div>
+
+                <button class="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold mb-3 hover:shadow-lg transition-all hover:scale-105">
+                    <i class="fas fa-plus mr-2"></i>關注講師
+                </button>
+                <button onclick="navigate('ai-chat-zh.html')" class="w-full py-3 bg-white/10 text-white rounded-full font-semibold hover:bg-white/20 transition-all">
+                    <i class="fas fa-comment-dots mr-2"></i>發送訊息
+                </button>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="glass-card rounded-3xl p-6 mb-6">
+            <h2 class="text-white text-xl font-bold mb-4"><i class="fas fa-user-circle mr-2"></i>關於我</h2>
+            <p class="text-white/80 text-sm leading-relaxed mb-4">
+                李心怡博士是資深臨床心理師，專精於職場壓力管理與倦怠預防。擁有15年豐富的企業心理諮詢經驗，曾為多家跨國企業提供員工心理健康服務。
+            </p>
+            <p class="text-white/80 text-sm leading-relaxed">
+                致力於推廣正念減壓與認知行為療法，幫助高壓工作者找回內在平衡，預防工作倦怠。擅長將心理學理論轉化為實用的日常技巧。
+            </p>
+        </div>
+
+        <!-- Expertise -->
+        <div class="glass-card rounded-3xl p-6 mb-6">
+            <h2 class="text-white text-xl font-bold mb-4"><i class="fas fa-certificate mr-2"></i>專業認證</h2>
+            <div class="space-y-3">
+                <div class="flex items-center gap-3 bg-white/5 rounded-xl p-3">
+                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                    <div>
+                        <p class="text-white font-medium text-sm">臨床心理師執照</p>
+                        <p class="text-white/60 text-xs">衛福部認證 · 2008</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 bg-white/5 rounded-xl p-3">
+                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                    <div>
+                        <p class="text-white font-medium text-sm">MBSR 正念減壓認證講師</p>
+                        <p class="text-white/60 text-xs">麻省大學醫學院 · 2012</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 bg-white/5 rounded-xl p-3">
+                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                    <div>
+                        <p class="text-white font-medium text-sm">認知行為治療專家認證</p>
+                        <p class="text-white/60 text-xs">台灣心理學會 · 2010</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 bg-white/5 rounded-xl p-3">
+                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                    <div>
+                        <p class="text-white font-medium text-sm">職場心理健康顧問</p>
+                        <p class="text-white/60 text-xs">勞動部認證 · 2015</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specialties -->
+        <div class="glass-card rounded-3xl p-6 mb-6">
+            <h2 class="text-white text-xl font-bold mb-4"><i class="fas fa-star mr-2"></i>專長領域</h2>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-4 py-2 bg-purple-600/30 text-white rounded-full text-sm border border-purple-400/30">工作倦怠</span>
+                <span class="px-4 py-2 bg-blue-600/30 text-white rounded-full text-sm border border-blue-400/30">壓力管理</span>
+                <span class="px-4 py-2 bg-green-600/30 text-white rounded-full text-sm border border-green-400/30">正念減壓</span>
+                <span class="px-4 py-2 bg-yellow-600/30 text-white rounded-full text-sm border border-yellow-400/30">認知行為治療</span>
+                <span class="px-4 py-2 bg-pink-600/30 text-white rounded-full text-sm border border-pink-400/30">情緒管理</span>
+                <span class="px-4 py-2 bg-indigo-600/30 text-white rounded-full text-sm border border-indigo-400/30">職場諮詢</span>
+            </div>
+        </div>
+
+        <!-- Articles -->
+        <div class="mb-6">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-white text-xl font-bold"><i class="fas fa-newspaper mr-2"></i>發表文章</h2>
+                <button class="text-white/70 text-sm hover:text-white">
+                    查看全部 <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <div onclick="navigate('article-burnout-zh.html')" class="glass-card rounded-2xl overflow-hidden cursor-pointer hover:bg-white/20 transition-all">
+                    <div class="flex gap-4 p-4">
+                        <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=120&h=120&fit=crop" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <span class="px-2 py-1 bg-purple-600 text-white text-xs rounded-full">壓力管理</span>
+                            <h3 class="text-white font-semibold mt-2 mb-1">如何辨識工作倦怠的早期信號</h3>
+                            <p class="text-white/60 text-xs mb-2">了解身心疲憊的徵兆，及早發現並採取行動...</p>
+                            <div class="flex items-center gap-3 text-white/50 text-xs">
+                                <span><i class="far fa-clock mr-1"></i>5 分鐘</span>
+                                <span><i class="far fa-eye mr-1"></i>1.2k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden cursor-pointer hover:bg-white/20 transition-all">
+                    <div class="flex gap-4 p-4">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=120&h=120&fit=crop" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <span class="px-2 py-1 bg-blue-600 text-white text-xs rounded-full">職場心理</span>
+                            <h3 class="text-white font-semibold mt-2 mb-1">建立健康的工作邊界</h3>
+                            <p class="text-white/60 text-xs mb-2">學會說不，保護你的時間和能量...</p>
+                            <div class="flex items-center gap-3 text-white/50 text-xs">
+                                <span><i class="far fa-clock mr-1"></i>6 分鐘</span>
+                                <span><i class="far fa-eye mr-1"></i>890</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden cursor-pointer hover:bg-white/20 transition-all">
+                    <div class="flex gap-4 p-4">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=120&h=120&fit=crop" class="w-24 h-24 rounded-xl object-cover flex-shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">正念減壓</span>
+                            <h3 class="text-white font-semibold mt-2 mb-1">正念在職場中的應用</h3>
+                            <p class="text-white/60 text-xs mb-2">將正念融入日常工作，提升專注力...</p>
+                            <div class="flex items-center gap-3 text-white/50 text-xs">
+                                <span><i class="far fa-clock mr-1"></i>8 分鐘</span>
+                                <span><i class="far fa-eye mr-1"></i>1.5k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Courses -->
+        <div class="mb-6">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-white text-xl font-bold"><i class="fas fa-graduation-cap mr-2"></i>開設課程</h2>
+                <button onclick="navigate('discover-zh.html')" class="text-white/70 text-sm hover:text-white">
+                    查看全部 <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <div onclick="navigate('course-detail-zh.html')" class="glass-card rounded-2xl overflow-hidden cursor-pointer hover:bg-white/20 transition-all">
+                    <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=400&h=200&fit=crop" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-1 bg-purple-600 text-white text-xs rounded-full">精選課程</span>
+                            <span class="px-2 py-1 bg-yellow-600/30 text-yellow-300 text-xs rounded-full border border-yellow-400/30">
+                                <i class="fas fa-star mr-1"></i>4.9
+                            </span>
+                        </div>
+                        <h3 class="text-white font-semibold mb-2">壓力管理工作坊</h3>
+                        <p class="text-white/60 text-sm mb-3">系統化學習壓力管理技巧，從評估到實踐的完整方案</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4 text-white/50 text-xs">
+                                <span><i class="fas fa-book mr-1"></i>8 堂課</span>
+                                <span><i class="fas fa-users mr-1"></i>542人</span>
+                            </div>
+                            <span class="text-purple-400 font-semibold">NT$ 2,980</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="navigate('course-detail-zh.html')" class="glass-card rounded-2xl overflow-hidden cursor-pointer hover:bg-white/20 transition-all">
+                    <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=400&h=200&fit=crop" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-1 bg-blue-600 text-white text-xs rounded-full">熱門課程</span>
+                            <span class="px-2 py-1 bg-yellow-600/30 text-yellow-300 text-xs rounded-full border border-yellow-400/30">
+                                <i class="fas fa-star mr-1"></i>4.8
+                            </span>
+                        </div>
+                        <h3 class="text-white font-semibold mb-2">職場倦怠預防與恢復</h3>
+                        <p class="text-white/60 text-sm mb-3">深入了解倦怠機制，學習自我照顧與能量管理</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4 text-white/50 text-xs">
+                                <span><i class="fas fa-book mr-1"></i>6 堂課</span>
+                                <span><i class="fas fa-users mr-1"></i>328人</span>
+                            </div>
+                            <span class="text-purple-400 font-semibold">NT$ 2,480</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="navigate('course-detail-zh.html')" class="glass-card rounded-2xl overflow-hidden cursor-pointer hover:bg-white/20 transition-all">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=200&fit=crop" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">進階課程</span>
+                            <span class="px-2 py-1 bg-yellow-600/30 text-yellow-300 text-xs rounded-full border border-yellow-400/30">
+                                <i class="fas fa-star mr-1"></i>5.0
+                            </span>
+                        </div>
+                        <h3 class="text-white font-semibold mb-2">正念領導力培訓</h3>
+                        <p class="text-white/60 text-sm mb-3">結合正念與領導力，提升團隊效能與個人影響力</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4 text-white/50 text-xs">
+                                <span><i class="fas fa-book mr-1"></i>10 堂課</span>
+                                <span><i class="fas fa-users mr-1"></i>156人</span>
+                            </div>
+                            <span class="text-purple-400 font-semibold">NT$ 3,980</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="mb-6">
+            <h2 class="text-white text-xl font-bold mb-4"><i class="fas fa-comment-alt mr-2"></i>學員評價</h2>
+            <div class="space-y-3">
+                <div class="glass-card rounded-2xl p-4">
+                    <div class="flex items-center gap-3 mb-2">
+                        <img src="https://i.pravatar.cc/150?img=1" class="w-10 h-10 rounded-full">
+                        <div class="flex-1">
+                            <p class="text-white font-medium text-sm">王小明</p>
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            </div>
+                        </div>
+                        <span class="text-white/50 text-xs">2天前</span>
+                    </div>
+                    <p class="text-white/70 text-sm">李博士的課程非常實用，幫助我學會如何管理工作壓力。講解清晰，案例豐富，強烈推薦！</p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-4">
+                    <div class="flex items-center gap-3 mb-2">
+                        <img src="https://i.pravatar.cc/150?img=5" class="w-10 h-10 rounded-full">
+                        <div class="flex-1">
+                            <p class="text-white font-medium text-sm">陳雅文</p>
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                            </div>
+                        </div>
+                        <span class="text-white/50 text-xs">1週前</span>
+                    </div>
+                    <p class="text-white/70 text-sm">在工作倦怠的邊緣遇到了李博士的課程，讓我重新找回平衡。感謝！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function navigate(page) {
+            if (window.parent !== window) {
+                parent.postMessage({ action: 'navigate', page: page }, '*');
+            } else {
+                window.location.href = page;
+            }
+        }
+    </script>
+</body>
+</html>
+
